@@ -3,7 +3,12 @@
     <div class="game__content">
       <div class="game__main"></div>
       <div class="game__button">
-        <Choice v-for="post in posts" v-bind:key="post.id" v-bind:title="post.answer"></Choice>
+        <div
+          v-for="content in answers"
+          v-bind:key="content.id"
+          v-bind:content="answers.content"
+          class="button"
+        ></div>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <button class="button">{{answer}}</button>
+  <p class="button">{{choice}}</p>
 </template>
 
 <script>
@@ -7,16 +7,12 @@ export default {
   name: "Choice",
   data() {
     return {
-      props: ["answer"],
-      data: {
-        posts: [
-          { 
-          "id": 1, 
-          title: "Mon initiation avec Vue" },
-          { id: 2, title: "Blogger avec Vue" },
-          { id: 3, title: "Pourquoi Vue est tellemen cool" }
-        ]
-      }
+      props: "choice",
+      answers: [
+        { id: 1, content: "Mon initiation avec Vue" },
+        { id: 2, content: "Blogger avec Vue" },
+        { id: 3, content: "Pourquoi Vue est tellement cool" }
+      ]
     };
   }
 };
