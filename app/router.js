@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from './components/Home.vue';
-import Page from './components/Page.vue';
-import Game from './components/Game.vue';
-import Win from './components/Win.vue';
-import Lose from './components/Lose.vue';
+import Home from './page/Home.vue';
+import Page from './page/Page.vue';
+import Game from './page/Game.vue';
+import Win from './page/Win.vue';
+import Lose from './page/Lose.vue';
 
 Vue.use(Router);
 

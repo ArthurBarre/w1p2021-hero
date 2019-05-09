@@ -1,19 +1,26 @@
 <template>
-  <p class="button">{{choice}}</p>
+  <div class="button">
+    <span class="button__text">{{choice.content}}</span>
+  </div>
 </template>
+
+<style scoped>
+.button__text {
+  margin: auto auto;
+  color: white;
+  font-family: sans-serif;
+  padding: 1%;
+  font-size: 15px;
+}
+</style>
+
 
 <script>
 export default {
   name: "Choice",
+  props: ["choice"],
   data() {
-    return {
-      props: "choice",
-      answers: [
-        { id: 1, content: "Mon initiation avec Vue" },
-        { id: 2, content: "Blogger avec Vue" },
-        { id: 3, content: "Pourquoi Vue est tellement cool" }
-      ]
-    };
+    return {};
   }
 };
 </script>
