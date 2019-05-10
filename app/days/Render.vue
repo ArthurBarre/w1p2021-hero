@@ -2,7 +2,7 @@
   <div class="game__container">
     <div class="game__main">
       <h1 class="day">{{day}}</h1>
-      <Expeditions/>
+      <Crafts/>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@
 
 
 <script>
-import Expeditions from "../components/Expeditions.vue";
+import Crafts from "../components/Crafts.vue";
 export default {
   data: function() {
     return {
@@ -50,7 +50,7 @@ export default {
     };
   },
   components: {
-    Expeditions
+    Crafts
   }
 };
 </script>
