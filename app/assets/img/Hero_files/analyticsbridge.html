@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://extension.mixmax.com/public/analyticsbridge.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0"; }}();
+  </script>
+  <script>
+    // Forward all postMessage calls that have data in the form {method:, arguments:} directly to Segment.
+    window.onmessage = function(e) {
+      var method = e.data.method;
+      var args = e.data.arguments ? [].slice.call(e.data.arguments) : null;
+
+      // If a callback ID is provided, set up a callback to postMessage to the origin, which will in turn
+      // call the original callback
+      if (e.data.callbackProxyId) {
+        args.push(() => {
+          e.source.postMessage({
+            callbackProxyId: e.data.callbackProxyId
+          }, e.origin);
+        });
+      }
+
+      if (analytics[method]) {
+        analytics[method].apply(analytics, args);
+      }
+    };
+
+    /**
+     * Let the parent window know that we've loaded and are ready to receive messages.
+     *
+     * HACK: Hardcode the unchanging chrome extension ID here since utils/Environment is
+     * not available here.
+     *
+     * The user will see an error in the console when this message is sent if they do not yet have
+     * v4.0.0 of the extension. We should release the new extension version immediately after
+     * deploying extension-source, so this should not be a significant issue.
+     */
+    window.parent.postMessage({ method: 'load' }, 'chrome-extension://ocpljaamllnldhepankaeljmeeeghnid');
+  </script>
+<script data-mixmax-globals="">MIXMAX_STORAGE = {"backgroundfetch_arthur.barre@hetic.net_production":false,"email_gmail_production":false,"has_been_onboarded_arthur.barre@hetic.net_production":true,"has_used_Gmail_2018_arthur.barre@hetic.net_production":true,"onboarded_arthur.barre@hetic.net_production":false,"onboarding_started_arthur.barre@hetic.net_production":true,"extensionVersion":"4.5.0"};</script></head>
+<body>
+
+
+</body></html>
