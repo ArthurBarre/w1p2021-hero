@@ -1,14 +1,6 @@
 <template>
   <div class="famousButtons">
-    <Choice
-      class="famousButton"
-      v-for="choice in choices"
-      v-bind:choice="choice"
-      :key="choice.id"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
-      :class="{ active: hover }"
-    ></Choice>
+    <Choice class="famousButton" v-for="choice in choices" v-bind:choice="choice" :key="choice.id"></Choice>
   </div>
 </template>
 
@@ -44,7 +36,6 @@ export default {
   name: "Choices",
   data() {
     return {
-      hover: false,
       choices: [
         { id: 1, content: "answerOne" },
         { id: 2, content: "answerTwo" },

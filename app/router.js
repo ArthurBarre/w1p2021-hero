@@ -6,6 +6,7 @@ import Page from './page/Page.vue';
 import Game from './page/Game.vue';
 import Win from './page/Win.vue';
 import Lose from './page/Lose.vue';
+import Dev from './page/Dev.vue';
 
 Vue.use(Router);
 
@@ -37,6 +38,10 @@ const router = new Router({
       path: '/lose',
       name: 'lose',
       component: Lose,
+    }, {
+      path: '/dev',
+      name: 'dev',
+      component: Dev,
     },
     {
       path: '*',

@@ -6,34 +6,6 @@ body{
   height: 750px;
   overflow: hidden;
 }
-.game__container{
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../img/plage.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.game__content{
-  display: flex;
-  flex-direction: column;
-  margin: auto auto;
-  width: 60%;
-  height: 85%;
-}
-.game__main{
-  display: flex;
-  width: 75%;
-  height: 100%;
-  margin: auto auto;
-  background-color: white;
-}
-.game__buttons{
-  display:flex;
-  align-items: flex-end;
-  margin: 0 auto;
-  width: 100%;
-}
-.choice__one{
 
-}
+
+

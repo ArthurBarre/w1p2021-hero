@@ -1,13 +1,12 @@
 <template>
-  <Days/>
+  <Render/>
 </template>
 
 <script>
-import Days from "../days/Days.vue";
-
+import Render from "../days/Render.vue";
 export default {
   components: {
-    Days
+    Render
   }
 };
 </script>
