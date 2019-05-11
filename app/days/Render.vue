@@ -2,9 +2,14 @@
   <div class="game__container">
     <div class="game__main">
       <h1 class="day">{{day}}</h1>
+      <!-- <recap/> -->
       <!-- <Crafts/> -->
       <!-- <Ressources/> -->
-      <Expeditions/>
+      <!-- <Expeditions/> -->
+      <!-- <ItemFisshingRod/> -->
+      <!-- <ItemAxe/> -->
+      <!-- <ItemFish/> -->
+      <ItemBoat/>
     </div>
   </div>
 </template>
@@ -23,8 +28,8 @@
 }
 .game__main {
   display: flex;
-  width: 50%;
-  height: 85%;
+  width: 680px;
+  height: 640px;
   background-color: white;
   opacity: 0.9;
 }
@@ -34,7 +39,7 @@
   align-items: flex-end;
 }
 .day {
-  width: 683px;
+  width: 680px;
   position: absolute;
   display: inline;
   font-size: 20px;
@@ -45,9 +50,15 @@
 
 
 <script>
+import Recap from "../components/Recap.vue";
 import Crafts from "../components/Crafts.vue";
 import Ressources from "../components/Ressources.vue";
 import Expeditions from "../components/Expeditions.vue";
+import ItemFisshingRod from "../items/ItemFisshingRod.vue";
+import ItemAxe from "../items/ItemAxe.vue";
+import ItemFish from "../items/ItemFish.vue";
+import ItemBoat from "../items/ItemBoat.vue";
+
 export default {
   data: function() {
     return {
@@ -57,7 +68,12 @@ export default {
   components: {
     Crafts,
     Ressources,
-    Expeditions
+    Expeditions,
+    Recap,
+    ItemFisshingRod,
+    ItemAxe,
+    ItemFish,
+    ItemBoat
   }
 };
 </script>
