@@ -1,14 +1,13 @@
 <template>
-  <div class="item"></div>
+  <img class="item" src="../assets/img/boat.png" alt="boat">
 </template>
 <style lang="scss" scoped>
 .item {
-  width: 200px;
-  height: 200px;
-  background-color: purple;
-  // background-image: url('../');
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 750px;
 }
 </style>
 <script>

@@ -1,10 +1,34 @@
 <template>
-  <div class="items">
-    <ItemAxe/>
+  <div class="inventary">
+    <div class="inventary__item">
+      <ItemAxe v-bind:class="{ none: !axe.state }"></ItemAxe>
+    </div>
+    <div class="inventary__item">
+      <ItemBoat v-bind:class="{ none: !boat.state }"></ItemBoat>
+    </div>
+    <div class="inventary__item">
+      <ItemFish v-bind:class="{ none: !fish.state }"></ItemFish>
+    </div>
+    <div class="inventary__item">
+      <ItemFishingRod v-bind:class="{ none: !fishingRod.state }"></ItemFishingRod>
+    </div>
+    <div class="inventary__item">
+      <ItemString v-bind:class="{ none: !string.state }"></ItemString>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.inventary {
+  width: 1366px;
+  height: 750px;
+  background-image: url("../assets/img/test.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.none {
+  display: none;
+}
 </style>
 
 <script>
@@ -29,6 +53,25 @@ export default {
     ItemFabric,
     ItemPlank,
     ItemSail
+  },
+  data() {
+    return {
+      fish: {
+        state: true
+      },
+      fishingRod: {
+        state: true
+      },
+      axe: {
+        state: true
+      },
+      boat: {
+        state: true
+      },
+      string: {
+        state: true
+      }
+    };
   }
 };
 </script>

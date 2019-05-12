@@ -1,16 +1,27 @@
 <template>
-  <div class="item"></div>
+  <img v-bind:class="{ none: !axe.state }" class="item" src="../assets/img/AxeFloor.png" alt="axe">
 </template>
 <style lang="scss" scoped>
 .item {
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  // background-image: url('../');
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 750px;
+  z-index: 1;
+}
+.none {
+  display: none;
 }
 </style>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      axe: {
+        state: true
+      }
+    };
+  }
+};
 </script>
