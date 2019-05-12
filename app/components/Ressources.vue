@@ -9,10 +9,10 @@
     </div>
     <div class="ressources__buttons">
       <div class="ressources__buttons--food">
-        <Food/>
+        <ItemFood/>
       </div>
       <div class="ressources__buttons--water">
-        <Water/>
+        <ItemWater/>
       </div>
     </div>
     <div class="ressources__directions template">
@@ -87,14 +87,14 @@
 import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
 
-import Food from "./Food.vue";
-import Water from "./Water.vue";
+import ItemFood from "../items/ItemFood.vue";
+import ItemWater from "../items/ItemWater.vue";
 export default {
   components: {
     Foods,
     Waters,
-    Water,
-    Food
+    ItemWater,
+    ItemFood
   }
 };
 </script>

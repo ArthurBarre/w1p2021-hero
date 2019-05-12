@@ -2,7 +2,8 @@
   <div>
     <h3>Nourriture</h3>
     <div class="foods__wrapper">
-      <Food v-for="Food in 3" :key="Food" v-bind:Food="Food"><Food/>
+      <ItemFood v-for="Food in 3" :key="Food" v-bind:Food="Food"><Item
+      Food/>
     </div>
   </div>
 </template>
@@ -24,10 +25,10 @@ h3{
 </style>
 
 <script>
-import Food from "./Food.vue";
+import ItemFood from "../items/ItemFood.vue";
 export default {
   components: {
-    Food
+    ItemFood
   },
   data() {
     return {};

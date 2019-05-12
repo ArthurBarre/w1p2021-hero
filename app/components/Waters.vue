@@ -2,7 +2,7 @@
   <div>
     <h3>Eau</h3>
     <div class="foods__wrapper">
-      <Water v-for="Water in 3" :key="Water" v-bind:Water="Water"><Water/>
+      <ItemWater v-for="Water in 3" :key="Water" v-bind:Water="Water"><ItemWater/>
     </div>
   </div>
 </template>
@@ -24,10 +24,10 @@ h3{
 </style>
 
 <script>
-import Water from "./Water.vue";
+import ItemWater from "../items/ItemWater.vue";
 export default {
   components: {
-    Water
+    ItemWater
   },
   data() {
     return {};

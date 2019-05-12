@@ -1,12 +1,12 @@
 <template>
-  <Render/>
+  <Inventary/>
 </template>
 
 <script>
-import Render from "../days/Render.vue";
+import Inventary from "../page/Inventary.vue";
 export default {
   components: {
-    Render
+    Inventary
   }
 };
 </script>

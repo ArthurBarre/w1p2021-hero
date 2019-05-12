@@ -1,0 +1,13 @@
+{
+  "user": {
+    "food": 4,
+    "water": 4,
+    "string": false,
+    "fabric": false,
+    "plank": false,
+    "fish": false,
+    "fishingRod": false,
+    "sail": false,
+    "boat": false
+  }
+}

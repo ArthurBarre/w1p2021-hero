@@ -6,10 +6,6 @@
       <!-- <Crafts/> -->
       <!-- <Ressources/> -->
       <!-- <Expeditions/> -->
-      <!-- <ItemFisshingRod/> -->
-      <!-- <ItemAxe/> -->
-      <!-- <ItemFish/> -->
-      <ItemBoat/>
     </div>
   </div>
 </template>
@@ -54,26 +50,25 @@ import Recap from "../components/Recap.vue";
 import Crafts from "../components/Crafts.vue";
 import Ressources from "../components/Ressources.vue";
 import Expeditions from "../components/Expeditions.vue";
-import ItemFisshingRod from "../items/ItemFisshingRod.vue";
+import ItemFishingRod from "../items/ItemFishingRod.vue";
 import ItemAxe from "../items/ItemAxe.vue";
 import ItemFish from "../items/ItemFish.vue";
 import ItemBoat from "../items/ItemBoat.vue";
+import data from "../json/data.json";
 
 export default {
   data: function() {
     return {
+      myJson: data,
       day: "Day 1"
     };
   },
+
   components: {
     Crafts,
     Ressources,
     Expeditions,
-    Recap,
-    ItemFisshingRod,
-    ItemAxe,
-    ItemFish,
-    ItemBoat
+    Recap
   }
 };
 </script>
