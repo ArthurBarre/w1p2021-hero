@@ -1,4 +1,13 @@
 {
+  "0": {
+    "text": "Je me sens vraiment mal en point, si je ne bois pas rapidemment je vais me déssecher.e me sens vraiment mal en point, si je ne bois pas rapidemment je vais me déssecher."
+  },
+  "1": {
+    "text": "J’ai eu des vertiges en élaguant les arbres de la lisière, je dois trouver à manger si je veux garder des forces."
+  },
+  "2": {
+    "text": "La fraîcheur de la nuit m’a permis de dormir comme un bébé, je me sens revigoré."
+  },
   "user": {
     "food": 4,
     "water": 4,

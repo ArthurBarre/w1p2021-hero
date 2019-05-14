@@ -2,8 +2,7 @@
   <div class="game__container">
     <div class="game__main">
       <h1 class="day">{{day}}</h1>
-
-      <Ressources/>
+      <Recaps/>
     </div>
   </div>
 </template>
@@ -46,18 +45,17 @@
 
 
 <script>
-import Ressources from "../components/Ressources.vue";
+import Recaps from "../components/Recaps.vue";
 
 export default {
   data: function() {
     return {
-      myJson: data,
       day: "Day 1"
     };
   },
 
   components: {
-    Ressources
+    Recaps
   }
 };
 </script>
