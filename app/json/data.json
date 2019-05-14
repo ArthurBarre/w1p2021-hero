@@ -9,5 +9,25 @@
     "fishingRod": false,
     "sail": false,
     "boat": false
+  },
+  "healthCare": {
+    "health": [
+      [
+        "Je me sens vraiment mal en point, si je ne bois pas rapidemment je vais me déssecher.e me sens vraiment mal en point, si je ne bois pas rapidemment je vais me déssecher.",
+        "J’ai vu des rapaces voler en rond au dessus de ma tête, ils épient le moment où mon estomac sera vide."
+      ],
+      [
+        "J’ai eu des vertiges en élaguant les arbres de la lisière, je dois trouver à manger si je veux garder des forces.",
+        "Par cette châleur il faut que je pense à m’hydrater."
+      ],
+      [
+        "La fraîcheur de la nuit m’a permis de dormir comme un bébé, je me sens revigoré.",
+        "Le temps me semble bien long, heureusement que cette île regorge de denrées."
+      ],
+      [
+        "J’aime sentir les nutriments animer mon corps, je suis en pleine forme aujourd’hui.",
+        "Je déborde d’énergie, je devrai faire des provisions pour les temps moins cléments."
+      ]
+    ]
   }
 }

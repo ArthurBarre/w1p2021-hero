@@ -1,5 +1,5 @@
 <template>
-  <Inventary></Inventary>
+  <Render/>
 </template>
 
 <style lang="scss" scoped>
@@ -7,10 +7,10 @@
 
 
 <script>
-import Inventary from "../page/Inventary.vue";
+import Render from "../days/Render.vue";
 export default {
   components: {
-    Inventary
+    Render
   }
 };
 </script>

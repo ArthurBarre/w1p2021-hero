@@ -2,7 +2,7 @@
   <div>
     <h3>Nourriture</h3>
     <div class="foods__wrapper">
-      <ItemFood v-for="Food in 3" :key="Food" v-bind:Food="Food"><Item
+      <ItemFood v-for="Food in 4" :key="Food" v-bind:Food="Food"><Item
       Food/>
     </div>
   </div>

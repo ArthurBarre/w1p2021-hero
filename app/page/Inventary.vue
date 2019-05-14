@@ -60,7 +60,7 @@ export default {
         state: true
       },
       fishingRod: {
-        state: true
+        state: false
       },
       axe: {
         state: true

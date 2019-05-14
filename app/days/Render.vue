@@ -2,13 +2,13 @@
   <div class="game__container">
     <div class="game__main">
       <h1 class="day">{{day}}</h1>
-      <!-- <recap/> -->
-      <!-- <Crafts/> -->
-      <!-- <Ressources/> -->
-      <!-- <Expeditions/> -->
+
+      <Ressources/>
     </div>
   </div>
 </template>
+
+
 
 <style lang="scss" scoped>
 .game__container {
@@ -16,7 +16,7 @@
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/img/plage.jpg");
+  background-image: url("../assets/img/test.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
@@ -46,15 +46,7 @@
 
 
 <script>
-import Recap from "../components/Recap.vue";
-import Crafts from "../components/Crafts.vue";
 import Ressources from "../components/Ressources.vue";
-import Expeditions from "../components/Expeditions.vue";
-import ItemFishingRod from "../items/ItemFishingRod.vue";
-import ItemAxe from "../items/ItemAxe.vue";
-import ItemFish from "../items/ItemFish.vue";
-import ItemBoat from "../items/ItemBoat.vue";
-import data from "../json/data.json";
 
 export default {
   data: function() {
@@ -65,10 +57,7 @@ export default {
   },
 
   components: {
-    Crafts,
-    Ressources,
-    Expeditions,
-    Recap
+    Ressources
   }
 };
 </script>
