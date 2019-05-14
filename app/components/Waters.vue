@@ -2,19 +2,19 @@
   <div>
     <h3>Eau</h3>
     <div class="foods__wrapper">
-      <ItemWater v-for="Water in 3" :key="Water" v-bind:Water="Water"><ItemWater/>
+      <ItemWater v-for="Water in waterNumber" :key="Water" v-bind:Water="Water"><ItemWater/>
     </div>
   </div>
 </template>
 
 <style scoped>
-.foods__wrapper{
+.foods__wrapper {
   display: flex;
   flex-direction: row;
   margin-left: 30px;
   margin-bottom: 10px;
 }
-h3{
+h3 {
   margin-left: 10px;
   margin-top: 8px;
   font-size:17px;
@@ -30,7 +30,9 @@ export default {
     ItemWater
   },
   data() {
-    return {};
+    return {
+      waterNumber:4
+    };
   }
 };
 </script>

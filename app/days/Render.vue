@@ -2,7 +2,8 @@
   <div class="game__container">
     <div class="game__main">
       <h1 class="day">{{day}}</h1>
-      <Recaps/>
+      <!-- <Recaps/> -->
+      <Ressources/>
     </div>
   </div>
 </template>
@@ -46,6 +47,7 @@
 
 <script>
 import Recaps from "../components/Recaps.vue";
+import Ressources from "../components/Ressources.vue";
 
 export default {
   data: function() {
@@ -55,7 +57,8 @@ export default {
   },
 
   components: {
-    Recaps
+    Recaps,
+    Ressources
   }
 };
 </script>

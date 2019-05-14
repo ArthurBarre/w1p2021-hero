@@ -8,11 +8,13 @@
       <Waters/>
     </div>
     <div class="ressources__buttons">
-      <div class="ressources__buttons--food">
+      <div class="ressources__buttons--food" @click="feed">
         <ItemFood/>
+        <h2>{{foodNumber}}</h2>
       </div>
-      <div class="ressources__buttons--water">
+      <div class="ressources__buttons--water" @click="drink">
         <ItemWater/>
+        <h2>{{waterNumber}}</h2>
       </div>
     </div>
     <div class="ressources__directions template">
@@ -90,11 +92,27 @@ import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
 export default {
+  data() {
+    return {
+      waterNumber: Number,
+      foodNumber: Number
+    };
+  },
   components: {
     Foods,
     Waters,
     ItemWater,
     ItemFood
+  },
+  methods: {
+    drink: function() {
+      waterNumber = 4;
+      health = 4;
+      console.log("hey");
+    },
+    feed: function() {
+      foodNumber = 4;
+    }
   }
 };
 </script>

@@ -1,35 +1,43 @@
 <template>
-  <div class="game__text--content">
-    <Recap class="paragraph" v-for="data in myJson" v-bind:key="data.text" v-bind:text="data.text"></Recap>
+  <div class="recap">
+    <div>
+      <VitalSituation class="recap__vs"></VitalSituation>
+    </div>
+    <div>
+      <ExpeditionResult class="recap__er"></ExpeditionResult>
+    </div>
+    <div>
+      <VitalSituation class="recap__vs"></VitalSituation>
+    </div>
+    <div>
+      <ExpeditionResult class="recap__er"></ExpeditionResult>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.game__text--content {
+.recap {
   display: flex;
+  height: 640px;
+  width: 680px;
   flex-direction: column;
-}
-.paragraph {
-  width: 80%;
-  height: 30%;
+  transform: translateY(100px);
   margin: 0 auto;
-  margin-top: 30px;
-  font-family: sans-serif;
-  text-align: center;
+}
+.recap > div {
+  align-items: space-around;
+  height: 120px;
 }
 </style>
+
 <script>
-import Recap from "../components/Recap.vue";
-import json from "../json/data.json";
+import VitalSituation from "../components/VitalSituation.vue";
+import ExpeditionResult from "../components/ExpeditionResult.vue";
 
 export default {
-  data: function() {
-    return {
-      myJson: json
-    };
-  },
   components: {
-    Recap
+    VitalSituation,
+    ExpeditionResult
   }
 };
 </script>
