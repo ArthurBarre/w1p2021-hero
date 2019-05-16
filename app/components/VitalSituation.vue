@@ -40,7 +40,7 @@ p {
 </style>
 
 <script>
-import data from "../json/Ressources.json";
+import data from "../json/user.json";
 export default {
   data: function() {
     return {

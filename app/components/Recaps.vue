@@ -10,8 +10,8 @@
   
     <div>
       <div class="ressources__directions template">
-        <router-link class="ressources__directions--prev" to="/dev/Craft">prev</router-link>
-        <router-link class="ressources__directions--next" to="/dev/Ressources">next</router-link>
+        <router-link class="ressources__directions--prev" to="/game/Craft">prev</router-link>
+        <router-link class="ressources__directions--next" to="/game/Ressources">next</router-link>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@ h1{
 <script>
 import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResult from "../components/ExpeditionResult.vue";
-import data from "../json/Ressources.json";
+import user from "../json/user.json";
 import countService from "../services/countService.js";
 
 

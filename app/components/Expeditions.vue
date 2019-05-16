@@ -24,8 +24,8 @@
           ></Expedition>
         </div>
         <div class="directions template">
-          <router-link class="directions--prev" to="/dev/Ressources">prev</router-link>
-          <router-link class="directions--next" to="/dev/Craft">next</router-link>
+          <router-link class="directions--prev" to="/game/Ressources">prev</router-link>
+          <router-link class="directions--next" to="/game/Craft">next</router-link>
         </div>
       </div>
     </div>

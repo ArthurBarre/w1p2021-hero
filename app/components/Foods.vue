@@ -2,7 +2,7 @@
   <div>
     <h3>Nourriture</h3>
     <div class="foods__wrapper">
-      <ItemFood v-for="Food in foodNumber" :key="Food" v-bind:Food="Food"><Item
+      <ItemFood v-for="Food in foodQuantity" :key="Food" v-bind:Food="Food"><Item
       Food/>
     </div>
   </div>
@@ -26,19 +26,18 @@ h3{
 
 <script>
 import ItemFood from "../items/ItemFood.vue";
-import data from "../json/Ressources.json";
+import user from "../json/user.json";
 export default {
   components: {
     ItemFood
   },
   data() {
     return {
-      foodNumber:data.foodNumber,
+      foodNumber:user.foodQuantity,
     };
   },
   mounted: function() {
-    console.log(this.foodNumber);
-    console.log(this.waterNumber);
+    console.log(this.foodQuantity);
   },
   }
 </script>

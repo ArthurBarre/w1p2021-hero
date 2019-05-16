@@ -5,6 +5,7 @@
         <h2 class="ressources__title">Ressources</h2>
         <div class="ressources__food template">
           <Foods/>
+          <p>{{waterQuantity}}</p>
         </div>
         <div class="ressources__water template">
           <Waters/>
@@ -20,8 +21,8 @@
           </div>
         </div>
         <div class="directions template">
-          <router-link class="directions--prev" to="/dev/Recap">prev</router-link>
-          <router-link class="directions--next" to="/dev/Expeditions">next</router-link>
+          <router-link class="directions--prev" to="/game/Recap">prev</router-link>
+          <router-link class="directions--next" to="/game/Expeditions">next</router-link>
         </div>
       </div>
     </div>
@@ -109,11 +110,20 @@ import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
+import user from "../json/user.json";
+import feedService from "../services/feedService";
 export default {
   data: function() {
     return {
-      waterNumber: 2,
-      foodNumber: 1
+      waterQuantity: feedService.quantityFoodValue(),
+      foodQuantity: user.foodQuantity,
+      waterLife: user.waterLife,
+      foodLife: user.foodLife
+
+      // waterQuantity: user.waterQuantity,
+      // foodQuantity: user.foodQuantity,
+      // waterLife: user.waterLife,
+      // foodLife: user.foodLife
     };
   },
   components: {
@@ -124,12 +134,16 @@ export default {
   },
   methods: {
     drink: function() {
-      this.waterNumber++;
-      this.health = 4;
-      console.log(this.waterNumber);
+      this.waterQuantity--;
+      this.waterLife = 4;
+      console.log("waterQuantity" + this.waterQuantity);
+      console.log("waterQuantity" + this.waterQuantity);
     },
     feed: function() {
-      this.foodNumber = 4;
+      this.foodQuantity--;
+      this.foodLife = 4;
+      console.log("foodQuantity" + this.foodQuantity);
+      console.log("foodLife" + this.foodLife);
     }
   }
 };

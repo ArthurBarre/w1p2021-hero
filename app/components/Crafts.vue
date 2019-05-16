@@ -18,10 +18,10 @@
           <div class="resultEl element"></div>
         </div>
         <div class="directions template">
-          <router-link class="directions--prev" to="/dev/Expedition">prev</router-link>
+          <router-link class="directions--prev" to="/game/Expedition">prev</router-link>
           <button @click="dayPassed">day+1</button>
           <div></div>
-          <router-link class="directions--next" to="/dev/Recap">next</router-link>
+          <router-link class="directions--next" to="/game/Recap">next</router-link>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@ h3 {
 
 
 <script>
-import data from "../json/Ressources.json";
+import user from "../json/user.json";
 import countService from "../services/countService.js";
 export default {
   data() {

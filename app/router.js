@@ -35,22 +35,22 @@ const router = new Router({
       component: Game,
     },
     {
-      path: '/dev/Recap',
+      path: '/game/Recap',
       name: 'Recap',
       component: Recaps
     },
     {
-      path: '/dev/Expeditions',
+      path: '/game/Expeditions',
       name: 'Expeditions',
       component: Expeditions
     },
     {
-      path: '/dev/Ressources',
+      path: '/game/Ressources',
       name: 'Ressources',
       component: Ressources
     },
     {
-      path: '/dev/Craft',
+      path: '/game/Craft',
       name: 'Craft',
       component: Crafts
     },
