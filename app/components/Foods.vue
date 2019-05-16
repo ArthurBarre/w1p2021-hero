@@ -26,14 +26,19 @@ h3{
 
 <script>
 import ItemFood from "../items/ItemFood.vue";
+import data from "../json/Ressources.json";
 export default {
   components: {
     ItemFood
   },
   data() {
     return {
-      foodNumber:4
+      foodNumber:data.foodNumber,
     };
+  },
+  mounted: function() {
+    console.log(this.foodNumber);
+    console.log(this.waterNumber);
+  },
   }
-};
 </script>

@@ -25,13 +25,14 @@ h3 {
 
 <script>
 import ItemWater from "../items/ItemWater.vue";
+import data from "../json/Ressources.json";
 export default {
   components: {
     ItemWater
   },
   data() {
     return {
-      waterNumber:4
+      waterNumber:data.waterNumber
     };
   }
 };

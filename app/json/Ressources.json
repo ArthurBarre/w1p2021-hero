@@ -1,11 +1,5 @@
 {
   "health": 1,
-  "user": [
-    {
-      "foodNumber": 3
-    },
-    {
-      "foodNumber": 1
-    }
-  ]
+  "foodNumber": 1,
+  "waterNumber": 10
 }
