@@ -7,7 +7,8 @@
           class="craft__explications"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi sapiente. Expedita sequi quisquam, repudiandae vel deserunt cum similique iste eaque animi, eos ipsum at qui reprehenderit pariatur architecto accusantium.</p>
         <br>
-        <br>
+
+        <p>{{count}}</p>
         <p class="craft__questions">Voulez vous faire un craft ?</p>
         <div class="craft__wrapper">
           <div class="firstEl element"></div>
@@ -18,6 +19,8 @@
         </div>
         <div class="directions template">
           <router-link class="directions--prev" to="/dev/Expedition">prev</router-link>
+          <button @click="dayPassed">day+1</button>
+          <div></div>
           <router-link class="directions--next" to="/dev/Recap">next</router-link>
         </div>
       </div>
@@ -26,6 +29,9 @@
 </template>
 
 <style lang="scss" scoped>
+button {
+  transform: translateX(250px);
+}
 .game__container {
   font-family: sans-serif;
   display: flex;
@@ -90,5 +96,18 @@ h3 {
 
 
 <script>
-export default {};
+import data from "../json/Ressources.json";
+import countService from "../services/countService.js";
+export default {
+  data() {
+    return {
+      count: countService.value()
+    };
+  },
+  methods: {
+    dayPassed() {
+      countService.increment();
+    }
+  }
+};
 </script>
