@@ -8,9 +8,11 @@
 
 <script>
 import Render from "../days/Render.vue";
+import Game from "../page/Game.vue";
 export default {
   components: {
-    Render
+    Render,
+    Game
   }
 };
 </script>

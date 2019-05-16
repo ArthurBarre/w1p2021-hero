@@ -1,9 +1,7 @@
 <template>
   <div class="game__container">
     <div class="game__main">
-      <h1 class="day">{{day}}</h1>
-      <!-- <Recaps/> -->
-      <Ressources/>
+      <recaps/>
     </div>
   </div>
 </template>
@@ -14,8 +12,8 @@
 .game__container {
   font-family: sans-serif;
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 1366px;
+  height: 750px;
   background-image: url("../assets/img/test.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,6 +46,7 @@
 <script>
 import Recaps from "../components/Recaps.vue";
 import Ressources from "../components/Ressources.vue";
+import Inventary from "../page/Inventary.vue";
 
 export default {
   data: function() {
@@ -58,7 +57,8 @@ export default {
 
   components: {
     Recaps,
-    Ressources
+    Ressources,
+    Inventary
   }
 };
 </script>

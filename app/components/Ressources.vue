@@ -1,30 +1,52 @@
 <template>
-  <div class="ressources">
-    <h2 class="ressources__title">Ressources</h2>
-    <div class="ressources__food template">
-      <Foods/>
-    </div>
-    <div class="ressources__water template">
-      <Waters/>
-    </div>
-    <div class="ressources__buttons">
-      <div class="ressources__buttons--food" @click="feed">
-        <ItemFood/>
-        <h2>{{foodNumber}}</h2>
+  <div class="game__container">
+    <div class="game__main">
+      <div class="ressources">
+        <h2 class="ressources__title">Ressources</h2>
+        <div class="ressources__food template">
+          <Foods/>
+        </div>
+        <div class="ressources__water template">
+          <Waters/>
+        </div>
+        <div class="ressources__buttons">
+          <div class="ressources__buttons--food" @click="feed">
+            <ItemFood/>
+            <h2></h2>
+          </div>
+          <div class="ressources__buttons--water" @click="drink">
+            <ItemWater/>
+            <h2></h2>
+          </div>
+        </div>
+        <div class="directions template">
+          <router-link class="directions--prev" to="/dev/Recap">prev</router-link>
+          <router-link class="directions--next" to="/dev/Expeditions">next</router-link>
+        </div>
       </div>
-      <div class="ressources__buttons--water" @click="drink">
-        <ItemWater/>
-        <h2>{{waterNumber}}</h2>
-      </div>
-    </div>
-    <div class="ressources__directions template">
-      <span class="ressources__directions--prev">prev</span>
-      <span class="ressources__directions--next">next</span>
     </div>
   </div>
 </template>
 
 <style  lang="scss" scoped>
+.game__container {
+  font-family: sans-serif;
+  display: flex;
+  width: 1366px;
+  height: 750px;
+  background-image: url("../assets/img/test.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+.game__main {
+  display: flex;
+  width: 680px;
+  height: 640px;
+  background-color: white;
+  opacity: 0.9;
+}
 .size {
   width: 100px;
   height: 100px;
@@ -45,18 +67,15 @@
   font-size: 20px;
   margin: 60px 0 30px 15px;
 }
-.ressources__directions {
+.directions {
   height: 90px;
-  .ressources__directions--next {
+  .directions--next {
     float: right;
-    margin-top: 60px;
-
     margin-right: 20px;
   }
-  .ressources__directions--prev {
+  .directions--prev {
     float: left;
     bottom: 0;
-    margin-top: 60px;
     margin-left: 20px;
   }
 }
@@ -88,14 +107,13 @@
 <script>
 import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
-
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
 export default {
-  data() {
+  data: function() {
     return {
-      waterNumber: Number,
-      foodNumber: Number
+      waterNumber: 2,
+      foodNumber: 1
     };
   },
   components: {
@@ -106,12 +124,12 @@ export default {
   },
   methods: {
     drink: function() {
-      waterNumber = 4;
-      health = 4;
-      console.log("hey");
+      this.waterNumber++;
+      this.health = 4;
+      console.log(this.waterNumber);
     },
     feed: function() {
-      foodNumber = 4;
+      this.foodNumber = 4;
     }
   }
 };

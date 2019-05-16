@@ -1,40 +1,45 @@
 <template>
-<body>
-  <div v-on:click="moreDay" class="test"></div>
-</body>
+  <div>
+    <h1>{{ step.content }}</h1>
+    <ul>
+      <li v-on:click="doEffects(action)" v-for="action in step.actions" :key="action.path">
+        <div>{{ action.label }}</div>
+      </li>
+    </ul>
+  </div>
 </template>
 
-
-<style>
-.test {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-</style>
-
 <script>
+import countService from "../services/countService";
+import game from "../data.json";
+
+console.log(game);
+
 export default {
   data() {
     return {
-      game: {
-        day: 1
-      }
+      step: this.getStep()
     };
   },
+  mounted() {
+    console.log("Mounted");
+  },
+  watch: {
+    "$route.params.id"(to, from) {
+      this.step = this.getStep();
+    }
+  },
   methods: {
-    moreDay: function() {
-      this.game.day++;
-      console.log(this.game.day);
+    getStep() {
+      return game.steps.find(
+        step => step.id === parseInt(this.$route.params.id)
+      );
     },
-    day: function() {
-      this.game.day++;
-      console.log(this.game.day);
+    doEffects(action) {
+      if (action.path) {
+        this.$router.push({ params: { id: action.path } });
+      }
     }
   }
 };
 </script>
-
-
-
-

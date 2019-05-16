@@ -1,34 +1,56 @@
 <template>
-  <div class="expedition__box">
-    <h3>Expéditions de demain</h3>
-    <br>
-    <p
-      class="expedition__explications"
-    >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-    <br>
-    <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
-    <div class="expeditions">
-      <Expedition
-        class="one"
-        v-for="expedition in 2"
-        :key="expedition"
-        v-bind:expedition="expedition"
-      ></Expedition>
-      <Expedition
-        class="two"
-        v-for="expedition in 2"
-        :key="expedition"
-        v-bind:expedition="expedition"
-      ></Expedition>
-    </div>
-    <div class="expedition__directions template">
-      <span class="expedition__directions--prev">prev</span>
-      <span class="expedition__directions--next">next</span>
+  <div class="game__container">
+    <div class="game__main">
+      <div class="expedition__box">
+        <h3>Expéditions de demain</h3>
+        <br>
+        <p
+          class="expedition__explications"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <br>
+        <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
+        <div class="expeditions">
+          <Expedition
+            class="one"
+            v-for="expedition in 2"
+            :key="expedition"
+            v-bind:expedition="expedition"
+          ></Expedition>
+          <Expedition
+            class="two"
+            v-for="expedition in 2"
+            :key="expedition"
+            v-bind:expedition="expedition"
+          ></Expedition>
+        </div>
+        <div class="directions template">
+          <router-link class="directions--prev" to="/dev/Ressources">prev</router-link>
+          <router-link class="directions--next" to="/dev/Craft">next</router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.game__container {
+  font-family: sans-serif;
+  display: flex;
+  width: 1366px;
+  height: 750px;
+  background-image: url("../assets/img/test.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+.game__main {
+  display: flex;
+  width: 680px;
+  height: 640px;
+  background-color: white;
+  opacity: 0.9;
+}
 .expeditions {
   width: 100%;
   transform: translateY(-40px);
@@ -36,7 +58,7 @@
     transform: translateX(120px);
   }
   .two {
-    transform: translateX(-120px) translateY(-108px);
+    transform: translateX(-120px) translateY(-148px);
   }
 }
 .expedition__question {
@@ -49,20 +71,21 @@
   margin-top: 10px;
 }
 .expedition__box {
-  margin-top: 90px;
+  margin-top: px;
   font-family: sans-serif;
 }
 h3 {
   margin-left: 10px;
 }
-.expedition__directions {
-  transform: translateY(-100px);
-  .expedition__directions--next {
+.directions {
+  height: 90px;
+  .directions--next {
     float: right;
     margin-right: 20px;
   }
-  .expedition__directions--prev {
+  .directions--prev {
     float: left;
+    bottom: 0;
     margin-left: 20px;
   }
 }

@@ -8,6 +8,11 @@ import Win from './page/Win.vue';
 import Lose from './page/Lose.vue';
 import Dev from './page/Dev.vue';
 
+import Recaps from './components/Recaps.vue';
+import Expeditions from './components/Expeditions.vue';
+import Ressources from './components/Ressources.vue';
+import Crafts from './components/Crafts.vue';
+
 Vue.use(Router);
 
 const router = new Router({
@@ -25,9 +30,29 @@ const router = new Router({
       component: Page,
     },
     {
-      path: '/game',
+      path: '/game:id',
       name: 'game',
       component: Game,
+    },
+    {
+      path: '/dev/Recap',
+      name: 'Recap',
+      component: Recaps
+    },
+    {
+      path: '/dev/Expeditions',
+      name: 'Expeditions',
+      component: Expeditions
+    },
+    {
+      path: '/dev/Ressources',
+      name: 'Ressources',
+      component: Ressources
+    },
+    {
+      path: '/dev/Craft',
+      name: 'Craft',
+      component: Crafts
     },
     {
       path: '/win',

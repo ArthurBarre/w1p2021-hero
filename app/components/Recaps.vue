@@ -1,21 +1,39 @@
 <template>
+<div class="game__container">
+    <div class="game__main">
   <div class="recap">
     <div>
       <VitalSituation class="recap__vs"></VitalSituation>
     </div>
+  
     <div>
-      <ExpeditionResult class="recap__er"></ExpeditionResult>
-    </div>
-    <div>
-      <VitalSituation class="recap__vs"></VitalSituation>
-    </div>
-    <div>
-      <ExpeditionResult class="recap__er"></ExpeditionResult>
+      <div class="ressources__directions template">
+        <router-link class="ressources__directions--prev" to="/dev/Expeditions">prev</router-link>
+        <router-link class="ressources__directions--next" to="/dev/Ressources">next</router-link>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.game__container {
+  font-family: sans-serif;
+  display: flex;
+  width: 1366px;
+  height: 750px;
+  background-image: url("../assets/img/test.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+.game__main {
+  display: flex;
+  width: 680px;
+  height: 640px;
+  background-color: white;
+  opacity: 0.9;
+}
 .recap {
   display: flex;
   height: 640px;
@@ -28,6 +46,18 @@
   align-items: space-around;
   height: 120px;
 }
+.ressources__directions {
+  height: 90px;
+  .ressources__directions--next {
+    float: right;
+    margin-right: 20px;
+  }
+  .ressources__directions--prev {
+    float: left;
+    bottom: 0;
+    margin-left: 20px;
+  }
+}
 </style>
 
 <script>
@@ -38,6 +68,9 @@ export default {
   components: {
     VitalSituation,
     ExpeditionResult
+  },
+  methods: {
+    buildNewRecap() {}
   }
 };
 </script>

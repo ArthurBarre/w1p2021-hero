@@ -1,5 +1,4 @@
 <template>
-  
 <div v-if="health === 3">
       <p
         v-if="healthSentenceRandom === 1"
@@ -42,13 +41,19 @@ p {
   text-align: center;
 }
 </style>
+
 <script>
+import data from "../json/Ressources.json";
 export default {
   data: function() {
     return {
-      health: 2,
+      health: data.health,
       healthSentenceRandom: Number
     };
+  },
+  mounted: function() {
+    console.log(this.health);
+
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;

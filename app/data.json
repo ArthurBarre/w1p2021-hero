@@ -1,0 +1,33 @@
+{
+  "steps": [
+    {
+      "id": 1,
+      "title": "Bienvenue voyageur",
+      "showMap": true,
+      "actions": [
+        {
+          "label": "sortir vautre pistolet démocratique",
+          "to": 2
+        },
+        {
+          "label": "je suis venue en paix l'amis...",
+          "to": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Combattre mutant",
+      "actions": [
+        {
+          "label": "Aller à droite",
+          "to": 4
+        },
+        {
+          "label": "aller à gauche",
+          "to": 5
+        }
+      ]
+    }
+  ]
+}
