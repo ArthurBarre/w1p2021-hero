@@ -5,7 +5,7 @@
         <h2 class="ressources__title">Ressources</h2>
         <div class="ressources__food template">
           <Foods/>
-          <p>{{waterQuantity}}</p>
+          <p>{{waterProgress}}</p>
         </div>
         <div class="ressources__water template">
           <Waters/>
@@ -115,12 +115,12 @@ import feedService from "../services/feedService";
 export default {
   data: function() {
     return {
-      waterQuantity: feedService.quantityFoodValue(),
+      waterProgress: feedService.quantityFoodValue(),
       foodQuantity: user.foodQuantity,
       waterLife: user.waterLife,
       foodLife: user.foodLife
 
-      // waterQuantity: user.waterQuantity,
+      // waterProgress: user.waterProgress,
       // foodQuantity: user.foodQuantity,
       // waterLife: user.waterLife,
       // foodLife: user.foodLife
@@ -134,10 +134,10 @@ export default {
   },
   methods: {
     drink: function() {
-      this.waterQuantity--;
+      this.waterProgress--;
       this.waterLife = 4;
-      console.log("waterQuantity" + this.waterQuantity);
-      console.log("waterQuantity" + this.waterQuantity);
+      console.log("waterProgress" + this.waterProgress);
+      console.log("waterProgress" + this.waterProgress);
     },
     feed: function() {
       this.foodQuantity--;

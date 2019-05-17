@@ -12,13 +12,7 @@
         <div class="expeditions">
           <Expedition
             class="one"
-            v-for="expedition in 2"
-            :key="expedition"
-            v-bind:expedition="expedition"
-          ></Expedition>
-          <Expedition
-            class="two"
-            v-for="expedition in 2"
+            v-for="expedition in 4"
             :key="expedition"
             v-bind:expedition="expedition"
           ></Expedition>
@@ -52,10 +46,12 @@
   opacity: 0.9;
 }
 .expeditions {
-  width: 100%;
-  transform: translateY(-40px);
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  flex-wrap: wrap;
   .one {
-    transform: translateX(120px);
+    flex-wrap: wrap;
   }
   .two {
     transform: translateX(-120px) translateY(-148px);
@@ -71,7 +67,7 @@
   margin-top: 10px;
 }
 .expedition__box {
-  margin-top: px;
+  width: 100%;
   font-family: sans-serif;
 }
 h3 {

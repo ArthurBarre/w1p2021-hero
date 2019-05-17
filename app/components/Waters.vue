@@ -2,7 +2,7 @@
   <div>
     <h3>Eau</h3>
     <div class="foods__wrapper">
-      <ItemWater v-for="Water in waterQuantity" :key="Water" v-bind:Water="Water"><ItemWater/>
+      <ItemWater v-for="Water in waterProgress" :key="Water" v-bind:Water="Water"><ItemWater/>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      waterQuantity:user.waterQuantity
+      waterProgress:user.waterProgress
     };
   }
 };
