@@ -1,8 +1,8 @@
 {
   "day": 0,
   "health": 2,
-  "foodQuantity": 3,
-  "waterQuantity": 2,
+  "foodQuantity": 5,
+  "waterQuantity": 111,
   "foodLife": 3,
   "waterLife": 3
 }

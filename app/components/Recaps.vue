@@ -74,6 +74,9 @@ import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResult from "../components/ExpeditionResult.vue";
 import user from "../json/user.json";
 import countService from "../services/countService.js";
+import waterQuantity from '../services/waterQuantity.js';
+import foodProgress from '../services/foodProgress.js';
+
 
 
 export default {
@@ -81,11 +84,17 @@ export default {
   data() {
     return {
       count: countService.value(),
+      foodProgress: foodProgress.value(),
+      waterQuantity: foodProgress.value()
     }
   },
   components: {
     VitalSituation,
     ExpeditionResult
-  }
+  },
+  mounted() {
+    console.log(this.foodProgress);
+    console.log(this.waterQuantity);
+  },
 };
 </script>

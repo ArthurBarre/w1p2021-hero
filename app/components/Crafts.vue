@@ -20,13 +20,14 @@
           </div>
           <div class="directions template">
             <router-link class="directions--prev" to="/game/Expedition">prev</router-link>
-            <button @click="dayPassed">day+1</button>
+            <button class="button" @click="dayPassed">day+1</button>
             <div v-if="health!=0">
               <router-link class="directions--next" to="/game/Recap">next</router-link>
             </div>
             <div v-else="health=0">
               <router-link class="directions--next" to="/game/Loose">La muerte</router-link>
             </div>
+            <button class="button__ressource" @click="ressourceChanged">ressources-1</button>
           </div>
         </div>
       </div>
@@ -35,8 +36,11 @@
 </template>
 
 <style lang="scss" scoped>
-button {
+.button {
   transform: translateX(250px);
+}
+.button__ressource {
+  transform: translateX(280px) translateY(10px);
 }
 .game__container {
   font-family: sans-serif;
@@ -104,6 +108,8 @@ h3 {
 <script>
 import user from "../json/user.json";
 import countService from "../services/countService.js";
+import foodProgress from "../services/foodProgress.js";
+import waterQuantity from "../services/waterQuantity.js";
 export default {
   data() {
     return {
@@ -112,19 +118,25 @@ export default {
       //Resssources data
       foodLife: user.foodLife,
       waterLife: user.waterLife,
-      foodQuantity: user.foodQuantity,
-      waterQuantity: user.waterQuantity
+      foodProgress: foodProgress.value(),
+      waterQuantity: foodProgress.value()
     };
   },
   methods: {
-    //Check if your alivev
-    checkHealth() {
-      if (waterLife || foodLife === 0) {
-      }
-    },
     // Day Counter
     dayPassed() {
       countService.increment();
+    },
+    ressourceChanged() {
+      foodProgress.change();
+      waterQuantity.change();
+    },
+    checkHealth() {
+      if (this.foundQuantity || this.waterQuantity === 0) {
+        health = 0;
+      }
+    },
+    mounted() {
       checkHealth();
     }
   },
