@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      waterNumber:user.waterQuantity
+      waterQuantity:user.waterQuantity
     };
   }
 };

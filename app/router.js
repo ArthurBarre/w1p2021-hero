@@ -5,7 +5,7 @@ import Home from './page/Home.vue';
 import Page from './page/Page.vue';
 import Game from './page/Game.vue';
 import Win from './page/Win.vue';
-import Lose from './page/Lose.vue';
+import Loose from './page/Loose.vue';
 import Dev from './page/Dev.vue';
 
 import Recaps from './components/Recaps.vue';
@@ -60,9 +60,9 @@ const router = new Router({
       component: Win,
     },
     {
-      path: '/lose',
-      name: 'lose',
-      component: Lose,
+      path: '/game/Loose',
+      name: 'Lose',
+      component: Loose,
     }, {
       path: '/dev',
       name: 'dev',

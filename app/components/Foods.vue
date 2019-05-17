@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      foodNumber:user.foodQuantity,
+      foodQuantity:user.foodQuantity,
     };
   },
   mounted: function() {
