@@ -112,12 +112,12 @@ export default {
   data() {
     return {
       count: countService.value(),
-      health: user.health,
+      health: user.user.health,
       //Resssources data
       foodLife: user.foodLife,
       waterLife: user.waterLife,
       foodProgress: foodProgress.value(),
-      waterProgress: foodProgress.value()
+      waterProgress: waterProgress.value()
     };
   },
   methods: {
@@ -130,7 +130,7 @@ export default {
       waterProgress.change();
     },
     checkHealth() {
-      if (this.foundQuantity || this.waterProgress === 0) {
+      if (this.foundProgress || this.waterProgress === 0) {
         health = 0;
       }
     },

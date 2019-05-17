@@ -11,9 +11,6 @@
 
 <script>
 import countService from "../services/countService";
-import game from "../data.json";
-
-console.log(game);
 
 export default {
   data() {

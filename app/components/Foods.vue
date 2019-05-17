@@ -26,18 +26,16 @@ h3{
 
 <script>
 import ItemFood from "../items/ItemFood.vue";
-import user from "../json/user.json";
+import data from "../json/user.json";
+import foodQuantity from '../services/foodQuantity.js'
 export default {
   components: {
     ItemFood
   },
   data() {
     return {
-      foodQuantity:user.foodQuantity,
+      foodQuantity:foodQuantity.value(),
     };
-  },
-  mounted: function() {
-    console.log(this.foodQuantity);
-  },
+  }
   }
 </script>

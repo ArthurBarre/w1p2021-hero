@@ -5,19 +5,17 @@
         <h2 class="ressources__title">Ressources</h2>
         <div class="ressources__food template">
           <Foods/>
-          <p>{{waterProgress}}</p>
         </div>
         <div class="ressources__water template">
           <Waters/>
         </div>
         <div class="ressources__buttons">
-          <div class="ressources__buttons--food" @click="feed">
+          <div class="ressources__buttons--food" @click="eat">
             <ItemFood/>
             <h2></h2>
           </div>
           <div class="ressources__buttons--water" @click="drink">
             <ItemWater/>
-            <h2></h2>
           </div>
         </div>
         <div class="directions template">
@@ -111,19 +109,14 @@ import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
 import user from "../json/user.json";
-import feedService from "../services/feedService";
+import foodQuantity from "../services/foodQuantity.js";
+import waterQuantity from "../services/waterQuantity.js";
+
 export default {
   data: function() {
     return {
-      waterProgress: feedService.quantityFoodValue(),
-      foodQuantity: user.foodQuantity,
-      waterLife: user.waterLife,
-      foodLife: user.foodLife
-
-      // waterProgress: user.waterProgress,
-      // foodQuantity: user.foodQuantity,
-      // waterLife: user.waterLife,
-      // foodLife: user.foodLife
+      foodQuantity: foodQuantity.value(),
+      waterQuantity: waterQuantity.value()
     };
   },
   components: {
@@ -134,16 +127,12 @@ export default {
   },
   methods: {
     drink: function() {
-      this.waterProgress--;
-      this.waterLife = 4;
-      console.log("waterProgress" + this.waterProgress);
-      console.log("waterProgress" + this.waterProgress);
+      waterQuantity.drink();
+      console.log(this.waterQuantity);
     },
-    feed: function() {
-      this.foodQuantity--;
-      this.foodLife = 4;
-      console.log("foodQuantity" + this.foodQuantity);
-      console.log("foodLife" + this.foodLife);
+    eat: function() {
+      foodQuantity.eat();
+      console.log(this.foodQuantity);
     }
   }
 };

@@ -1,6 +1,7 @@
+import data from '../json/user.json';
 class CountService {
   constructor() {
-    this.count = 0;
+    this.count = data.user.day;
   }
   increment() {
     this.count++;

@@ -17,6 +17,7 @@
             v-bind:expedition="expedition"
           ></Expedition>
         </div>
+        <p>{{foodQuantity}}</p>
         <div class="directions template">
           <router-link class="directions--prev" to="/game/Ressources">prev</router-link>
           <router-link class="directions--next" to="/game/Craft">next</router-link>
@@ -89,7 +90,13 @@ h3 {
 
 <script>
 import Expedition from "./Expedition.vue";
+import foodQuantity from "../services/foodQuantity.js";
 export default {
+  data() {
+    return {
+      foodQuantity: foodQuantity.value()
+    };
+  },
   components: {
     Expedition
   }

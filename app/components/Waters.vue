@@ -2,7 +2,7 @@
   <div>
     <h3>Eau</h3>
     <div class="foods__wrapper">
-      <ItemWater v-for="Water in waterProgress" :key="Water" v-bind:Water="Water"><ItemWater/>
+      <ItemWater v-for="Water in waterQuantity" :key="Water" v-bind:Water="Water"><ItemWater/>
     </div>
   </div>
 </template>
@@ -25,15 +25,17 @@ h3 {
 
 <script>
 import ItemWater from "../items/ItemWater.vue";
-import user from "../json/user.json";
+import data from "../json/user.json";
+import waterQuantity from '../services/waterQuantity.js';
+
 export default {
   components: {
     ItemWater
   },
   data() {
     return {
-      waterProgress:user.waterProgress
+      waterQuantity:waterQuantity.value(),
     };
   }
-};
+  }
 </script>

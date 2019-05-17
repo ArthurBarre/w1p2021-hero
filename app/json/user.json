@@ -1,8 +1,13 @@
 {
-  "day": 0,
-  "health": 2,
-  "foodQuantity": 5,
-  "waterProgress": 111,
-  "foodLife": 3,
-  "waterLife": 3
+  "user": {
+    "day": 1,
+    "health": 2,
+    "ressources": {
+      "foodQuantity": 10,
+      "waterQuantity": 7,
+      "waterProgress": 111,
+      "foodProgress": 3,
+      "foodSentence": "lorem lorem lorem"
+    }
+  }
 }

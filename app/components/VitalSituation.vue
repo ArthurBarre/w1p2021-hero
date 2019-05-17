@@ -40,20 +40,20 @@ p {
 </style>
 
 <script>
-import user from "../json/user.json";
+import data from "../json/user.json";
 export default {
   data: function() {
     return {
-      health: user.health,
+      health: data.user.health,
       healthSentenceRandom: Number
     };
   },
   mounted: function() {
-    console.log(this.health);
+    console.log("Health : " + this.health);
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;
-    console.log(this.healthSentenceRandom);
+    console.log("Recap Random Sentence : " + this.healthSentenceRandom);
   }
 };
 </script>

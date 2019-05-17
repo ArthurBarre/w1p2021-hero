@@ -1,8 +1,7 @@
-
-class waterProgress {
+import data from '../json/user.json';
+class WaterProgress {
   constructor() {
-
-    this.waterProgress = 100;
+    this.waterProgress = data.user.ressources.waterProgress;
   }
   change() {
     this.waterProgress--;
@@ -12,4 +11,4 @@ class waterProgress {
   }
 }
 
-module.exports = new waterProgress();
+module.exports = new WaterProgress();
