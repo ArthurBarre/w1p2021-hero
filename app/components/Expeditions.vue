@@ -36,7 +36,7 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/img/test.jpg");
+  background-image: url(../assets/img/Fonds/Game.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;

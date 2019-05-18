@@ -6,7 +6,41 @@
       "waterQuantity": 4,
       "waterProgress": 0,
       "foodQuantity": 4,
-      "foodProgress": 0
+      "foodProgress": 2
+    },
+    "inventary": {
+      "itemAxe": {
+        "state": true,
+        "src": "../assets/img/assets-components/items/itemsFloor/AxeFloor.png"
+      },
+      "itemFabric": {
+        "state": true,
+        "src": "../assets/img/assets-components/items/itemsFloor/fabricFloor.png"
+      },
+      "itemRodFisshing": {
+        "state": true,
+        "src": "../assets/img/assets-components/items/itemsFloor/fishingRodFloor.png"
+      },
+      "itemFood": {
+        "state": true,
+        "src": "../assets/img/Assets/items/itemsFloor/foodFloor.png"
+      },
+      "itemPlank": {
+        "state": true,
+        "src": "../assets/img/Assets/items/itemsFloor/plankFloor.png"
+      },
+      "itemString": {
+        "state": true,
+        "src": "../assets/img/Assets/items/itemsFloor/stringFloor.png"
+      },
+      "itemWater": {
+        "state": true,
+        "src": "../assets/img/Assets/items/itemsFloor/waterFloor.png"
+      },
+      "itemWood": {
+        "state": true,
+        "src": "../assets/img/Assets/items/itemsFloor/woodFloor.png"
+      }
     }
   }
 }

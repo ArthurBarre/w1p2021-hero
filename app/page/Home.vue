@@ -2,8 +2,8 @@
   <div class="home">
     <div class="home__content">
       <h1>L'île</h1>
-      <router-link class="button" to="/dev">
-        <span>Go to Game</span>
+      <router-link class="button" to="/game/recap">
+        <!-- <span>Go to Game</span> -->
       </router-link>
     </div>
   </div>
@@ -17,7 +17,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/img/test.jpg);
+  background-image: url(../assets/img/Fonds/Game.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   .home__content {
@@ -39,13 +39,18 @@
     border-radius: 5px;
     text-decoration: none;
   }
+  .button::after {
+    content: "Play";
+    margin: auto auto;
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+  }
+  .button:hover::after {
+    color: #2196f3;
+  }
+
   .button:hover {
-    span:hover {
-      color: #2196f3;
-
-      margin: auto auto;
-    }
-
     background-color: white;
     border: solid 2px #2196f3;
   }

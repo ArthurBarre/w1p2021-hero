@@ -1,42 +1,42 @@
 <template>
-<div class="game__container">
+  <div class="game__container">
     <div class="game__main">
-  <div class="recap">
-    <div>
-            <h1>Jour {{count}}</h1>
-      <VitalSituation class="recap__vs"></VitalSituation>
-      <p>{{waterProgress}}</p>
-
-    </div>
-    <div>
-      <div class="ressources__directions template">
-        <router-link class="ressources__directions--prev" to="/game/Craft">prev</router-link>
-        <router-link class="ressources__directions--next" to="/game/Ressources">next</router-link>
+      <div class="recap">
+        <div>
+          <h1>Jour {{count}}</h1>
+          <VitalSituation class="recap__vs"></VitalSituation>
+          <p>{{waterProgress}}</p>
+        </div>
+        <div>
+          <div class="ressources__directions template">
+            <router-link class="ressources__directions--prev" to="/game/Craft">prev</router-link>
+            <router-link class="ressources__directions--next" to="/game/Ressources">next</router-link>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
-.test-btn{
+.test-btn {
   width: max-content;
 }
-h1{
+h1 {
   font-size: 100px;
   width: max-content;
-  margin: 0  auto;
+  margin: 0 auto;
   margin-bottom: 100px;
 }
-body{
-overflow: hidden;
+body {
+  overflow: hidden;
 }
 .game__container {
   font-family: sans-serif;
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/img/test.jpg");
+  background-image: url(../assets/img/Fonds/Game.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
@@ -81,19 +81,18 @@ import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResult from "../components/ExpeditionResult.vue";
 import user from "../json/user.json";
 import countService from "../services/countService.js";
-import waterProgress  from '../services/waterProgress.js'
-import healthServices from '../services/healthServices.js'
-import foodProgress from '../services/foodProgress';
+import waterProgress from "../services/waterProgress.js";
+import healthServices from "../services/healthServices.js";
+import foodProgress from "../services/foodProgress";
 
 export default {
-
   data() {
     return {
       count: countService.value(),
       waterProgress: waterProgress.value(),
       health: healthServices.value(),
       foodprogress: foodProgress.value()
-    }
+    };
   },
   components: {
     VitalSituation,
