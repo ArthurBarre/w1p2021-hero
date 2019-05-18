@@ -6,7 +6,7 @@
 .food__els {
   width: 50px;
   height: 50px;
-  background-image: url(../assets/img/coconut.png);
+  background-image: url(../assets/img/assets-components/items/Food.png);
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 15px;

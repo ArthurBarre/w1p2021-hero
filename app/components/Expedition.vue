@@ -2,7 +2,7 @@
   <div class="event">
     <div class="event_els">
       <div class="event__picture"></div>
-      <h3 class="event__title">{{event}}</h3>
+      <h3 class="event__title">{{events}}</h3>
     </div>
   </div>
 </template>
@@ -19,9 +19,9 @@
 .event__picture {
   display: flex;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-image: url(../assets/img/event.png);
+  width: 150px;
+  height: 150px;
+  background-image: url(../assets/img/assets-components/Explorations/boatWreck.png);
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 25px;
@@ -40,10 +40,11 @@
 </style>
 
 <script>
+import data from "../json/user.json";
 export default {
   data() {
     return {
-      event: "Expéditions de demain"
+      events: data.events
     };
   }
 };

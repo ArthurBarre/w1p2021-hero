@@ -32,7 +32,7 @@
   margin-top: 80px;
 }
 p {
-  width: 680px;
+  width: 710px;
   align-items: center;
   font-family: sans-serif;
   text-align: center;

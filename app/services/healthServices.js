@@ -6,10 +6,15 @@ class HealthService {
   constructor() {
     this.health = data.user.health;
     this.foodProgress = foodProgress.value();
-    this.waterProgress = foodProgress.value();
+    this.waterProgress = waterProgress.value();
   }
   check() {
-    console.log(this.foodProgress);
+    if (this.foodProgress > this.waterProgress) {
+      this.health = this.waterProgress;
+    } else {
+      this.health = this.foodProgress;
+    }
+    console.log('health from js : ' + this.health);
     if (this.foodProgress || this.waterProgress === 0) {
       this.health = 0;
       console.log(this.health);

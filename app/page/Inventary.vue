@@ -22,7 +22,9 @@
 .inventary {
   width: 1366px;
   height: 750px;
-  background-image: url("../assets/img/test.jpg");
+  background-image: url(../assets/img/Fonds/Game.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-repeat: no-repeat;
   background-size: contain;
 }

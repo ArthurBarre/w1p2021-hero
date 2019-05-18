@@ -8,9 +8,9 @@
           <p>{{waterProgress}}</p>
         </div>
         <div>
-          <div class="ressources__directions template">
-            <router-link class="ressources__directions--prev" to="/game/Craft">prev</router-link>
-            <router-link class="ressources__directions--next" to="/game/Ressources">next</router-link>
+          <div class="directions template">
+            <router-link class="directions--prev" to="/game/Craft"></router-link>
+            <router-link class="directions--next" to="/game/Ressources"></router-link>
           </div>
         </div>
       </div>
@@ -44,15 +44,15 @@ body {
 }
 .game__main {
   display: flex;
-  width: 680px;
-  height: 640px;
-  background-color: white;
+  width: 710px;
+  height: 710px;
+  background-image: url(../assets/img/assets-components/PaperFond.png);
   opacity: 0.9;
 }
 .recap {
   display: flex;
-  height: 640px;
-  width: 680px;
+  height: 710px;
+  width: 710px;
   flex-direction: column;
   transform: translateY(100px);
   margin: 0 auto;
@@ -61,17 +61,22 @@ body {
   align-items: space-around;
   height: 120px;
 }
-.ressources__directions {
+.directions {
   height: 90px;
-  margin-top: 200px;
-  .ressources__directions--next {
+  .directions--next {
     float: right;
     margin-right: 20px;
   }
-  .ressources__directions--prev {
+  .directions--next::after {
+    content: url(../assets/img/assets-components/ArrowRight.png);
+  }
+  .directions--prev {
     float: left;
     bottom: 0;
     margin-left: 20px;
+  }
+  .directions--prev::after {
+    content: url(../assets/img/assets-components/ArrowLeft.png);
   }
 }
 </style>

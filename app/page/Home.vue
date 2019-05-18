@@ -52,7 +52,7 @@
 
   .button:hover {
     background-color: white;
-    border: solid 2px #2196f3;
+    border: solid 4px #2196f3;
   }
 }
 span {

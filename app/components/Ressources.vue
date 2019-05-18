@@ -12,15 +12,16 @@
         <div class="ressources__buttons">
           <div class="ressources__buttons--food" @click="eat">
             <ItemFood/>
-            <h2></h2>
+            <p>{{foodQuantity}}</p>
           </div>
           <div class="ressources__buttons--water" @click="drink">
             <ItemWater/>
+            <p>{{waterQuantity}}</p>
           </div>
         </div>
         <div class="directions template">
-          <router-link class="directions--prev" to="/game/Recap">prev</router-link>
-          <router-link class="directions--next" to="/game/Expeditions">next</router-link>
+          <router-link class="directions--prev" to="/game/Recap"></router-link>
+          <router-link class="directions--next" to="/game/Expeditions"></router-link>
         </div>
       </div>
     </div>
@@ -44,9 +45,9 @@ body {
 }
 .game__main {
   display: flex;
-  width: 680px;
-  height: 640px;
-  background-color: white;
+  width: 710px;
+  height: 710px;
+  background-image: url(../assets/img/assets-components/PaperFond.png);
   opacity: 0.9;
 }
 .size {
@@ -67,7 +68,7 @@ body {
 .ressources__title {
   float: left;
   font-size: 20px;
-  margin: 60px 0 30px 15px;
+  margin: 60px 0 30px 50px;
 }
 .directions {
   height: 90px;
@@ -75,19 +76,30 @@ body {
     float: right;
     margin-right: 20px;
   }
+  .directions--next::after {
+    content: url(../assets/img/assets-components/ArrowRight.png);
+  }
   .directions--prev {
     float: left;
     bottom: 0;
     margin-left: 20px;
   }
+  .directions--prev::after {
+    content: url(../assets/img/assets-components/ArrowLeft.png);
+  }
 }
 .ressources__food {
+  width: 80%;
   height: 120px;
   background-color: grey;
+  transform: translateX(40px);
 }
 .ressources__water {
+  width: 80%;
   height: 100px;
+  margin-top: 20px;
   background-color: blue;
+  transform: translateX(40px);
 }
 .ressources__buttons {
   display: flex;

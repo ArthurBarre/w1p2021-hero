@@ -12,15 +12,15 @@
         <div class="expeditions">
           <Expedition
             class="one"
-            v-for="expedition in 4"
+            v-for="expedition in 2"
             :key="expedition"
             v-bind:expedition="expedition"
           ></Expedition>
         </div>
         <p>{{foodQuantity}}</p>
         <div class="directions template">
-          <router-link class="directions--prev" to="/game/Ressources">prev</router-link>
-          <router-link class="directions--next" to="/game/Craft">next</router-link>
+          <router-link class="directions--prev" to="/game/Ressources"></router-link>
+          <router-link class="directions--next" to="/game/Craft"></router-link>
         </div>
       </div>
     </div>
@@ -44,22 +44,16 @@ body {
 }
 .game__main {
   display: flex;
-  width: 680px;
-  height: 640px;
-  background-color: white;
+  width: 710px;
+  height: 710px;
+  background-image: url(../assets/img/assets-components/PaperFond.png);
   opacity: 0.9;
 }
 .expeditions {
   display: flex;
   flex-direction: row;
   width: 80%;
-  flex-wrap: wrap;
-  .one {
-    flex-wrap: wrap;
-  }
-  .two {
-    transform: translateX(-120px) translateY(-148px);
-  }
+  margin: 0 auto;
 }
 .expedition__question {
   margin-left: 40px;
@@ -83,10 +77,16 @@ h3 {
     float: right;
     margin-right: 20px;
   }
+  .directions--next::after {
+    content: url(../assets/img/assets-components/ArrowRight.png);
+  }
   .directions--prev {
     float: left;
     bottom: 0;
     margin-left: 20px;
+  }
+  .directions--prev::after {
+    content: url(../assets/img/assets-components/ArrowLeft.png);
   }
 }
 </style>
@@ -94,6 +94,7 @@ h3 {
 <script>
 import Expedition from "./Expedition.vue";
 import foodQuantity from "../services/foodQuantity.js";
+import data from "../json/user.json";
 export default {
   data() {
     return {

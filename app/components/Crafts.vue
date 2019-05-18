@@ -17,13 +17,13 @@
           <div class="resultEl element"></div>
         </div>
         <div class="directions template">
-          <router-link class="directions--prev" to="/game/Expedition">prev</router-link>
+          <router-link class="directions--prev" to="/game/Expedition"></router-link>
           <button @click="day" class="button">La muerte pour le jour prochain</button>
           <div v-if="health!=0">
-            <router-link class="directions--next" to="/game/Recap">next</router-link>
+            <router-link class="directions--next" to="/game/Recap"></router-link>
           </div>
           <div v-else="health=0">
-            <router-link class="directions--next" to="/game/Loose">La muerte</router-link>
+            <router-link class="directions--next" to="/game/Loose"></router-link>
           </div>
           <button @click="ressourceChanged" class="button__ressource">ressources-1</button>
         </div>
@@ -34,10 +34,10 @@
 
 <style lang="scss" scoped>
 .button {
-  transform: translateX(250px);
+  transform: translateX(250px) translateY(200px);
 }
 .button__ressource {
-  transform: translateX(280px) translateY(10px);
+  transform: translateX(280px) translateY(310px);
 }
 body {
   overflow: hidden;
@@ -55,9 +55,9 @@ body {
 }
 .game__main {
   display: flex;
-  width: 680px;
-  height: 640px;
-  background-color: white;
+  width: 710px;
+  height: 710px;
+  background-image: url(../assets/img/assets-components/PaperFond.png);
   opacity: 0.9;
 }
 .craft__box {
@@ -91,14 +91,21 @@ h3 {
   vertical-align: middle;
 }
 .directions {
-  transform: translateY(245px);
+  height: 90px;
   .directions--next {
     float: right;
     margin-right: 20px;
   }
+  .directions--next::after {
+    content: url(../assets/img/assets-components/ArrowRight.png);
+  }
   .directions--prev {
     float: left;
+    bottom: 0;
     margin-left: 20px;
+  }
+  .directions--prev::after {
+    content: url(../assets/img/assets-components/ArrowLeft.png);
   }
 }
 </style>

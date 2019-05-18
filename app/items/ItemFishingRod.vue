@@ -1,18 +1,15 @@
 <template>
-  <img
-    v-bind:class="{ none: !fishingRod.state }"
-    class="item"
-    src="../assets/img/FishingRodFloor.png"
-    alt="fishing-rod"
-  >
+  <div v-bind:class="{ none: !fishingRod.state }" class="item"></div>
 </template>
 <style lang="scss" scoped>
 .item {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 1366px;
-  height: 750px;
+  width: 150px;
+  height: 150px;
+  background-image: url(../assets/img/assets-components/items/FishingRod.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
 }
 .none {
   display: none;

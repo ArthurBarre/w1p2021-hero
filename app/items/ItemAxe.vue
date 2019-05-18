@@ -1,12 +1,12 @@
 <template>
-  <img v-bind:class="{ none: !axe.state }" class="item" src="../assets/img/AxeFloor.png" alt="axe">
+  <div v-bind:class="{ none: !axe.state }" class="item"></div>
 </template>
 <style lang="scss" scoped>
 .item {
   position: absolute;
   width: 150px;
   height: 150px;
-  background-image: url(../assets/img/Fonds/Game.jpg);
+  background-image: url(../assets/img/assets-components/items/Axe.png);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;

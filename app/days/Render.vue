@@ -14,7 +14,9 @@
   display: flex;
   width: 1366px;
   height: 750px;
-  background-image: url("../assets/img/test.jpg");
+  background-image: url(../assets/img/Fonds/Game.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
@@ -22,8 +24,8 @@
 }
 .game__main {
   display: flex;
-  width: 680px;
-  height: 640px;
+  width: 710px;
+  height: 710px;
   background-color: white;
   opacity: 0.9;
 }
@@ -33,7 +35,7 @@
   align-items: flex-end;
 }
 .day {
-  width: 680px;
+  width: 710px;
   position: absolute;
   display: inline;
   font-size: 20px;
