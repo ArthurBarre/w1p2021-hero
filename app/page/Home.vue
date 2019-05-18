@@ -1,12 +1,9 @@
 <template>
   <div class="home">
     <div class="home__content">
-      <h1>Home</h1>
-      <router-link class="button" to="/game/Recap">
-        <span>Go to the Game</span>
-      </router-link>
+      <h1>L'île</h1>
       <router-link class="button" to="/dev">
-        <span>Go to Dev</span>
+        <span>Go to Game</span>
       </router-link>
     </div>
   </div>
@@ -20,11 +17,15 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-image: url(../assets/img/test.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   .home__content {
     margin: auto auto;
   }
   h1 {
     font-size: 200px;
+    color: gold;
     font-family: sans-serif;
   }
   .button {
@@ -32,16 +33,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 30px;
+    width: 200px;
+    height: 50px;
     background-color: #2196f3;
     border-radius: 5px;
     text-decoration: none;
   }
+  .button:hover {
+    span:hover {
+      color: #2196f3;
+
+      margin: auto auto;
+    }
+
+    background-color: white;
+    border: solid 2px #2196f3;
+  }
 }
 span {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 25px;
+  font-family: sans-serif;
   color: white;
 }
 </style>

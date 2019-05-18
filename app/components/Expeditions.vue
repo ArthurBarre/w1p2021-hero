@@ -28,11 +28,14 @@
 </template>
 
 <style lang="scss" scoped>
+body {
+  overflow: hidden;
+}
 .game__container {
   font-family: sans-serif;
   display: flex;
-  width: 1366px;
-  height: 750px;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../assets/img/test.jpg");
   background-repeat: no-repeat;
   background-size: cover;

@@ -7,7 +7,6 @@
           class="craft__explications"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi sapiente. Expedita sequi quisquam, repudiandae vel deserunt cum similique iste eaque animi, eos ipsum at qui reprehenderit pariatur architecto accusantium.</p>
         <br>
-
         <p>{{count}}</p>
         <p class="craft__questions">Voulez vous faire un craft ?</p>
         <div class="craft__wrapper">
@@ -19,14 +18,14 @@
         </div>
         <div class="directions template">
           <router-link class="directions--prev" to="/game/Expedition">prev</router-link>
-          <button class="button" @click="dayPassed">day+1</button>
+          <button @click="day" class="button">La muerte pour le jour prochain</button>
           <div v-if="health!=0">
             <router-link class="directions--next" to="/game/Recap">next</router-link>
           </div>
           <div v-else="health=0">
             <router-link class="directions--next" to="/game/Loose">La muerte</router-link>
           </div>
-          <button class="button__ressource" @click="ressourceChanged">ressources-1</button>
+          <button @click="ressourceChanged" class="button__ressource">ressources-1</button>
         </div>
       </div>
     </div>
@@ -40,11 +39,14 @@
 .button__ressource {
   transform: translateX(280px) translateY(10px);
 }
+body {
+  overflow: hidden;
+}
 .game__container {
   font-family: sans-serif;
   display: flex;
-  width: 1366px;
-  height: 750px;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../assets/img/test.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,18 +103,17 @@ h3 {
 }
 </style>
 
-
-
 <script>
 import user from "../json/user.json";
 import countService from "../services/countService.js";
 import foodProgress from "../services/foodProgress.js";
 import waterProgress from "../services/waterProgress.js";
+import healthServices from "../services/healthServices";
 export default {
   data() {
     return {
       count: countService.value(),
-      health: user.user.health,
+      health: healthServices.value(),
       //Resssources data
       foodLife: user.foodLife,
       waterLife: user.waterLife,
@@ -125,17 +126,17 @@ export default {
     dayPassed() {
       countService.increment();
     },
-    ressourceChanged() {
+    day() {
       foodProgress.change();
       waterProgress.change();
+      healthServices.check();
+      countService.increment();
     },
     checkHealth() {
-      if (this.foundProgress || this.waterProgress === 0) {
-        health = 0;
-      }
+      console.log(health);
     },
     mounted() {
-      checkHealth();
+      // checkHealth();
     }
   }
 };

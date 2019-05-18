@@ -5,9 +5,9 @@
     <div>
             <h1>Jour {{count}}</h1>
       <VitalSituation class="recap__vs"></VitalSituation>
+      <p>{{waterProgress}}</p>
 
     </div>
-  
     <div>
       <div class="ressources__directions template">
         <router-link class="ressources__directions--prev" to="/game/Craft">prev</router-link>
@@ -18,17 +18,24 @@
 </template>
 
 <style lang="scss" scoped>
+
+.test-btn{
+  width: max-content;
+}
 h1{
   font-size: 100px;
   width: max-content;
   margin: 0  auto;
   margin-bottom: 100px;
 }
+body{
+overflow: hidden;
+}
 .game__container {
   font-family: sans-serif;
   display: flex;
-  width: 1366px;
-  height: 750px;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../assets/img/test.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,14 +81,18 @@ import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResult from "../components/ExpeditionResult.vue";
 import user from "../json/user.json";
 import countService from "../services/countService.js";
-
+import waterProgress  from '../services/waterProgress.js'
+import healthServices from '../services/healthServices.js'
+import foodProgress from '../services/foodProgress';
 
 export default {
 
   data() {
     return {
       count: countService.value(),
-
+      waterProgress: waterProgress.value(),
+      health: healthServices.value(),
+      foodprogress: foodProgress.value()
     }
   },
   components: {
