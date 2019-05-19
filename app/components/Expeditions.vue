@@ -17,7 +17,7 @@
             v-bind:expedition="expedition"
           ></Expedition>-->
           <div v-bind:src="summitSrc" v-if="exploreIslandSummitOk">sommet de l'île</div>
-
+          <!-- 
           <div v-if="exploreIslandCenterOk">centre de l'ile</div>
 
           <div v-if="exploreAroundOk">le tour de l'île maggle</div>
@@ -25,7 +25,7 @@
           <div v-if="visitBoatWreckOk">épave du bateau</div>
 
           <div v-if="fishOk">aller pêcher des petits poissons</div>
-          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
+          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>-->
           <button @click="test">test</button>
         </div>
         <div class="directions template">
@@ -111,18 +111,18 @@ export default {
   data: function() {
     return {
       day: "Day 1",
-      visitBoatWreckOk: data.events.visitBoatWreck.stateOk,
-      exploreAroundOk: data.events.exploreAround.stateOk,
-      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
-      exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
-      fishOk: data.events.fish,
-      waterOk: data.events.water,
-      summitSrc: data.events.exploreIslandSummit.src
+      // visitBoatWreckOk: data.events.visitBoatWreck.stateOk
+      // exploreAroundOk: data.events.exploreAround.stateOk,
+      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk
+      // exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
+      // fishOk: data.events.fish,
+      // waterOk: data.events.water,
+      // summitSrc: data.events.exploreIslandSummit.src
     };
   },
   methods: {
     test() {
-      console.log(this.waterOk);
+      console.log(data.events.visitBoatWreck);
     }
   }
 };
