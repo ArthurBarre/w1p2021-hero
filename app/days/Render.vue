@@ -1,7 +1,9 @@
 <template>
   <div class="game__container">
     <div class="game__main">
-      <recaps/>
+      <div>
+        <button @click="test">zaza</button>
+      </div>
     </div>
   </div>
 </template>
@@ -49,12 +51,24 @@
 import Recaps from "../components/Recaps.vue";
 import Ressources from "../components/Ressources.vue";
 import Inventary from "../page/Inventary.vue";
-
+import expeditionProgress from "../services/expeditionProgress.js";
+import data from "../json/expeditions.json";
 export default {
   data: function() {
     return {
-      day: "Day 1"
+      day: "Day 1",
+      visitBoatWreckOk: data.events.visitBoatWreck.stateOk,
+      exploreAroundOk: data.events.exploreAround.stateOk,
+      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
+      exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
+      fishOk: data.events.fish.stateOk,
+      waterOk: data.events.water.stateOk
     };
+  },
+  methods: {
+    test() {
+      console.log(this.visitBoatWreckOk);
+    }
   },
 
   components: {

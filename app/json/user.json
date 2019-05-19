@@ -41,37 +41,6 @@
         "state": true,
         "src": "../assets/img/Assets/items/itemsFloor/woodFloor.png"
       }
-    },
-    "events": {
-      "islandSummit": {
-        "id": 1,
-        "title": "Sommet de l'Île",
-        "src": "../assets/img/assets-components/Explorations/islandSummit.png",
-        "state": true
-      },
-      "exploreAround": {
-        "id": 2,
-        "title": "Explorer le tour de l'île",
-        "src": "../assets/img/assets-components/Explorations/exploreAround.png",
-        "state": true
-      },
-      "exploreIslandCenter": {
-        "id": 3,
-        "title": "Explorer le centre de l'Île",
-        "src": "../assets/img/assets-components/Explorations/islandCenter.png",
-        "state": true
-      },
-      "visitBoatWreck": {
-        "id": 4,
-        "title": "Fouiller l'épave du bateau",
-        "src": "../assets/img/assets-components/Explorations/boatWreck",
-        "state": true
-      },
-      "fish": {
-        "id": 5,
-        "title": "Aller pêcher",
-        "src": "../assets/img/assets-components/Explorations/fishAction.png"
-      }
     }
   }
 }

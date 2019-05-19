@@ -10,14 +10,24 @@
         <br>
         <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
         <div class="expeditions">
-          <Expedition
+          <!-- <Expedition
             class="one"
             v-for="expedition in 2"
             :key="expedition"
             v-bind:expedition="expedition"
-          ></Expedition>
+          ></Expedition>-->
+          <div v-bind:src="summitSrc" v-if="exploreIslandSummitOk">sommet de l'île</div>
+
+          <div v-if="exploreIslandCenterOk">centre de l'ile</div>
+
+          <div v-if="exploreAroundOk">le tour de l'île maggle</div>
+
+          <div v-if="visitBoatWreckOk">épave du bateau</div>
+
+          <div v-if="fishOk">aller pêcher des petits poissons</div>
+          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
+          <button @click="test">test</button>
         </div>
-        <p>{{foodQuantity}}</p>
         <div class="directions template">
           <router-link class="directions--prev" to="/game/Ressources"></router-link>
           <router-link class="directions--next" to="/game/Craft"></router-link>
@@ -51,9 +61,12 @@ body {
 }
 .expeditions {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 80%;
   margin: 0 auto;
+}
+.expeditions > div {
+  margin-top: 20px;
 }
 .expedition__question {
   margin-left: 40px;
@@ -92,17 +105,25 @@ h3 {
 </style>
 
 <script>
-import Expedition from "./Expedition.vue";
-import foodQuantity from "../services/foodQuantity.js";
-import data from "../json/user.json";
+import expeditionProgress from "../services/expeditionProgress.js";
+import data from "../json/expeditions.json";
 export default {
-  data() {
+  data: function() {
     return {
-      foodQuantity: foodQuantity.value()
+      day: "Day 1",
+      visitBoatWreckOk: data.events.visitBoatWreck.stateOk,
+      exploreAroundOk: data.events.exploreAround.stateOk,
+      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
+      exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
+      fishOk: data.events.fish,
+      waterOk: data.events.water,
+      summitSrc: data.events.exploreIslandSummit.src
     };
   },
-  components: {
-    Expedition
+  methods: {
+    test() {
+      console.log(this.waterOk);
+    }
   }
 };
 </script>

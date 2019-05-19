@@ -7,6 +7,7 @@ import Game from './page/Game.vue';
 import Win from './page/Win.vue';
 import Loose from './page/Loose.vue';
 import Dev from './page/Dev.vue';
+import Render from './days/Render.vue';
 
 import Recaps from './components/Recaps.vue';
 import Expeditions from './components/Expeditions.vue';
@@ -53,6 +54,11 @@ const router = new Router({
       path: '/game/Craft',
       name: 'Craft',
       component: Crafts
+    },
+    {
+      path: '/render',
+      name: 'Render',
+      component: Render
     },
     {
       path: '/win',
