@@ -1,7 +1,7 @@
 <template>
   <div class="inventary">
     <div class="inventary__item">
-      <ItemAxe v-bind:class="{ none: !axe.state }"></ItemAxe>
+      <img :src="axeSrc" v-bind:class="{ none: !axe.state }"></img>
     </div>
     <div class="inventary__item">
       <ItemBoat v-bind:class="{ none: !boat.state }"></ItemBoat>
@@ -20,9 +20,8 @@
 
 <style lang="scss" scoped>
 .inventary {
-  width: 1366px;
-  height: 750px;
-  background-image: url(../assets/img/Fonds/Game.jpg);
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,6 +42,7 @@ import ItemPlank from "../items/ItemPlank.vue";
 import ItemSail from "../items/ItemSail.vue";
 import ItemString from "../items/ItemString.vue";
 import ItemWood from "../items/ItemWood.vue";
+import inventory from "../json/inventory.json";
 
 export default {
   components: {
@@ -58,6 +58,9 @@ export default {
   },
   data() {
     return {
+      axeSrc: function() {
+        return "../assets/img/assets-components/items/itemsFloor/AxeFloor.png";
+      },
       fish: {
         state: true
       },

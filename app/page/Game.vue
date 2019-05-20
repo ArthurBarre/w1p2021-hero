@@ -1,16 +1,11 @@
 <template>
   <div>
-    <h1>{{ step.content }}</h1>
-    <ul>
-      <li v-on:click="doEffects(action)" v-for="action in step.actions" :key="action.path">
-        <div>{{ action.label }}</div>
-      </li>
-    </ul>
+    <h1>hey</h1>
   </div>
 </template>
 
 <script>
-import countService from "../services/countService";
+import dayService from "../services/dayService";
 
 export default {
   data() {

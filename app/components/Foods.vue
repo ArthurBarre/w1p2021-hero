@@ -2,7 +2,7 @@
   <div>
     <h3>Nourriture</h3>
     <div class="foods__wrapper">
-      <ItemFood v-for="Food in foodQuantity" :key="Food" v-bind:Food="Food"><Item
+      <ItemFood v-for="Food in 3" :key="Food" v-bind:Food="Food"><Item
       Food/>
     </div>
   </div>
@@ -27,14 +27,12 @@ h3{
 <script>
 import ItemFood from "../items/ItemFood.vue";
 import data from "../json/user.json";
-import foodQuantity from '../services/foodQuantity.js'
 export default {
   components: {
     ItemFood
   },
   data() {
     return {
-      foodQuantity:foodQuantity.value(),
     };
   }
   }

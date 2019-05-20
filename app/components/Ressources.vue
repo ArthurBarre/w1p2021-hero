@@ -2,12 +2,16 @@
   <div class="game__container">
     <div class="game__main">
       <div class="ressources">
-        <h2 class="ressources__title">Ressources</h2>
+        
+        <h2 class="ressources__title">Ressource</h2>
         <div class="ressources__food template">
-          <Foods/>
+          <div class="food__wrapper"><ItemFood v-for="Food in foodQuantity" :key="Food" v-bind:Food="Food"><Item
+      Food/></div>
+          
         </div>
         <div class="ressources__water template">
-          <Waters/>
+          <div class="water__wrapper"><ItemWater v-for="Water in waterQuantity" :key="Water" v-bind:Water="Water"><ItemWater/></div>
+         
         </div>
         <div class="ressources__buttons">
           <div class="ressources__buttons--food" @click="eat">
@@ -30,7 +34,18 @@
 
 <style  lang="scss" scoped>
 body {
-  overflow: hidden;
+}
+.food__wrapper{
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.water__wrapper{
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-bottom: 10px;
 }
 .game__container {
   font-family: sans-serif;
@@ -71,18 +86,22 @@ body {
   margin: 60px 0 30px 50px;
 }
 .directions {
+  z-index: 1;
+  width: 710px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  bottom: 50px;
   height: 90px;
   .directions--next {
-    float: right;
-    margin-right: 20px;
+    transform: translateX(100px);
   }
   .directions--next::after {
     content: url(../assets/img/assets-components/ArrowRight.png);
   }
   .directions--prev {
-    float: left;
-    bottom: 0;
-    margin-left: 20px;
+    transform: translateX(-100px);
   }
   .directions--prev::after {
     content: url(../assets/img/assets-components/ArrowLeft.png);
@@ -102,6 +121,7 @@ body {
   transform: translateX(40px);
 }
 .ressources__buttons {
+  z-index: 2;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -123,15 +143,19 @@ import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
+import ressourcesService from '../services/ressourcesService.js';
+import thirstService from '../services/thirstService.js';
+import hungerService from '../services/hungerService.js';
+import healthService from "../services/healthService";
+
 import user from "../json/user.json";
-import foodQuantity from "../services/foodQuantity.js";
-import waterQuantity from "../services/waterQuantity.js";
 
 export default {
   data: function() {
     return {
-      foodQuantity: foodQuantity.value(),
-      waterQuantity: waterQuantity.value()
+      waterQuantity: ressourcesService.valueWaterQuantity(),
+      foodQuantity: ressourcesService.valueFoodQuantity(),
+      health: healthService.checkHealth()
     };
   },
   components: {
@@ -142,13 +166,22 @@ export default {
   },
   methods: {
     drink: function() {
-      waterQuantity.drink();
-      console.log(this.waterQuantity);
+      ressourcesService.decrementWater();
+      thirstService.drink();
+      this.health = thirstService.valueThirst();
+      console.log('waterQuantity : '+ressourcesService.valueFoodQuantity());
+      console.log("health from drinking : " + this.health);
     },
     eat: function() {
-      foodQuantity.eat();
-      console.log(this.foodQuantity);
+      ressourcesService.decrementFood();
+      hungerService.eat();
+      this.health = hungerService.valueHunger();
+      console.log('fp: '+hungerService.valueHunger())
+      console.log('foodQuantity : '+ressourcesService.valueFoodQuantity());
+      console.log("health from eating : " + this.health);
     }
+  },mounted(){
+    console.log("health from ressources : " + this.health);
   }
 };
 </script>

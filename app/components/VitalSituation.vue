@@ -41,19 +41,21 @@ p {
 
 <script>
 import data from "../json/user.json";
+import healthService from "../services/healthService";
+
 export default {
   data: function() {
     return {
-      health: data.user.health,
+      health: healthService.checkHealth(),
       healthSentenceRandom: Number
     };
   },
   mounted: function() {
-    console.log("Health : " + this.health);
+    console.log("Health from vital situation: " + this.health);
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;
-    console.log("Recap Random Sentence : " + this.healthSentenceRandom);
+    // console.log("Recap Random Sentence : " + this.healthSentenceRandom);
   }
 };
 </script>

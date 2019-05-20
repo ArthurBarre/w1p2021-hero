@@ -3,9 +3,9 @@
     <div class="game__main">
       <div class="recap">
         <div>
-          <h1>Jour {{count}}</h1>
+          <h1>Jour {{day}}</h1>
           <VitalSituation class="recap__vs"></VitalSituation>
-          <p>{{waterProgress}}</p>
+          <p></p>
         </div>
         <div>
           <div class="directions template">
@@ -62,18 +62,21 @@ body {
   height: 120px;
 }
 .directions {
+  width: 710px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  bottom: 110px;
   height: 90px;
   .directions--next {
-    float: right;
-    margin-right: 20px;
+    transform: translateX(100px);
   }
   .directions--next::after {
     content: url(../assets/img/assets-components/ArrowRight.png);
   }
   .directions--prev {
-    float: left;
-    bottom: 0;
-    margin-left: 20px;
+    transform: translateX(-100px);
   }
   .directions--prev::after {
     content: url(../assets/img/assets-components/ArrowLeft.png);
@@ -85,23 +88,22 @@ body {
 import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResult from "../components/ExpeditionResult.vue";
 import user from "../json/user.json";
-import countService from "../services/countService.js";
-import waterProgress from "../services/waterProgress.js";
-import healthServices from "../services/healthServices.js";
-import foodProgress from "../services/foodProgress";
+import dayService from "../services/dayService";
+import healthService from "../services/healthService";
 
 export default {
   data() {
     return {
-      count: countService.value(),
-      waterProgress: waterProgress.value(),
-      health: healthServices.value(),
-      foodprogress: foodProgress.value()
+      health: healthService.checkHealth(),
+      day: dayService.test()
     };
   },
   components: {
     VitalSituation,
     ExpeditionResult
+  },
+  mounted() {
+    console.log("health from recap : " + this.health);
   }
 };
 </script>

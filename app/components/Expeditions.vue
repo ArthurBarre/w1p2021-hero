@@ -16,17 +16,17 @@
             :key="expedition"
             v-bind:expedition="expedition"
           ></Expedition>-->
-          <div v-bind:src="summitSrc" v-if="exploreIslandSummitOk">sommet de l'île</div>
-          <!-- 
-          <div v-if="exploreIslandCenterOk">centre de l'ile</div>
+          <div v-if="exploreIslandSummit">sommet de l'île</div>
 
-          <div v-if="exploreAroundOk">le tour de l'île maggle</div>
+          <div v-if="exploreIslandCenter">centre de l'ile</div>
 
-          <div v-if="visitBoatWreckOk">épave du bateau</div>
+          <div v-if="exploreAround">le tour de l'île maggle</div>
 
-          <div v-if="fishOk">aller pêcher des petits poissons</div>
-          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>-->
-          <button @click="test">test</button>
+          <div v-if="visitBoatWreck">épave du bateau</div>
+
+          <div v-if="fish">aller pêcher des petits poissons</div>
+          <div v-if="water">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
+          <button>test</button>
         </div>
         <div class="directions template">
           <router-link class="directions--prev" to="/game/Ressources"></router-link>
@@ -85,18 +85,21 @@ h3 {
   margin-left: 10px;
 }
 .directions {
+  width: 710px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  bottom: 50px;
   height: 90px;
   .directions--next {
-    float: right;
-    margin-right: 20px;
+    transform: translateX(100px);
   }
   .directions--next::after {
     content: url(../assets/img/assets-components/ArrowRight.png);
   }
   .directions--prev {
-    float: left;
-    bottom: 0;
-    margin-left: 20px;
+    transform: translateX(-100px);
   }
   .directions--prev::after {
     content: url(../assets/img/assets-components/ArrowLeft.png);
@@ -105,25 +108,23 @@ h3 {
 </style>
 
 <script>
-import expeditionProgress from "../services/expeditionProgress.js";
 import data from "../json/expeditions.json";
+import healthService from "../services/healthService";
 export default {
   data: function() {
     return {
-      day: "Day 1",
-      // visitBoatWreckOk: data.events.visitBoatWreck.stateOk
-      // exploreAroundOk: data.events.exploreAround.stateOk,
-      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk
-      // exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
-      // fishOk: data.events.fish,
-      // waterOk: data.events.water,
-      // summitSrc: data.events.exploreIslandSummit.src
+      health: healthService.checkHealth(),
+      visitBoatWreck: true,
+      exploreAround: true,
+      exploreIslandSummit: true,
+      exploreIslandCenter: true,
+      fish: true,
+      water: true
     };
   },
-  methods: {
-    test() {
-      console.log(data.events.visitBoatWreck);
-    }
+  methods: {},
+  mounted() {
+    console.log("health from expe" + this.health);
   }
 };
 </script>

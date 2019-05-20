@@ -1,10 +1,7 @@
 <template>
-  <div class="game__container">
-    <div class="game__main">
-      <div>
-        <button @click="test">zaza</button>
-      </div>
-    </div>
+  <div>
+    <!-- <button @click="test">zaza</button> -->
+    <Inventary/>
   </div>
 </template>
 
@@ -51,7 +48,6 @@
 import Recaps from "../components/Recaps.vue";
 import Ressources from "../components/Ressources.vue";
 import Inventary from "../page/Inventary.vue";
-import expeditionProgress from "../services/expeditionProgress.js";
 import data from "../json/expeditions.json";
 export default {
   data: function() {

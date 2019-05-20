@@ -4,9 +4,9 @@
 <style lang="scss" scoped>
 .item {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  background-image: url(../assets/img/assets-components/items/Axe.png);
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/img/assets-components/items/itemsFloor/axeFloor.png);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;

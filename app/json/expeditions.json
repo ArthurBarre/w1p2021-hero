@@ -1,40 +1,42 @@
 {
-  "events": {
-    "islandSummit": {
-      "id": 1,
-      "title": "Sommet de l'Île",
-      "src": "../assets/img/assets-components/Explorations/islandSummit.png",
-      "stateOk": true
-    },
-    "exploreAround": {
-      "id": 2,
-      "title": "Explorer le tour de l'île",
-      "src": "../assets/img/assets-components/Explorations/exploreAround.png",
-      "stateOk": true
-    },
-    "exploreIslandCenter": {
-      "id": 3,
-      "title": "Explorer le centre de l'Île",
-      "src": "../assets/img/assets-components/Explorations/islandCenter.png",
-      "stateOk": true
-    },
-    "visitBoatWreck": {
-      "id": 4,
-      "title": "Fouiller l'épave du bateau",
-      "src": "../assets/img/assets-components/Explorations/boatWreck",
-      "stateOk": true
-    },
-    "fish": {
-      "id": 5,
-      "title": "Aller pêcher",
-      "src": "../assets/img/assets-components/Explorations/fishAction.png",
-      "stateOk": false
-    },
-    "water": {
-      "id": 6,
-      "title": "Aller Chercher de l'eau",
-      "src": "'../assets/img/assets-components/Explorations/waterstop.png'",
-      "stateOk": false
+  "events": [
+    {
+      "islandSummit": {
+        "id": 1,
+        "title": "Sommet de l'Île",
+        "src": "../assets/img/assets-components/Explorations/islandSummit.png",
+        "statePossibility": 0
+      },
+      "exploreAround": {
+        "id": 2,
+        "title": "Explorer le tour de l'île",
+        "src": "../assets/img/assets-components/Explorations/exploreAround.png",
+        "statePossibility": 0
+      },
+      "exploreIslandCenter": {
+        "id": 3,
+        "title": "Explorer le centre de l'Île",
+        "src": "../assets/img/assets-components/Explorations/islandCenter.png",
+        "statePossibility": 0
+      },
+      "visitBoatWreck": {
+        "id": 4,
+        "title": "Fouiller l'épave du bateau",
+        "src": "../assets/img/assets-components/Explorations/boatWreck",
+        "statePossibility": 0
+      },
+      "fish": {
+        "id": 5,
+        "title": "Aller pêcher",
+        "src": "../assets/img/assets-components/Explorations/fishAction.png",
+        "statePossibility": 0
+      },
+      "water": {
+        "id": 6,
+        "title": "Aller Chercher de l'eau",
+        "src": "'../assets/img/assets-components/Explorations/waterstop.png'",
+        "statePossibility": 0
+      }
     }
-  }
+  ]
 }
