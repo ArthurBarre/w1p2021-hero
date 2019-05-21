@@ -53,7 +53,7 @@ export default {
   data: function() {
     return {
       day: "Day 1",
-      visitBoatWreckOk: data.events.visitBoatWreck.stateOk,
+      exploreBoatWreckOk: data.events.exploreBoatWreck.stateOk,
       exploreAroundOk: data.events.exploreAround.stateOk,
       exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
       exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.visitBoatWreckOk);
+      console.log(this.exploreBoatWreckOk);
     }
   },
 

@@ -14,12 +14,12 @@
 
           <div @click="exploreIslandCenter" v-if="exploreIslandCenterOk">centre de l'ile</div>
 
-          <!-- <div @click="exploreAround" v-if="exploreAroundOk">le tour de l'île maggle</div> -->
+          <div @click="exploreAround" v-if="exploreAroundOk">le tour de l'île maggle</div>
 
-          <!-- <div @click="visitBoatWreck" v-if="visitBoatWreckOk">épave du bateau</div> -->
+          <div @click="exploreBoatWreck" v-if="exploreBoatWreckOk">épave du bateau</div>
 
-          <!-- <div @click="fish" v-if="fishOk">aller pêcher des petits poissons</div> -->
-          <!-- <div>aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div> -->
+          <div @click="fish" v-if="fishOk">aller pêcher des petits poissons</div>
+          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
           <button @click="test">test</button>
         </div>
         <div class="directions template">
@@ -104,40 +104,57 @@ h3 {
 <script>
 import data from "../json/test.json";
 import healthService from "../services/healthService";
-import expeditionsService from "../services/expeditionsService";
+import expeditionsChoicesService from "../services/expeditionsChoicesService";
 export default {
   data: function() {
     return {
       health: healthService.checkHealth(),
-      // visitBoatWreckOk: true,
-      // exploreAroundOk: true,
-      exploreIslandSummitOk: expeditionsService.islandSummitOkData(),
-      exploreIslandSummitAction: expeditionsService.islandSummitActionData(),
-      exploreIslandCenterOk: true
-      // fishOk: false,
-      // waterOk: false
+      exploreIslandSummitOk: expeditionsChoicesService.islandSummitOkData(),
+      exploreIslandSummitAction: expeditionsChoicesService.islandSummitActionData(),
+      exploreBoatWreckOk: expeditionsChoicesService.boatWreckOkData(),
+      exploreBoatWreckAction: expeditionsChoicesService.boatWreckActionData(),
+      exploreAroundOk: expeditionsChoicesService.exploreAroundOkData(),
+      exploreAroundAction: expeditionsChoicesService.exploreAroundActionData(),
+      exploreIslandCenterOk: expeditionsChoicesService.exploreIslandCenterOkData(),
+      exploreIslandCenterAction: expeditionsChoicesService.exploreIslandCenterActionData(),
+      fishOk: false,
+      waterOk: false
     };
   },
   methods: {
     exploreIslandSummit() {
-      expeditionsService.islandSummitFunction();
+      this.exploreIslandSummitAction = expeditionsChoicesService.newIslandSummitActionData();
+      this.exploreIslandSummitOk = expeditionsChoicesService.newIslandSummitOkData();
+      console.log("new island summit StateOk =" + this.exploreIslandSummitOk);
+      console.log(
+        "new island summit StateAction =" + this.exploreIslandSummitAction
+      );
+    },
+    exploreBoatWreck() {
+      this.exploreBoatWreckAction = expeditionsChoicesService.newBoatWreckActionData();
+      this.exploreBoatWreckOk = expeditionsChoicesService.newBoatWreckOkData();
+
+      console.log("new Boat StateOk =" + this.exploreBoatWreckOk);
+      console.log("new Boat StateActionk =" + this.exploreBoatWreckOk);
     },
     exploreAround() {
-      this.exploreAroundOk = false;
+      this.exploreAroundAction = expeditionsChoicesService.newExploreAroundActionData();
+      this.exploreAroundOk = expeditionsChoicesService.newExploreAroundOkData();
+
+      console.log("new around StateOk =" + this.exploreAroundOk);
+      console.log("new around StateActionk =" + this.exploreAroundAction);
     },
     exploreIslandCenter() {
-      this.exploreIslandCenterOk = false;
+      this.exploreIslandCenterAction = expeditionsChoicesService.newExploreIslandCenterActionData();
+      this.exploreIslandCenterOk = expeditionsChoicesService.newExploreIslandCenterOkData();
+
+      console.log("new island center StateOk =" + this.exploreIslandCenterOk);
+      console.log(
+        "new island center StateActionk =" + this.exploreIslandCenterAction
+      );
     },
-    visitBoatWreck() {
-      this.visitBoatWreckOk = false;
-    },
-    test() {
-      console.log(this.exploreIslandSummitOk);
-      console.log(this.exploreIslandSummitAction);
-    }
+    test() {}
   },
-  mounted() {
-    console.log("health from expe" + this.health);
-  }
+  mounted() {}
 };
 </script>

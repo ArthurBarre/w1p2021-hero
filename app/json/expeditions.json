@@ -19,7 +19,7 @@
         "src": "../assets/img/assets-components/Explorations/islandCenter.png",
         "statePossibility": 0
       },
-      "visitBoatWreck": {
+      "exploreBoatWreck": {
         "id": 4,
         "title": "Fouiller l'épave du bateau",
         "src": "../assets/img/assets-components/Explorations/boatWreck",
