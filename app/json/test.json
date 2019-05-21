@@ -49,16 +49,14 @@
     "color": "purple",
     "size": "small",
     "src": "url('app/assets/img/assets-components/items/itemsFloor/axeFloor.png')",
-    "stateOk": true,
-    "stateAction": false
+    "stateOk": false
   },
   "water": {
     "text": "Aller chercher de l'eau",
     "color": "lightblue",
     "size": "small",
     "src": "url('app/assets/img/assets-components/items/itemsFloor/axeFloor.png')",
-    "stateOk": true,
-    "stateAction": false,
+    "stateOk": false,
     "expeditionResult": {
       "1": "J’ai sû aisément retrouver mon chemin vers le point d’eau, mon expédition m’a permi de ramener de quoi m’abreuver pour au moins une semaine !",
       "2": "Encore une expédition fructueuse au point d’eau, J’ai de quoi tenir au moins une semaine de plus sur cette île pittoresque.",

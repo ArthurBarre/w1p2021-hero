@@ -1,1 +1,13 @@
 @import 'reset';
+
+@import url('https://fonts.googleapis.com/css?family=Neucha&display=swap');
+
+:root {
+  --brand-color: #454444;
+}
+
+* {
+  font-family: 'Neucha', cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+}

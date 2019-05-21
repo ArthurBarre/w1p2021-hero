@@ -1,103 +1,123 @@
 <template>
   <div class="game__container">
+    <div class="aside">
+      <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
+      <img
+        class="sound"
+        src="../assets/img/assets-components/soundOff.png"
+        alt="Turn the sound off"
+      >
+    </div>
+
     <div class="game__main">
-      <div class="expedition__box">
-        <h3>Expéditions de demain</h3>
-        <br>
-        <p
-          class="expedition__explications"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        <br>
-        <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
-        <div class="expeditions">
-          <div @click="exploreIslandSummit" v-if="exploreIslandSummitOk">sommet de l'île</div>
+      <h1>Jour {{day}}</h1>
 
-          <div @click="exploreIslandCenter" v-if="exploreIslandCenterOk">centre de l'ile</div>
-
-          <div @click="exploreAround" v-if="exploreAroundOk">le tour de l'île maggle</div>
-
-          <div @click="exploreBoatWreck" v-if="exploreBoatWreckOk">épave du bateau</div>
-
-          <div @click="fish" v-if="fishOk">aller pêcher des petits poissons</div>
-          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
-          <button @click="test">test</button>
+      <div class="main__content">
+        <div class="content__recap">
+          <p class="recap">
+            Maintenant que j’ai du temps libre, je devrais peut-être l’utiliser pour explorer un peu les environs.
+            <br>
+            <br>J’ai tout de même peur de me perdre dans cette jungle dense.
+          </p>
+          <br>
+          <p class="recap--question">Aller explorer demain ?</p>
         </div>
-        <div class="directions template">
-          <router-link class="directions--prev" to="/game/Ressources"></router-link>
-          <router-link class="directions--next" to="/game/Craft"></router-link>
+
+        <div class="expeditions">
+          <br>
+          <div @click="exploreIslandSummit" v-if="exploreIslandSummitOk">sommet de l'île</div>
+          <br>
+          <div @click="exploreIslandCenter" v-if="exploreIslandCenterOk">centre de l'ile</div>
+          <br>
+          <div @click="exploreBoatWreck" v-if="exploreBoatWreckOk">épave du bateau</div>
+          <br>
+          <div @click="exploreAround" v-if="exploreAroundOk">le tour de l'île maggle</div>
+          <br>
+          <div v-if="fishOk">aller pêcher des petits poissons</div>
+          <br>
+          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
+        </div>
+        <div class="directions">
+          <router-link class="direction direction--prev" to="/game/Ressources"></router-link>
+          <router-link class="direction direction--next" to="/game/Craft"></router-link>
         </div>
       </div>
     </div>
+    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
 </template>
 
 <style lang="scss" scoped>
-body {
-  overflow: hidden;
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.1;
+}
+h1 {
+  font-size: 90px;
+  margin: 10% 0 2% 0;
+  text-align: center;
 }
 .game__container {
-  font-family: sans-serif;
+  background-image: url(../assets/img/Fonds/Game.jpg);
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/img/Fonds/Game.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
   align-items: center;
 }
 .game__main {
-  display: flex;
+  margin: auto auto;
   width: 710px;
   height: 710px;
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-image: url(../assets/img/assets-components/PaperFond.png);
-  opacity: 0.9;
 }
-.expeditions {
+.content__recap {
+  max-width: 600px;
+}
+.recap {
+  padding-top: 4%;
+}
+.direction--next::after {
+  position: absolute;
+  right: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowRight.png);
+}
+.direction--prev::after {
+  position: absolute;
+  left: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowLeft.png);
+}
+.aside {
+  position: absolute;
+  right: 15%;
+  top: 8%;
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
+  align-items: center;
 }
-.expeditions > div {
-  margin-top: 20px;
+.logo {
+  width: 150px;
 }
-.expedition__question {
-  margin-left: 40px;
-  margin-top: 10px;
+.sound {
+  width: 50px;
+  margin-top: 20%;
 }
-.expedition__explications {
-  margin-left: 10px;
-  padding: 2%;
-  margin-top: 10px;
-}
-.expedition__box {
-  width: 100%;
-  font-family: sans-serif;
-}
-h3 {
-  margin-left: 10px;
-}
-.directions {
-  width: 710px;
+aside {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  bottom: 50px;
-  height: 90px;
-  .directions--next {
-    transform: translateX(100px);
-  }
-  .directions--next::after {
-    content: url(../assets/img/assets-components/ArrowRight.png);
-  }
-  .directions--prev {
-    transform: translateX(-100px);
-  }
-  .directions--prev::after {
-    content: url(../assets/img/assets-components/ArrowLeft.png);
-  }
+  bottom: 5px;
+  right: 5px;
+  font-size: 16px;
 }
 </style>
 
@@ -105,56 +125,53 @@ h3 {
 import data from "../json/test.json";
 import healthService from "../services/healthService";
 import expeditionsChoicesService from "../services/expeditionsChoicesService";
+import dayService from "../services/dayService";
 export default {
   data: function() {
     return {
-      health: healthService.checkHealth(),
-      exploreIslandSummitOk: expeditionsChoicesService.islandSummitOkData(),
-      exploreIslandSummitAction: expeditionsChoicesService.islandSummitActionData(),
-      exploreBoatWreckOk: expeditionsChoicesService.boatWreckOkData(),
-      exploreBoatWreckAction: expeditionsChoicesService.boatWreckActionData(),
-      exploreAroundOk: expeditionsChoicesService.exploreAroundOkData(),
-      exploreAroundAction: expeditionsChoicesService.exploreAroundActionData(),
-      exploreIslandCenterOk: expeditionsChoicesService.exploreIslandCenterOkData(),
-      exploreIslandCenterAction: expeditionsChoicesService.exploreIslandCenterActionData(),
-      fishOk: false,
-      waterOk: false
+      day: dayService.test(),
+      health: healthService.testHealth(),
+      exploreIslandSummitOk: data.islandSummit.stateOk,
+      exploreIslandSummitAction: data.islandSummit.stateAction,
+      exploreBoatWreckOk: data.exploreBoatWreck.stateOk,
+      exploreBoatWreckAction: data.exploreBoatWreck.stateAction,
+      exploreIslandCenterOk: data.exploreIslandCenter.stateOk,
+      exploreIslandCenterAction: data.exploreIslandCenter.stateAction,
+      exploreAroundAction: data.exploreAround.stateAction,
+      exploreAroundOk: data.exploreAround.stateOk,
+      fishOk: data.fish.stateOk,
+      waterOk: data.water.stateOk
     };
   },
   methods: {
     exploreIslandSummit() {
-      this.exploreIslandSummitAction = expeditionsChoicesService.newIslandSummitActionData();
-      this.exploreIslandSummitOk = expeditionsChoicesService.newIslandSummitOkData();
+      this.exploreIslandSummitAction = expeditionsChoicesService.islandSummitActionData();
+      this.exploreIslandSummitOk = expeditionsChoicesService.islandSummitOkData();
       console.log("new island summit StateOk =" + this.exploreIslandSummitOk);
       console.log(
         "new island summit StateAction =" + this.exploreIslandSummitAction
       );
     },
+    exploreIslandCenter() {
+      this.exploreIslandCenterOk = expeditionsChoicesService.exploreIslandCenterOkData();
+      this.exploreIslandCenterAction = expeditionsChoicesService.exploreIslandCenterActionData();
+      console.log("new island center StateOk =" + this.exploreIslandCenterOk);
+      console.log("new island center =" + this.exploreIslandCenterAction);
+    },
     exploreBoatWreck() {
-      this.exploreBoatWreckAction = expeditionsChoicesService.newBoatWreckActionData();
-      this.exploreBoatWreckOk = expeditionsChoicesService.newBoatWreckOkData();
-
-      console.log("new Boat StateOk =" + this.exploreBoatWreckOk);
-      console.log("new Boat StateActionk =" + this.exploreBoatWreckOk);
+      this.exploreBoatWreckOk = expeditionsChoicesService.exploreBoatWreckOkData();
+      this.exploreBoatWreckAction = expeditionsChoicesService.exploreBoatWreckActionData();
+      console.log("new boat StateOk = " + this.exploreBoatWreckOk);
+      console.log("new boat stateAction= " + this.exploreBoatWreckAction);
     },
     exploreAround() {
-      this.exploreAroundAction = expeditionsChoicesService.newExploreAroundActionData();
-      this.exploreAroundOk = expeditionsChoicesService.newExploreAroundOkData();
-
-      console.log("new around StateOk =" + this.exploreAroundOk);
-      console.log("new around StateActionk =" + this.exploreAroundAction);
-    },
-    exploreIslandCenter() {
-      this.exploreIslandCenterAction = expeditionsChoicesService.newExploreIslandCenterActionData();
-      this.exploreIslandCenterOk = expeditionsChoicesService.newExploreIslandCenterOkData();
-
-      console.log("new island center StateOk =" + this.exploreIslandCenterOk);
+      this.exploreAroundOk = expeditionsChoicesService.exploreAroundOkData();
+      this.exploreAroundAction = expeditionsChoicesService.exploreAroundActionData();
+      console.log("new explore around StateOk =" + this.exploreAroundOk);
       console.log(
-        "new island center StateActionk =" + this.exploreIslandCenterAction
+        "new explore around StateAction =" + this.exploreAroundAction
       );
-    },
-    test() {}
-  },
-  mounted() {}
+    }
+  }
 };
 </script>

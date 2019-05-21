@@ -2,7 +2,7 @@
   <div>
     <h3>Nourriture</h3>
     <div class="foods__wrapper">
-      <ItemFood v-for="Food in 3" :key="Food" v-bind:Food="Food"><Item
+      <ItemFood v-for="Food in hungerLevel" :key="Food" v-bind:Food="Food"><Item
       Food/>
     </div>
   </div>
@@ -27,13 +27,18 @@ h3{
 <script>
 import ItemFood from "../items/ItemFood.vue";
 import data from "../json/user.json";
+import hungerService from "../services/hungerService.js";
 export default {
+  data() {
+    return {
+      hungerLevel: null
+    }
+  },
   components: {
     ItemFood
   },
-  data() {
-    return {
-    };
+  mounted() {
+    this.hungerLevel = hungerService.test();
   }
-  }
+}
 </script>

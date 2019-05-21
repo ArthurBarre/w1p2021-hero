@@ -1,54 +1,64 @@
 <template>
   <div class="game__container">
+    <div class="aside">
+      <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
+      <img
+        class="sound"
+        src="../assets/img/assets-components/soundOff.png"
+        alt="Turn the sound off"
+      >
+    </div>
+
     <div class="game__main">
-      <div class="ressources">
-        
-        <h2 class="ressources__title">Ressource</h2>
-        <div class="ressources__food template">
-          <div class="food__wrapper"><ItemFood v-for="Food in foodQuantity" :key="Food" v-bind:Food="Food"><Item
-      Food/></div>
-          
+      <h1>Jour {{day}}</h1>
+      <div class="content__scale">
+        <div class="ressources">
+          <div class="ressource food">
+            <Foods/>
+          </div>
+          <div class="ressource water">
+            <Waters/>
+          </div>
         </div>
-        <div class="ressources__water template">
-          <div class="water__wrapper"><ItemWater v-for="Water in waterQuantity" :key="Water" v-bind:Water="Water"><ItemWater/></div>
-         
-        </div>
-        <div class="ressources__buttons">
-          <div class="ressources__buttons--food" @click="eat">
+
+        <div class="buttons">
+          <div class="quantities foodQuantity">
+            <p class="quantity">{{foodQuantity}}</p>
+          </div>
+          <div class="button button--food" @click="eat">
             <ItemFood/>
-            <p>{{foodQuantity}}</p>
+            <!-- <p>{{foodQuantity}}</p> -->
           </div>
-          <div class="ressources__buttons--water" @click="drink">
+          <div class="quantities waterQuantity">
+            <p class="quantity">{{waterQuantity}}</p>
+          </div>
+          <div class="button button--water" @click="drink">
             <ItemWater/>
-            <p>{{waterQuantity}}</p>
+            <!-- <p>{{waterQuantity}}</p> -->
           </div>
-        </div>
-        <div class="directions template">
-          <router-link class="directions--prev" to="/game/Recap"></router-link>
-          <router-link class="directions--next" to="/game/Expeditions"></router-link>
         </div>
       </div>
+      <div class="directions">
+        <router-link class="direction direction--prev" to="/game/recap"></router-link>
+        <router-link class="direction direction--next" to="/game/Expeditions"></router-link>
+      </div>
     </div>
+    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
 </template>
 
 <style  lang="scss" scoped>
-body {
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
 }
-.food__wrapper{
-  display: flex;
-  flex-direction: row;
-  margin-left: 30px;
-  margin-bottom: 10px;
-}
-.water__wrapper{
-  display: flex;
-  flex-direction: row;
-  margin-left: 30px;
-  margin-bottom: 10px;
+h1 {
+  font-size: 90px;
+  margin: 10% 0 2% 0;
+  text-align: center;
 }
 .game__container {
-  font-family: sans-serif;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -59,82 +69,73 @@ body {
   align-items: center;
 }
 .game__main {
-  display: flex;
+  margin: auto auto;
   width: 710px;
   height: 710px;
-  background-image: url(../assets/img/assets-components/PaperFond.png);
-  opacity: 0.9;
-}
-.size {
-  width: 100px;
-  height: 100px;
-}
-.ressources {
-  width: 100%;
-  height: 100%;
+  margin-top: 4%;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-direction: column;
-}
-.template {
-  width: 100%;
-}
-.ressources__title {
-  float: left;
-  font-size: 20px;
-  margin: 60px 0 30px 50px;
-}
-.directions {
-  z-index: 1;
-  width: 710px;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  bottom: 50px;
-  height: 90px;
-  .directions--next {
-    transform: translateX(100px);
-  }
-  .directions--next::after {
-    content: url(../assets/img/assets-components/ArrowRight.png);
-  }
-  .directions--prev {
-    transform: translateX(-100px);
-  }
-  .directions--prev::after {
-    content: url(../assets/img/assets-components/ArrowLeft.png);
-  }
-}
-.ressources__food {
-  width: 80%;
-  height: 120px;
-  background-color: grey;
-  transform: translateX(40px);
-}
-.ressources__water {
-  width: 80%;
-  height: 100px;
-  margin-top: 20px;
-  background-color: blue;
-  transform: translateX(40px);
-}
-.ressources__buttons {
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  height: 100px;
-  margin: 0 auto;
+  flex-direction: column;
+  background-image: url(../assets/img/assets-components/PaperFond.png);
+}
+.buttons {
+  position: relative;
+  display: flex;
+  padding-top: 5%;
+  width: 400px;
+  justify-content: space-evenly;
+}
+.quantities {
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+}
+.quantity {
+  font-size: 20px;
+  margin-top: 20%;
+}
+.foodQuantity {
+  left: 10%;
+}
+.waterQuantity {
+  left: 55%;
 }
 
-.ressources__buttons--food {
-  margin-right: 30px;
+.direction--next::after {
+  position: absolute;
+  right: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowRight.png);
 }
-.ressources__buttons > * {
-  transform: scale(1.5);
+.direction--prev::after {
+  position: absolute;
+  left: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowLeft.png);
+}
+.aside {
+  position: absolute;
+  right: 15%;
+  top: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 150px;
+}
+.sound {
+  width: 50px;
+  margin-top: 20%;
+}
+aside {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 16px;
 }
 </style>
 
@@ -143,19 +144,21 @@ import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
-import ressourcesService from '../services/ressourcesService.js';
-import thirstService from '../services/thirstService.js';
-import hungerService from '../services/hungerService.js';
+import ressourcesService from "../services/ressourcesService.js";
+import thirstService from "../services/thirstService.js";
+import hungerService from "../services/hungerService.js";
 import healthService from "../services/healthService";
-
+import dayService from "../services/dayService";
 import user from "../json/user.json";
 
 export default {
   data: function() {
     return {
-      waterQuantity: ressourcesService.valueWaterQuantity(),
-      foodQuantity: ressourcesService.valueFoodQuantity(),
-      health: healthService.checkHealth()
+      day: null,
+      waterQuantity: null,
+      foodQuantity: null,
+      thirstLevel: null,
+      hungerLevel: null
     };
   },
   components: {
@@ -168,20 +171,22 @@ export default {
     drink: function() {
       ressourcesService.decrementWater();
       thirstService.drink();
-      this.health = healthService.checkHealth(),
-      console.log('waterQuantity : '+ressourcesService.valueFoodQuantity());
+      this.waterQuantity--;
+      console.log("waterQuantity : " + ressourcesService.valueFoodQuantity());
       console.log("health from drinking : " + this.health);
     },
     eat: function() {
       ressourcesService.decrementFood();
       hungerService.eat();
-      this.health = healthService.checkHealth(),
-      console.log('fp: '+hungerService.valueHunger())
-      console.log('foodQuantity : '+ressourcesService.valueFoodQuantity());
+      this.foodQuantity--;
+      console.log("foodQuantity : " + ressourcesService.valueFoodQuantity());
       console.log("health from eating : " + this.health);
     }
-  },mounted(){
-    console.log("health from ressources : " + this.health);
+  },
+  mounted() {
+    this.waterQuantity = ressourcesService.valueWaterQuantity();
+    this.foodQuantity = ressourcesService.valueFoodQuantity();
+    this.day = dayService.test();
   }
 };
 </script>

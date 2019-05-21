@@ -40,18 +40,18 @@ p {
 </style>
 
 <script>
-import data from "../json/user.json";
 import healthService from "../services/healthService";
 
 export default {
   data: function() {
     return {
-      health: healthService.checkHealth(),
+      health: null,
       healthSentenceRandom: Number
     };
   },
   mounted: function() {
     console.log("Health from vital situation: " + this.health);
+    this.health = healthService.testHealth();
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;

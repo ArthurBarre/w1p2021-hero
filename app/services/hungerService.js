@@ -1,6 +1,6 @@
 class FoodService {
   constructor() {
-    this.value = 1;
+    this.value = 3;
   }
   decrement() {
     this.value--;
@@ -8,7 +8,7 @@ class FoodService {
   eat() {
     this.value = 4;
   }
-  valueHunger() {
+  test() {
     return this.value;
   }
 }

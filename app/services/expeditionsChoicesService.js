@@ -1,118 +1,86 @@
-import data from '../json/test.json';
+import data from '../json/expeditions.json';
 class ExpeditionsChoices {
   constructor() {
     //Island Summit var
-    this.exploreIslandSummitOk = data.islandSummit.stateOk;
-    this.exploreIslandSummitAction = data.islandSummit.stateAction;
+    this.exploreIslandSummitOk = data.events.exploreIslandSummit.stateOk;
+    this.exploreIslandSummitAction = data.events.exploreIslandSummit.stateAction;
     //Boat Wreck var
-    this.exploreBoatWreckOk = data.exploreBoatWreck.stateOk;
-    this.exploreBoatWreckAction = data.exploreBoatWreck.stateAction;
+    this.exploreBoatWreckOk = data.events.exploreAround.stateOk;
+    this.exploreBoatWreckAction = data.events.exploreAround.stateAction;
     //Island center var
-    this.exploreIslandCenterOk = data.exploreIslandCenter.stateOk;
-    this.exploreIslandCenterAction = data.exploreIslandCenter.stateAction;
+    this.exploreIslandCenterOk = data.events.exploreIslandCenter.stateOk;
+    this.exploreIslandCenterAction = data.events.exploreIslandCenter.stateAction;
     //Around the island var
-    this.exploreAroundAction = data.exploreAround.stateAction;
-    this.exploreAroundOk = data.exploreAround.stateOk;
+    this.exploreAroundAction = data.events.exploreAround.stateAction;
+    this.exploreAroundOk = data.events.exploreAround.stateOk;
     //fish var
-    this.fishAction = data.fish.stateAction;
-    this.fishOk = data.fish.stateOk;
+    this.fishAction = null;
+    this.fishOk = null;
     //water var
-    this.waterOk = data.water.stateOk;
-    this.waterAction = data.water.state;
+    this.waterOk = null;
+    this.waterAction = null;
+    this.saveNumber = Number;
   }
 
   //ISLAND SUMMIT
 
   //change Values
-  islandSummitOkChange() {
+  islandSummitChange() {
     this.exploreIslandSummitOk = false;
-  }
-  islandSummitActionChange() {
     this.exploreIslandSummitAction = true;
+    this.saveNumber = 1;
   }
-  //change the value of okData
-  newIslandSummitOkData() {
-    this.islandSummitOkChange();
-    return this.exploreIslandSummitOk;
-  }
-  //return the value changed
   islandSummitOkData() {
+    this.islandSummitChange();
     return this.exploreIslandSummitOk;
-  }
-  newIslandSummitActionData() {
-    this.islandSummitActionChange();
-    return this.exploreIslandSummitAction;
   }
   islandSummitActionData() {
-    return this.islandSummitAction;
+    this.islandSummitChange();
+    return this.exploreIslandSummitAction;
   }
 
   //BOAT
 
-  boatWreckOkChange() {
+  exploreBoatWreckChange() {
     this.exploreBoatWreckOk = false;
-  }
-  boatWreckActionChange() {
     this.exploreBoatWreckAction = true;
   }
-  newBoatWreckOkData() {
-    this.boatWreckOkChange();
+  exploreBoatWreckOkData() {
+    this.exploreBoatWreckChange();
     return this.exploreBoatWreckOk;
   }
-  boatWreckOkData() {
-    return this.exploreBoatWreckOk;
-  }
-  newBoatWreckActionData() {
-    this.boatWreckActionChange();
-    return this.exploreBoatWreckAction;
-  }
-  boatWreckActionData() {
+  exploreBoatWreckActionData() {
+    this.exploreBoatWreckChange();
     return this.exploreBoatWreckAction;
   }
 
   //AROUND the Île
 
-  exploreAroundOkChange() {
+  exploreAroundChange() {
     this.exploreAroundOk = false;
-  }
-  exploreAroundActionChange() {
     this.exploreAroundAction = true;
   }
-  newExploreAroundOkData() {
-    this.exploreAroundOkChange();
-    return this.exploreAroundOk;
-  }
   exploreAroundOkData() {
+    this.exploreAroundChange();
     return this.exploreAroundOk;
-  }
-  newExploreAroundActionData() {
-    this.exploreAroundActionChange();
-    return this.exploreAroundAction;
   }
   exploreAroundActionData() {
+    this.exploreAroundChange();
     return this.exploreAroundAction;
   }
 
   //explore ISLAND CENTER
 
-  exploreIslandCenterOkChange() {
+  exploreIslandCenterChange() {
+    this.exploreIslandCenterAction = true;
     this.exploreIslandCenterOk = false;
   }
-  exploreIslandCenterActionChange() {
-    this.exploreIslandCenterOk = true;
-  }
-  newExploreIslandCenterOkData() {
-    this.exploreIslandCenterOkChange();
-    return this.exploreIslandCenterOk;
-  }
   exploreIslandCenterOkData() {
+    this.exploreIslandCenterChange();
     return this.exploreIslandCenterOk;
-  }
-  newExploreIslandCenterActionData() {
-    this.exploreIslandCenterActionChange();
-    return this.exploreIslandCenterAction;
   }
   exploreIslandCenterActionData() {
+    this.exploreIslandCenterChange();
     return this.exploreIslandCenterAction;
   }
 

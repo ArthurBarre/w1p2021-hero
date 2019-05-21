@@ -1,38 +1,52 @@
 <template>
   <div class="game__container">
+    <div class="aside">
+      <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
+      <img
+        class="sound"
+        src="../assets/img/assets-components/soundOff.png"
+        alt="Turn the sound off"
+      >
+    </div>
+
     <div class="game__main">
-      <div class="recap">
-        <div>
-          <h1>Jour {{day}}</h1>
-          <VitalSituation class="recap__vs"></VitalSituation>
-          <p></p>
-        </div>
-        <div>
-          <div class="directions template">
-            <router-link class="directions--prev" to="/game/Craft"></router-link>
-            <router-link class="directions--next" to="/game/Ressources"></router-link>
-          </div>
+      <div class="main__content">
+        <h1>Jour {{day}}</h1>
+        <div class="content__recap">
+          <!-- <RecapExpedition></RecapExpedition> -->
+          <ExpeditionResults/>
+
+          <br>
+          <!-- <RecapCraft></RecapCraft> -->
+          <br>
+          <!-- <VitalSituation class="recap recap__vs"></VitalSituation> -->
         </div>
       </div>
+      <div class="directions">
+        <router-link class="direction direction--prev" to="/game/characters"></router-link>
+        <router-link class="direction direction--next" to="/game/Ressources"></router-link>
+      </div>
     </div>
+    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
 </template>
 
+
 <style lang="scss" scoped>
-.test-btn {
-  width: max-content;
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.1;
 }
 h1 {
-  font-size: 100px;
-  width: max-content;
-  margin: 0 auto;
-  margin-bottom: 100px;
-}
-body {
-  overflow: hidden;
+  font-size: 90px;
+  width: 510px;
+  margin: 10% auto auto;
+  text-align: center;
 }
 .game__container {
-  font-family: sans-serif;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -43,50 +57,59 @@ body {
   align-items: center;
 }
 .game__main {
-  display: flex;
+  margin: auto auto;
   width: 710px;
   height: 710px;
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-image: url(../assets/img/assets-components/PaperFond.png);
-  opacity: 0.9;
+}
+.content__recap {
+  max-width: 600px;
 }
 .recap {
-  display: flex;
-  height: 710px;
-  width: 710px;
-  flex-direction: column;
-  transform: translateY(100px);
-  margin: 0 auto;
+  padding-top: 4%;
 }
-.recap > div {
-  align-items: space-around;
-  height: 120px;
-}
-.directions {
-  width: 710px;
+.direction--next::after {
   position: absolute;
+  right: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowRight.png);
+}
+.direction--prev::after {
+  position: absolute;
+  left: 32%;
+  bottom: 13%;
+  content: url(../assets/img/assets-components/ArrowLeft.png);
+}
+.aside {
+  position: absolute;
+  right: 15%;
+  top: 8%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  bottom: 110px;
-  height: 90px;
-  .directions--next {
-    transform: translateX(100px);
-  }
-  .directions--next::after {
-    content: url(../assets/img/assets-components/ArrowRight.png);
-  }
-  .directions--prev {
-    transform: translateX(-100px);
-  }
-  .directions--prev::after {
-    content: url(../assets/img/assets-components/ArrowLeft.png);
-  }
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 150px;
+}
+.sound {
+  width: 50px;
+  margin-top: 20%;
+}
+aside {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 16px;
 }
 </style>
 
 <script>
 import VitalSituation from "../components/VitalSituation.vue";
-import ExpeditionResult from "../components/ExpeditionResult.vue";
+import ExpeditionResults from "../expeditions/ExpeditionResults.vue";
 import user from "../json/user.json";
 import dayService from "../services/dayService";
 import healthService from "../services/healthService";
@@ -94,16 +117,18 @@ import healthService from "../services/healthService";
 export default {
   data() {
     return {
-      health: healthService.checkHealth(),
-      day: dayService.test()
+      health: null,
+      day: null
     };
   },
   components: {
     VitalSituation,
-    ExpeditionResult
+    ExpeditionResults
   },
   mounted() {
+    this.health = healthService.testHealth();
     console.log("health from recap : " + this.health);
+    this.day = dayService.test();
   }
 };
 </script>

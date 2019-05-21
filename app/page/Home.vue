@@ -1,16 +1,30 @@
 <template>
   <div class="home">
+    <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
     <div class="home__content">
-      <h1>L'île</h1>
-      <router-link class="button" to="/game/recap">
+      <img
+        class="sound"
+        src="../assets/img/assets-components/soundOff.png"
+        alt="Turn the sound off"
+      >
+      <h1>Survis le temps necessaire à la construction d’un radeau qui te permettra de te libérer de cette île</h1>
+      <router-link class="button hover" to="/game/characters">
         <!-- <span>Go to Game</span> -->
       </router-link>
+      <div class="button"></div>
     </div>
+    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
 </template>
 
 
 <style lang="scss" scoped>
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
 .home {
   display: flex;
   flex-direction: column;
@@ -22,44 +36,57 @@
   background-repeat: no-repeat;
   .home__content {
     margin: auto auto;
+    background-image: url(../assets/img/assets-components/PaperFond.png);
+    width: 710px;
+    height: 450px;
+    margin-top: 0%;
   }
   h1 {
-    font-size: 200px;
-    color: gold;
-    font-family: sans-serif;
+    font-size: 25px;
+    width: 510px;
+    margin: 10% auto auto;
+    text-align: center;
   }
   .button {
-    margin: 100px auto;
+    margin: 8% auto auto;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 50px;
-    background-color: #2196f3;
+    width: 300px;
+    height: 70px;
+    background-color: #0000001a;
+    border: solid 1px #0000001a;
     border-radius: 5px;
     text-decoration: none;
   }
   .button::after {
-    content: "Play";
-    margin: auto auto;
-    color: white;
-    font-family: sans-serif;
-    font-size: 25px;
+    content: "Reprendre la partie";
   }
-  .button:hover::after {
-    color: #2196f3;
+  .hover {
+    width: 200px;
   }
-
-  .button:hover {
-    background-color: white;
-    border: solid 4px #2196f3;
+  .hover::after {
+    content: "Jouer";
+  }
+  .hover:hover {
+    background-color: none;
+    border: solid 2px var(--brand-color);
   }
 }
-span {
-  text-decoration: none;
-  font-size: 25px;
-  font-family: sans-serif;
-  color: white;
+.logo {
+  width: 200px;
+  margin-top: 2%;
+}
+.sound {
+  position: absolute;
+  right: 20%;
+  top: 30%;
+}
+aside {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 </style>
 

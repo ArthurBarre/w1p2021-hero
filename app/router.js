@@ -8,12 +8,14 @@ import Win from './page/Win.vue';
 import Loose from './page/Loose.vue';
 import Dev from './page/Dev.vue';
 import Render from './days/Render.vue';
+import Characters from './page/Characters.vue';
 
 import Recaps from './components/Recaps.vue';
 import Expeditions from './components/Expeditions.vue';
 import Ressources from './components/Ressources.vue';
 import Crafts from './components/Crafts.vue';
 import NewExpeditions from './components/newExpeditions.vue';
+
 
 Vue.use(Router);
 
@@ -25,6 +27,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/game/Characters',
+      name: 'characters',
+      component: Characters,
     },
     {
       path: '/page',

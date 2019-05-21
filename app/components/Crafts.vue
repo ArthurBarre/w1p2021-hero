@@ -1,15 +1,27 @@
 <template>
   <div class="game__container">
+    <div class="aside">
+      <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
+      <img
+        class="sound"
+        src="../assets/img/assets-components/soundOff.png"
+        alt="Turn the sound off"
+      >
+    </div>
+
     <div class="game__main">
-      <div class="craft__box">
-        <h3>Construction</h3>
-        <button class="button__ressource">le test</button>
-        <button class="button">faim</button>
-        <button class="button">Test 2</button>
-        <p
-          class="craft__explications"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi sapiente. Expedita sequi quisquam, repudiandae vel deserunt cum similique iste eaque animi, eos ipsum at qui reprehenderit pariatur architecto accusantium.</p>
-        <br>
+      <h1>Jour {{day}}</h1>
+
+      <div class="main__content">
+        <div class="content__recap">
+          <p
+            class="recap"
+          >Il est temps pour moi de prendre mon destin en main. Je dois me fabriquer des objets pour me nourrir et pourquoi pas sortir de cette île...</p>
+          <br>
+          <p class="recap--question">Qu’est ce que je peux construire ?</p>
+        </div>
+
+        <!-- Faire un component supplémentaire dont le template correspond au craft__wrapper -->
         <p class="craft__questions">Voulez vous faire un craft ?</p>
         <div class="craft__wrapper">
           <div class="firstEl element"></div>
@@ -18,10 +30,8 @@
           <span class="equal">=</span>
           <div class="resultEl element"></div>
         </div>
-        <div class="directions template">
-          <div></div>
+        <div class="directions">
           <router-link class="directions--prev" to="/game/Expedition"></router-link>
-
           <div @click="presets" v-if="this.health!=0">
             <router-link class="directions--next" to="/game/Recap"></router-link>
           </div>
@@ -31,60 +41,63 @@
         </div>
       </div>
     </div>
+    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
 </template>
 
 <style lang="scss" scoped>
-body {
-  overflow: hidden;
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.1;
+}
+h1 {
+  font-size: 90px;
+  margin: 10% 0 2% 0;
+  text-align: center;
 }
 .game__container {
-  font-family: sans-serif;
+  background-image: url(../assets/img/Fonds/Game.jpg);
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/img/Fonds/Game.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
   align-items: center;
 }
 .game__main {
-  display: flex;
+  margin: auto auto;
   width: 710px;
   height: 710px;
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-image: url(../assets/img/assets-components/PaperFond.png);
-  opacity: 0.9;
 }
-.craft__box {
-  margin-top: 90px;
+.content__recap {
+  max-width: 600px;
 }
-.craft__questions {
-  margin-left: 40px;
-  margin-top: 10px;
-}
-.craft__explications {
-  margin-left: 10px;
-  padding: 2%;
-  margin-top: 10px;
-}
-h3 {
-  margin-left: 10px;
-}
-.element {
-  width: 80px;
-  height: 80px;
-  background-color: red;
-  border-radius: 1000px;
+.recap {
+  padding-top: 4%;
 }
 .craft__wrapper {
-  width: 60%;
-  margin: 0 auto;
-  transform: translateX(55px) translateY(60px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 5%;
+  width: 600px;
+  height: 200px;
+  padding-top: 2%;
+  justify-content: space-evenly;
 }
-.craft__wrapper > * {
-  display: inline-block;
-  vertical-align: middle;
+.element {
+  background-color: red;
+  width: 100px;
+  height: 100px;
 }
 .directions {
   width: 710px;
@@ -107,6 +120,27 @@ h3 {
 .directions--next {
   transform: translateX(-200px);
 }
+.aside {
+  position: absolute;
+  right: 15%;
+  top: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 150px;
+}
+.sound {
+  width: 50px;
+  margin-top: 20%;
+}
+aside {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 16px;
+}
 </style>
 
 <script>
@@ -120,30 +154,28 @@ export default {
   data: function() {
     return {
       //Resssources data
-      day: dayService.test(),
-      thirstLevel: thirstService.valueThirst(),
-      hungerLevel: hungerService.valueHunger(),
-      health: healthService.checkHealth()
+      day: null,
+      thirstLevel: null,
+      hungerLevel: null,
+      health: null
     };
   },
   methods: {
     // water
     thirst() {
       thirstService.decrement();
-      this.thirstLevel = thirstService.valueThirst();
-      console.log(this.thirstLevel);
     },
     // Food
     hunger() {
       hungerService.decrement();
-      this.hungerLevel = hungerService.valueHunger();
     },
     // Day Counter
     dayPassed() {
-      this.day = dayService.increment();
+      dayService.increment();
     },
+
     healthFunction() {
-      healthService.checkHealth();
+      healthService.testHealth();
     },
     //set health
     presets() {
@@ -154,6 +186,7 @@ export default {
     }
   },
   mounted: function() {
+    this.health = healthService.testHealth();
     console.log("health from craft : " + this.health);
   }
 };
