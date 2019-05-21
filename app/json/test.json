@@ -6,7 +6,7 @@
     "size": "medium",
     "statePossibility": 1,
     "items": "axe",
-    "state": 0,
+    "state": false,
     "expeditionResult": "Mon expédition au sommet de l’île s’est avérée très interessante. Malgré ma difficulté à pénétrer la foret dense, le sommet ne culmine pas si haut. En quelques heures j’ai eu une vision panoramique de mon exil. Et j’ai pu reperer un objet que la mer a dû déposer pendant la nuit sur une plage voisine de la mienne. J’ai maintenant une hache un peu émoussée !"
   },
   "exploreAround": {

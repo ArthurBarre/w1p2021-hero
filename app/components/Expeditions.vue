@@ -10,17 +10,17 @@
         <br>
         <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
         <div class="expeditions">
-          <div @click="test" v-if="exploreIslandSummitOk">sommet de l'île</div>
+          <div @click="exploreIslandSummit" v-if="exploreIslandSummitOk">sommet de l'île</div>
 
-          <div v-if="exploreIslandCenterOk">centre de l'ile</div>
+          <div @click="exploreIslandCenter" v-if="exploreIslandCenterOk">centre de l'ile</div>
 
-          <div v-if="exploreAroundOk">le tour de l'île maggle</div>
+          <!-- <div @click="exploreAround" v-if="exploreAroundOk">le tour de l'île maggle</div> -->
 
-          <div v-if="visitBoatWreckOk">épave du bateau</div>
+          <!-- <div @click="visitBoatWreck" v-if="visitBoatWreckOk">épave du bateau</div> -->
 
-          <div v-if="fishOk">aller pêcher des petits poissons</div>
-          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
-          <button>test</button>
+          <!-- <div @click="fish" v-if="fishOk">aller pêcher des petits poissons</div> -->
+          <!-- <div>aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div> -->
+          <button @click="test">test</button>
         </div>
         <div class="directions template">
           <router-link class="directions--prev" to="/game/Ressources"></router-link>
@@ -109,18 +109,30 @@ export default {
   data: function() {
     return {
       health: healthService.checkHealth(),
-      visitBoatWreckOk: true,
-      exploreAroundOk: true,
-      exploreIslandSummitOk: true,
-      exploreIslandSummitAction: 0,
-      exploreIslandCenterOk: true,
-      fishOk: false,
-      waterOk: false
+      // visitBoatWreckOk: true,
+      // exploreAroundOk: true,
+      exploreIslandSummitOk: expeditionsService.islandSummitOkData(),
+      exploreIslandSummitAction: expeditionsService.islandSummitActionData(),
+      exploreIslandCenterOk: true
+      // fishOk: false,
+      // waterOk: false
     };
   },
   methods: {
+    exploreIslandSummit() {
+      expeditionsService.islandSummitFunction();
+    },
+    exploreAround() {
+      this.exploreAroundOk = false;
+    },
+    exploreIslandCenter() {
+      this.exploreIslandCenterOk = false;
+    },
+    visitBoatWreck() {
+      this.visitBoatWreckOk = false;
+    },
     test() {
-      this.exploreIslandSummitAction = expeditionsService.islandSummit();
+      console.log(this.exploreIslandSummitOk);
       console.log(this.exploreIslandSummitAction);
     }
   },

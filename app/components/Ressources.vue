@@ -168,14 +168,14 @@ export default {
     drink: function() {
       ressourcesService.decrementWater();
       thirstService.drink();
-      this.health = thirstService.valueThirst();
+      this.health = healthService.checkHealth(),
       console.log('waterQuantity : '+ressourcesService.valueFoodQuantity());
       console.log("health from drinking : " + this.health);
     },
     eat: function() {
       ressourcesService.decrementFood();
       hungerService.eat();
-      this.health = hungerService.valueHunger();
+      this.health = healthService.checkHealth(),
       console.log('fp: '+hungerService.valueHunger())
       console.log('foodQuantity : '+ressourcesService.valueFoodQuantity());
       console.log("health from eating : " + this.health);
