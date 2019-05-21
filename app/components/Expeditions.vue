@@ -10,22 +10,16 @@
         <br>
         <p class="expedition__question">Quelle expédition veux-tu réaliser ?</p>
         <div class="expeditions">
-          <!-- <Expedition
-            class="one"
-            v-for="expedition in 2"
-            :key="expedition"
-            v-bind:expedition="expedition"
-          ></Expedition>-->
-          <div v-if="exploreIslandSummit">sommet de l'île</div>
+          <div @click="test" v-if="exploreIslandSummitOk">sommet de l'île</div>
 
-          <div v-if="exploreIslandCenter">centre de l'ile</div>
+          <div v-if="exploreIslandCenterOk">centre de l'ile</div>
 
-          <div v-if="exploreAround">le tour de l'île maggle</div>
+          <div v-if="exploreAroundOk">le tour de l'île maggle</div>
 
-          <div v-if="visitBoatWreck">épave du bateau</div>
+          <div v-if="visitBoatWreckOk">épave du bateau</div>
 
-          <div v-if="fish">aller pêcher des petits poissons</div>
-          <div v-if="water">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
+          <div v-if="fishOk">aller pêcher des petits poissons</div>
+          <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
           <button>test</button>
         </div>
         <div class="directions template">
@@ -108,21 +102,28 @@ h3 {
 </style>
 
 <script>
-import data from "../json/expeditions.json";
+import data from "../json/test.json";
 import healthService from "../services/healthService";
+import expeditionsService from "../services/expeditionsService";
 export default {
   data: function() {
     return {
       health: healthService.checkHealth(),
-      visitBoatWreck: true,
-      exploreAround: true,
-      exploreIslandSummit: true,
-      exploreIslandCenter: true,
-      fish: true,
-      water: true
+      visitBoatWreckOk: true,
+      exploreAroundOk: true,
+      exploreIslandSummitOk: true,
+      exploreIslandSummitAction: 0,
+      exploreIslandCenterOk: true,
+      fishOk: false,
+      waterOk: false
     };
   },
-  methods: {},
+  methods: {
+    test() {
+      this.exploreIslandSummitAction = expeditionsService.islandSummit();
+      console.log(this.exploreIslandSummitAction);
+    }
+  },
   mounted() {
     console.log("health from expe" + this.health);
   }

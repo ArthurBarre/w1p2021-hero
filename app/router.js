@@ -13,6 +13,7 @@ import Recaps from './components/Recaps.vue';
 import Expeditions from './components/Expeditions.vue';
 import Ressources from './components/Ressources.vue';
 import Crafts from './components/Crafts.vue';
+import NewExpeditions from './components/newExpeditions.vue';
 
 Vue.use(Router);
 
@@ -44,6 +45,11 @@ const router = new Router({
       path: '/game/Expeditions',
       name: 'Expeditions',
       component: Expeditions
+    },
+    {
+      path: '/game/NewExpeditions',
+      name: 'NewExpeditions',
+      component: NewExpeditions
     },
     {
       path: '/game/Ressources',
