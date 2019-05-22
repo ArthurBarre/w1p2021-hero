@@ -5,8 +5,9 @@ class HealthService {
   constructor() {
     this.hungerLevel = hungerService.test();
     this.thirstLevel = thirstService.test();
+    this.health = null;
   }
-  testHealth() {
+  checkHealth() {
     if (this.hungerLevel > this.thirstLevel) {
       this.health = this.thirstLevel;
       return this.health;

@@ -37,6 +37,7 @@
           <br>
           <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
         </div>
+        <router-link to="/game/Inventory">inventory</router-link>
         <div class="directions">
           <router-link class="direction direction--prev" to="/game/Ressources"></router-link>
           <router-link class="direction direction--next" to="/game/Craft"></router-link>
@@ -130,7 +131,7 @@ export default {
   data: function() {
     return {
       day: dayService.test(),
-      health: healthService.testHealth(),
+      health: healthService.checkHealth(),
       exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
       exploreIslandSummitAction: data.events.exploreIslandSummit.stateAction,
       exploreBoatWreckOk: data.events.exploreBoatWreck.stateOk,

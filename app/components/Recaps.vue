@@ -10,24 +10,25 @@
     </div>
 
     <div class="game__main">
-      <div class="main__content">
-        <h1>Jour {{day}}</h1>
-        <div class="content__recap">
-          <!-- <RecapExpedition></RecapExpedition> -->
-          <ExpeditionResults/>
+      <h1>Jour {{day}}</h1>
+      <!-- <RecapExpedition></RecapExpedition> -->
+      <div class="content__recap">
+        <article class="VS">
+          <VitalSituation/>
+        </article>
 
-          <br>
-          <!-- <RecapCraft></RecapCraft> -->
-          <br>
-          <VitalSituation class="recap recap__vs"></VitalSituation>
-        </div>
+        <article class="ER">
+          <ExpeditionResults/>
+        </article>
       </div>
+      <!-- <RecapCraft></RecapCraft> -->
+
       <div class="directions">
-        <router-link class="direction direction--prev" to="/game/characters"></router-link>
+        <router-link class="direction direction--prev" to="/game/Craft"></router-link>
         <router-link class="direction direction--next" to="/game/Ressources"></router-link>
       </div>
     </div>
-    <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
+    <span>Une collaboration d'Arthur Barré & Kalani Marquand</span>
   </div>
 </template>
 
@@ -45,6 +46,16 @@ h1 {
   width: 510px;
   margin: 10% auto auto;
   text-align: center;
+}
+article {
+  display: flex;
+  flex-direction: row;
+}
+article > * {
+  width: 710px;
+  align-items: center;
+  text-align: center;
+  padding: 5%;
 }
 .game__container {
   display: flex;
@@ -66,11 +77,17 @@ h1 {
   flex-direction: column;
   background-image: url(../assets/img/assets-components/PaperFond.png);
 }
-.content__recap {
-  max-width: 600px;
-}
 .recap {
   padding-top: 4%;
+}
+.content__recap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-200px);
+}
+.recapVitalSituation {
+  padding: 5%;
 }
 .direction--next::after {
   position: absolute;
@@ -99,7 +116,10 @@ h1 {
   width: 50px;
   margin-top: 20%;
 }
-aside {
+article {
+  width: 710px;
+}
+span {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -110,14 +130,11 @@ aside {
 <script>
 import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResults from "../expeditions/ExpeditionResults.vue";
-import user from "../json/user.json";
 import dayService from "../services/dayService";
-import healthService from "../services/healthService";
 
 export default {
   data() {
     return {
-      health: null,
       day: null
     };
   },
@@ -126,11 +143,7 @@ export default {
     ExpeditionResults
   },
   mounted() {
-    this.health = healthService.testHealth();
-    console.log("health from recap : " + this.health);
     this.day = dayService.test();
-    this.health = healthService.testHealth();
-    console.log("Health from vital situation: " + this.health);
   }
 };
 </script>

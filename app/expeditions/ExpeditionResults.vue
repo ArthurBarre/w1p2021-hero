@@ -1,15 +1,15 @@
-<template>
+<template >
   <div>
     <div v-if="expeditionSave === 3">
       <IslandCenter/>
     </div>
-    <div v-if="expeditionSave === 2">
+    <div v-else-if="expeditionSave === 2">
       <ExploreAround/>
     </div>
-    <div v-if="expeditionSave === 4">
+    <div v-else-if="expeditionSave === 4">
       <BoatWreck/>
     </div>
-    <div v-if="expeditionSave === 1">
+    <div v-else-if="expeditionSave === 1">
       <IslandSummit/>
     </div>
   </div>
@@ -27,7 +27,7 @@ import ExploreAround from "../expeditions/ExploreAround.vue";
 export default {
   data: function() {
     return {
-      expeditionSave: Number
+      expeditionSave: null
     };
   },
   components: {
@@ -38,7 +38,6 @@ export default {
   },
   mounted() {
     this.expeditionSave = expeditionsService.expeditionSave();
-    console.log("expe save" + this.expeditionSave);
   }
 };
 </script>

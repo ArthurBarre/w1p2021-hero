@@ -30,7 +30,7 @@ class ExpeditionsChoices {
   islandSummitChange() {
     this.exploreIslandSummitOk = false;
     this.exploreIslandSummitAction = true;
-    //this.saveNumber = 1;
+    this.saveNumber = 1;
   }
   islandSummitOkData() {
     this.islandSummitChange();
@@ -46,7 +46,7 @@ class ExpeditionsChoices {
   exploreBoatWreckChange() {
     this.exploreBoatWreckOk = false;
     this.exploreBoatWreckAction = true;
-    //this.saveNumber = 4;
+    this.saveNumber = 4;
   }
   exploreBoatWreckOkData() {
     this.exploreBoatWreckChange();
@@ -62,6 +62,7 @@ class ExpeditionsChoices {
   exploreAroundChange() {
     this.exploreAroundOk = false;
     this.exploreAroundAction = true;
+    this.saveNumber = 2;
   }
   exploreAroundOkData() {
     this.exploreAroundChange();
@@ -77,7 +78,7 @@ class ExpeditionsChoices {
   exploreIslandCenterChange() {
     this.exploreIslandCenterAction = true;
     this.exploreIslandCenterOk = false;
-    //this.saveNumber = 3;
+    this.saveNumber = 3;
   }
   exploreIslandCenterOkData() {
     this.exploreIslandCenterChange();
@@ -88,7 +89,6 @@ class ExpeditionsChoices {
     return this.exploreIslandCenterAction;
   }
   expeditionSave() {
-    this.saveNumber = 1;
     return this.saveNumber;
   }
 

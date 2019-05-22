@@ -6,23 +6,29 @@
       v-bind:text="data.text"
       v-bind:id="data.id"
     />-->
-    <!-- <div>hache</div>
-    <br>
-    <div>pieces de tissus</div>-->
-    <br>
+    <!-- 
+    <br>-->
+
     <button @click="mounted">ghghyg</button>
 
-    <div v-if="saveNumber === 1">canne à pêche</div>
-    <br>
-    <!-- <div>eau</div>
-    <br>
-    <div>nourriture</div>
-    <br>
-    <div>ficelles</div>
-    <br>
-    <div>bois</div>
-    <br>
-    <div>planche</div>-->
+    <!-- <div v-if="saveNumber === 6">canne à pêche</div> -->
+    <div v-if="saveNumber === 3">le point d'eau maggle</div>
+    <div v-else-if="saveNumber === 3">nourriture</div>
+    <div v-else-if="saveNumber === 4">
+      <div>ficelles</div>
+      <div>pieces de tissus</div>
+    </div>
+    <div v-else-if="saveNumber === 4"></div>
+    <div v-else-if="saveNumber === 1">hache</div>
+    <div v-else-if="saveNumber === 2">bois</div>
+    <!-- <div v-else-if="saveNumber === 1">planche</div> -->
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <router-link to="/game/Craft">Craft</router-link>
+    </div>
   </div>
 </template>
 

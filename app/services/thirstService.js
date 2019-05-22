@@ -1,6 +1,6 @@
 class WaterService {
   constructor() {
-    this.value = 3;
+    this.value = 4;
   }
   decrement() {
     this.value--;

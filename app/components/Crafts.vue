@@ -144,19 +144,16 @@ aside {
 </style>
 
 <script>
-import user from "../json/user.json";
-import thirstService from "../services/thirstService";
-import hungerService from "../services/hungerService";
-import dayService from "../services/dayService";
-import healthService from "../services/healthService";
+import thirstService from "../services/thirstService.js";
+import hungerService from "../services/hungerService.js";
+import dayService from "../services/dayService.js";
+import healthService from "../services/healthService.js";
 
 export default {
   data: function() {
     return {
       //Resssources data
       day: null,
-      thirstLevel: null,
-      hungerLevel: null,
       health: null
     };
   },
@@ -173,21 +170,25 @@ export default {
     dayPassed() {
       dayService.increment();
     },
-
     healthFunction() {
-      healthService.testHealth();
+      healthService.checkHealth();
+    },
+    dayNopassed() {
+      this.day = dayService.test();
     },
     //set health
     presets() {
       this.thirst();
       this.hunger();
-      this.dayPassed();
       this.healthFunction();
+      this.dayPassed();
     }
   },
-  mounted: function() {
-    this.health = healthService.testHealth();
-    console.log("health from craft : " + this.health);
+  mounted() {
+    this.dayNopassed();
+    this.thirstLevel = thirstService.test();
+    this.hungerLevel = hungerService.test();
+    this.health = healthService.checkHealth();
   }
 };
 </script>
