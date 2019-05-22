@@ -1,5 +1,5 @@
 <template>
-  <div v-if="health === 3">
+  <div v-if="health == 3">
     <p
       v-if="healthSentenceRandom === 1"
     >J’aime sentir les nutriments animer mon corps, je suis en pleine forme aujourd’hui.</p>
@@ -45,17 +45,16 @@ import healthService from "../services/healthService";
 export default {
   data: function() {
     return {
-      health: null,
+      health: Number,
       healthSentenceRandom: Number
     };
-  },
-  mounted: function() {
-    console.log("Health from vital situation: " + this.health);
-    this.health = healthService.testHealth();
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;
     // console.log("Recap Random Sentence : " + this.healthSentenceRandom);
+  },
+  mounted() {
+    this.health = healthService.testHealth();
   }
 };
 </script>

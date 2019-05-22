@@ -44,6 +44,7 @@ class ExpeditionsChoices {
   exploreBoatWreckChange() {
     this.exploreBoatWreckOk = false;
     this.exploreBoatWreckAction = true;
+    this.saveNumber = 4; 
   }
   exploreBoatWreckOkData() {
     this.exploreBoatWreckChange();
@@ -59,6 +60,7 @@ class ExpeditionsChoices {
   exploreAroundChange() {
     this.exploreAroundOk = false;
     this.exploreAroundAction = true;
+    this.saveNumber = 2; 
   }
   exploreAroundOkData() {
     this.exploreAroundChange();
@@ -74,6 +76,7 @@ class ExpeditionsChoices {
   exploreIslandCenterChange() {
     this.exploreIslandCenterAction = true;
     this.exploreIslandCenterOk = false;
+    this.saveNumber = 3; 
   }
   exploreIslandCenterOkData() {
     this.exploreIslandCenterChange();
@@ -83,6 +86,9 @@ class ExpeditionsChoices {
     this.exploreIslandCenterChange();
     return this.exploreIslandCenterAction;
   }
-
+  expeditionSave() {
+    return this.saveNumber;
+  }
+  
 }
 module.exports = new ExpeditionsChoices();

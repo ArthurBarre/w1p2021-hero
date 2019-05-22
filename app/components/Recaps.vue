@@ -19,7 +19,7 @@
           <br>
           <!-- <RecapCraft></RecapCraft> -->
           <br>
-          <!-- <VitalSituation class="recap recap__vs"></VitalSituation> -->
+          <VitalSituation class="recap recap__vs"></VitalSituation>
         </div>
       </div>
       <div class="directions">
@@ -129,6 +129,8 @@ export default {
     this.health = healthService.testHealth();
     console.log("health from recap : " + this.health);
     this.day = dayService.test();
+    this.health = healthService.testHealth();
+    console.log("Health from vital situation: " + this.health);
   }
 };
 </script>
