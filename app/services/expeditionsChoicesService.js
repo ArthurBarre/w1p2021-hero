@@ -4,6 +4,7 @@ class ExpeditionsChoices {
     //Island Summit var
     this.exploreIslandSummitOk = data.events.exploreIslandSummit.stateOk;
     this.exploreIslandSummitAction = data.events.exploreIslandSummit.stateAction;
+    this.islandSummitItemSave = null;
     //Boat Wreck var
     this.exploreBoatWreckOk = data.events.exploreAround.stateOk;
     this.exploreBoatWreckAction = data.events.exploreAround.stateAction;
@@ -19,6 +20,7 @@ class ExpeditionsChoices {
     //water var
     this.waterOk = null;
     this.waterAction = null;
+    // Save Expedition var
     this.saveNumber = Number;
   }
 
@@ -28,7 +30,7 @@ class ExpeditionsChoices {
   islandSummitChange() {
     this.exploreIslandSummitOk = false;
     this.exploreIslandSummitAction = true;
-    this.saveNumber = 1;
+    //this.saveNumber = 1;
   }
   islandSummitOkData() {
     this.islandSummitChange();
@@ -44,7 +46,7 @@ class ExpeditionsChoices {
   exploreBoatWreckChange() {
     this.exploreBoatWreckOk = false;
     this.exploreBoatWreckAction = true;
-    this.saveNumber = 4; 
+    //this.saveNumber = 4;
   }
   exploreBoatWreckOkData() {
     this.exploreBoatWreckChange();
@@ -60,7 +62,6 @@ class ExpeditionsChoices {
   exploreAroundChange() {
     this.exploreAroundOk = false;
     this.exploreAroundAction = true;
-    this.saveNumber = 2; 
   }
   exploreAroundOkData() {
     this.exploreAroundChange();
@@ -76,7 +77,7 @@ class ExpeditionsChoices {
   exploreIslandCenterChange() {
     this.exploreIslandCenterAction = true;
     this.exploreIslandCenterOk = false;
-    this.saveNumber = 3; 
+    //this.saveNumber = 3;
   }
   exploreIslandCenterOkData() {
     this.exploreIslandCenterChange();
@@ -87,8 +88,9 @@ class ExpeditionsChoices {
     return this.exploreIslandCenterAction;
   }
   expeditionSave() {
+    this.saveNumber = 1;
     return this.saveNumber;
   }
-  
+
 }
 module.exports = new ExpeditionsChoices();

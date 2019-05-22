@@ -1,21 +1,5 @@
 <template>
-  <div class="inventary">
-    <div class="inventary__item">
-      <img :src="axeSrc" v-bind:class="{ none: !axe.state }"></img>
-    </div>
-    <div class="inventary__item">
-      <ItemBoat v-bind:class="{ none: !boat.state }"></ItemBoat>
-    </div>
-    <div class="inventary__item">
-      <ItemFish v-bind:class="{ none: !fish.state }"></ItemFish>
-    </div>
-    <div class="inventary__item">
-      <ItemFishingRod v-bind:class="{ none: !fishingRod.state }"></ItemFishingRod>
-    </div>
-    <div class="inventary__item">
-      <ItemString v-bind:class="{ none: !string.state }"></ItemString>
-    </div>
-  </div>
+  <div class="inventary"></div>
 </template>
 
 <style lang="scss" scoped>

@@ -1,34 +1,42 @@
 {
   "inventory": {
     "itemAxe": {
+      "text": "Axe",
       "state": true,
       "src": "../assets/img/assets-components/items/itemsFloor/AxeFloor.png"
     },
     "itemFabric": {
+      "text": "Pièces de tissus",
       "state": true,
       "src": "../assets/img/assets-components/items/itemsFloor/fabricFloor.png"
     },
     "itemRodFisshing": {
+      "text": "Canne à pêche",
       "state": true,
       "src": "../assets/img/assets-components/items/itemsFloor/fishingRodFloor.png"
     },
     "itemFood": {
+      "text": "Nouriture",
       "state": true,
       "src": "../assets/img/Assets/items/itemsFloor/foodFloor.png"
     },
     "itemPlank": {
+      "text": "Planche",
       "state": true,
       "src": "../assets/img/Assets/items/itemsFloor/plankFloor.png"
     },
     "itemString": {
+      "text": "ficelles",
       "state": true,
       "src": "../assets/img/Assets/items/itemsFloor/stringFloor.png"
     },
     "itemWater": {
+      "text": "Eau",
       "state": true,
       "src": "../assets/img/Assets/items/itemsFloor/waterFloor.png"
     },
     "itemWood": {
+      "text": "Bois",
       "state": true,
       "src": "../assets/img/Assets/items/itemsFloor/woodFloor.png"
     }

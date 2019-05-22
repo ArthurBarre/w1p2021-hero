@@ -14,7 +14,7 @@ import Recaps from './components/Recaps.vue';
 import Expeditions from './components/Expeditions.vue';
 import Ressources from './components/Ressources.vue';
 import Crafts from './components/Crafts.vue';
-import NewExpeditions from './components/newExpeditions.vue';
+import Inventory from './inventory/Inventory.vue';
 
 
 Vue.use(Router);
@@ -54,9 +54,9 @@ const router = new Router({
       component: Expeditions
     },
     {
-      path: '/game/NewExpeditions',
-      name: 'NewExpeditions',
-      component: NewExpeditions
+      path: '/game/Inventory',
+      name: 'Inventory',
+      component: Inventory
     },
     {
       path: '/game/Ressources',

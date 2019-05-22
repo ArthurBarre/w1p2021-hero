@@ -122,7 +122,7 @@ aside {
 </style>
 
 <script>
-import data from "../json/test.json";
+import data from "../json/expeditions.json";
 import healthService from "../services/healthService";
 import expeditionsChoicesService from "../services/expeditionsChoicesService";
 import dayService from "../services/dayService";
@@ -131,16 +131,16 @@ export default {
     return {
       day: dayService.test(),
       health: healthService.testHealth(),
-      exploreIslandSummitOk: data.islandSummit.stateOk,
-      exploreIslandSummitAction: data.islandSummit.stateAction,
-      exploreBoatWreckOk: data.exploreBoatWreck.stateOk,
-      exploreBoatWreckAction: data.exploreBoatWreck.stateAction,
-      exploreIslandCenterOk: data.exploreIslandCenter.stateOk,
-      exploreIslandCenterAction: data.exploreIslandCenter.stateAction,
-      exploreAroundAction: data.exploreAround.stateAction,
-      exploreAroundOk: data.exploreAround.stateOk,
-      fishOk: data.fish.stateOk,
-      waterOk: data.water.stateOk
+      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
+      exploreIslandSummitAction: data.events.exploreIslandSummit.stateAction,
+      exploreBoatWreckOk: data.events.exploreBoatWreck.stateOk,
+      exploreBoatWreckAction: data.events.exploreBoatWreck.stateAction,
+      exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
+      exploreIslandCenterAction: data.events.exploreIslandCenter.stateAction,
+      exploreAroundAction: data.events.exploreAround.stateAction,
+      exploreAroundOk: data.events.exploreAround.stateOk,
+      fishOk: data.events.fish.stateOk,
+      waterOk: data.events.water.stateOk
     };
   },
   methods: {

@@ -1,22 +1,11 @@
 <template>
-  <div v-html="text" class="square" v-bind:class="size" v-bind:style="{ backgroundColor: color}"></div>
+  <div v-html="text" class="inventoryChild"></div>
 </template>
 
-<script>
-export default {
-  name: "Square",
-  props: {
-    src: String,
-    color: String,
-    size: String,
-    text: String
-  }
-};
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.square {
+.inventoryChild {
   background-color: cornflowerblue;
   color: #fff;
   margin: 10px;
@@ -24,7 +13,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.square:hover {
+.inventoryChild:hover {
   transform: scale(1.1);
   transition: ease-in-out 0.2s;
 }
@@ -41,3 +30,13 @@ export default {
   height: 300px;
 }
 </style>
+
+
+<script>
+export default {
+  name: "inventoryChild",
+  props: {
+    text: String
+  }
+};
+</script>
