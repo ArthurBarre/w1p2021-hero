@@ -4,32 +4,26 @@
       "id": 1,
       "title": "Sommet de l'Île",
       "src": "../assets/img/assets-components/Explorations/islandSummit.png",
-      "stateOk": true,
-      "stateAction": false,
-      "expeditionResult": "Mon expédition au sommet de l’île s’est avérée très intéressante. Malgré ma difficulté à pénétrer la forêt dense, le sommet ne culmine pas si haut. En quelques heures j’ai eu une vision panoramique de mon exil. Et j’ai pu repérer un objet que la mer a dû déposer pendant la nuit sur une plage voisine de la mienne. J’ai maintenant une hache un peu émoussée !"
+      "expeditionResult": "Mon expédition au sommet de l’île s’est avérée très intéressante. Malgré ma difficulté à pénétrer la forêt dense, le sommet ne culmine pas si haut. En quelques heures j’ai eu une vision panoramique de mon exil. Et j’ai pu repérer un objet que la mer a dû déposer pendant la nuit sur une plage voisine de la mienne. J’ai maintenant une hache un peu émoussée !",
+      "item": "axe"
     },
     "exploreAround": {
       "id": 2,
       "title": "Explorer le tour de l'île",
       "src": "../assets/img/assets-components/Explorations/exploreAround.png",
-      "stateOk": true,
-      "stateAction": false,
-      "expeditionResult": "Mon exploration autour de l’île a presque été un plaisir. J’ai rapporté du petit bois et j’ai fais rouler de plus grosses bûches jusqu’au campement. Ce bois rique d’être necessaire si je veux survivre ici."
+      "expeditionResult": "Mon exploration autour de l’île a presque été un plaisir. J’ai rapporté du petit bois et j’ai fais rouler de plus grosses bûches jusqu’au campement. Ce bois rique d’être necessaire si je veux survivre ici.",
+      "item": "wood"
     },
     "exploreIslandCenter": {
       "id": 3,
       "title": "Explorer le centre de l'Île",
       "src": "../assets/img/assets-components/Explorations/islandCenter.png",
-      "stateOk": true,
-      "stateAction": false,
       "expeditionResult": "Mon expédition au centre de l’île m’a conduit à une source d’eau fraîche ! J’ai rempli mes gourdes de réserves, je devrais tenir quelques jours de plus."
     },
     "exploreBoatWreck": {
       "id": 4,
       "title": "Fouiller l'épave du bateau",
       "src": "../assets/img/assets-components/Explorations/boatWreck",
-      "stateOk": true,
-      "stateAction": false,
       "expeditionResult": "Mon exploration de l’épave du bateau a été fructueuse ! Malgré la difficulté d’accès du site, j’ai trouvé du tissu et de la ficelle en bon état. J’ai aussi rapporté des fruits sauvages cueillis sur le chemin retour."
     },
     "fish": {
@@ -37,7 +31,6 @@
       "title": "Aller pêcher",
       "src": "../assets/img/assets-components/Explorations/fishAction.png",
       "stateOk": false,
-      "stateAction": false,
       "expeditionResult": [
         "Grâce à la canne à pêche que j’ai pu me fabriquer, j’ai ramené de quoi me nourrir pour quelques jours ! Quel outil formidable. ",
         "Ça a bien mordu ce matin, j’ai changé de zone de pêche et le moins que l’on puisse dire c’est que cette île est riche de denrées.",
@@ -49,7 +42,6 @@
       "title": "Aller Chercher de l'eau",
       "src": "'../assets/img/assets-components/Explorations/waterstop.png'",
       "stateOk": false,
-      "stateAction": false,
       "expeditionResult": [
         "J’ai sû aisément retrouver mon chemin vers le point d’eau, mon expédition m’a permi de ramener de quoi m’abreuver pour au moins une semaine ! ",
         "Encore une expédition fructueuse au point d’eau, J’ai de quoi tenir au moins une semaine de plus sur cette île pittoresque.",

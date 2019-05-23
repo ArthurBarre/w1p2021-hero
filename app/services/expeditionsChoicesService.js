@@ -21,7 +21,7 @@ class ExpeditionsChoices {
     this.waterOk = null;
     this.waterAction = null;
     // Save Expedition var
-    this.saveNumber = Number;
+    this.saveNumber = null;
   }
 
   //ISLAND SUMMIT
@@ -31,6 +31,9 @@ class ExpeditionsChoices {
     this.exploreIslandSummitOk = false;
     this.exploreIslandSummitAction = true;
     this.saveNumber = 1;
+    data[0] = { 'status': true };
+    this.saveNumbers = this.saveNumbers.push(data[0]);
+
   }
   islandSummitOkData() {
     this.islandSummitChange();

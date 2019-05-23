@@ -14,7 +14,7 @@
       <!-- <RecapExpedition></RecapExpedition> -->
       <div class="content__recap">
         <article class="VS">
-          <VitalSituation/>
+          <VitalSituation></VitalSituation>
         </article>
 
         <article class="ER">
@@ -29,11 +29,18 @@
       </div>
     </div>
     <span>Une collaboration d'Arthur Barré & Kalani Marquand</span>
+    <Inventory class="inventory__position"></Inventory>
   </div>
 </template>
 
 
 <style lang="scss" scoped>
+.inventory__position {
+  z-index: 1;
+}
+.directions {
+  z-index: 2;
+}
 * {
   font-family: "Neucha", cursive;
   color: var(--brand-color);
@@ -130,19 +137,27 @@ span {
 <script>
 import VitalSituation from "../components/VitalSituation.vue";
 import ExpeditionResults from "../expeditions/ExpeditionResults.vue";
+import Inventory from "../inventory/Inventory";
 import dayService from "../services/dayService";
+import healthService from "../services/healthService";
 
 export default {
   data() {
     return {
-      day: null
+      day: null,
+      health: null
     };
   },
   components: {
     VitalSituation,
-    ExpeditionResults
+    ExpeditionResults,
+    Inventory
   },
   mounted() {
+    console.log(healthService.healthValue());
+  },
+  beforeMount() {
+    dayService.increment();
     this.day = dayService.test();
   }
 };

@@ -1,7 +1,7 @@
 import data from '../json/user.json';
 class DayService {
   constructor() {
-    this.day = data.user.day;
+    this.day = 0;
   }
   increment() {
     this.day++;

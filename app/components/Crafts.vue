@@ -148,6 +148,7 @@ import thirstService from "../services/thirstService.js";
 import hungerService from "../services/hungerService.js";
 import dayService from "../services/dayService.js";
 import healthService from "../services/healthService.js";
+import expeditionsService from "../services/expeditionsService.js";
 
 export default {
   data: function() {
@@ -167,11 +168,8 @@ export default {
       hungerService.decrement();
     },
     // Day Counter
-    dayPassed() {
-      dayService.increment();
-    },
     healthFunction() {
-      healthService.checkHealth();
+      // healthService.checkHealth();
     },
     dayNopassed() {
       this.day = dayService.test();
@@ -181,14 +179,18 @@ export default {
       this.thirst();
       this.hunger();
       this.healthFunction();
-      this.dayPassed();
     }
   },
   mounted() {
     this.dayNopassed();
+    healthService.meal();
     this.thirstLevel = thirstService.test();
     this.hungerLevel = hungerService.test();
-    this.health = healthService.checkHealth();
+    this.health = healthService.healthValue();
+  },
+  beforeMount() {
+    expeditionsService.removeExpedition(expeditionsService.activeExpedition());
+
   }
 };
 </script>

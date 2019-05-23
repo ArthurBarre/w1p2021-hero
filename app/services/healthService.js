@@ -1,23 +1,27 @@
-import hungerService from '../services/hungerService.js';
-import thirstService from '../services/thirstService.js';
-
 class HealthService {
   constructor() {
-    this.hungerLevel = hungerService.test();
-    this.thirstLevel = thirstService.test();
     this.health = null;
+    this.hunger = 3;
+    this.thirst = 3;
   }
-  checkHealth() {
-    if (this.hungerLevel > this.thirstLevel) {
-      this.health = this.thirstLevel;
+  healthValue() {
+    if (this.hunger > this.thirst) {
+      this.health = this.thirst;
       return this.health;
-    } else if (this.hungerLevel < this.thirstLevel) {
-      this.health = this.hungerLevel;
-      return this.health;
-    } else if (this.hungerLevel === this.thirstLevel) {
-      this.health = this.hungerLevel;
+    } else if (this.hunger <= this.thirst) {
+      this.health = this.hunger;
       return this.health;
     }
+  }
+  hungerValue() {
+    return this.hunger;
+  }
+  thirstValue() {
+    return this.thirst;
+  }
+  meal() {
+    this.hunger -= 1;
+    this.thirst -= 1;
   }
 }
 module.exports = new HealthService();

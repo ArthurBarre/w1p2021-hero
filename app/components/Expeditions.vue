@@ -24,6 +24,16 @@
         </div>
 
         <div class="expeditions">
+          <Expedition
+            v-for="(expedition, index) in expeditions"
+            :key="index"
+            :expedition="expedition"
+            @expedition="handleExpedition"
+            ref="expedition"
+          ></Expedition>
+        </div>
+
+        <!-- <div class="expeditions">
           <br>
           <div @click="exploreIslandSummit" v-if="exploreIslandSummitOk">sommet de l'île</div>
           <br>
@@ -36,8 +46,10 @@
           <div v-if="fishOk">aller pêcher des petits poissons</div>
           <br>
           <div v-if="waterOk">aller chercher de l'eau par ce que dans 10 ans y'en aura plus</div>
-        </div>
+        </div>-->
+
         <router-link to="/game/Inventory">inventory</router-link>
+
         <div class="directions">
           <router-link class="direction direction--prev" to="/game/Ressources"></router-link>
           <router-link class="direction direction--next" to="/game/Craft"></router-link>
@@ -120,29 +132,30 @@ aside {
   right: 5px;
   font-size: 16px;
 }
+
+.select {
+  margin-left: 30px;
+}
+
 </style>
 
 <script>
 import data from "../json/expeditions.json";
-import healthService from "../services/healthService";
 import expeditionsChoicesService from "../services/expeditionsChoicesService";
 import dayService from "../services/dayService";
+import Expedition from "../components/Expedition";
+import expeditionsService from '../services/expeditionsService.js';
+
 export default {
   data: function() {
     return {
-      day: dayService.test(),
-      health: healthService.checkHealth(),
-      exploreIslandSummitOk: data.events.exploreIslandSummit.stateOk,
-      exploreIslandSummitAction: data.events.exploreIslandSummit.stateAction,
-      exploreBoatWreckOk: data.events.exploreBoatWreck.stateOk,
-      exploreBoatWreckAction: data.events.exploreBoatWreck.stateAction,
-      exploreIslandCenterOk: data.events.exploreIslandCenter.stateOk,
-      exploreIslandCenterAction: data.events.exploreIslandCenter.stateAction,
-      exploreAroundAction: data.events.exploreAround.stateAction,
-      exploreAroundOk: data.events.exploreAround.stateOk,
-      fishOk: data.events.fish.stateOk,
-      waterOk: data.events.water.stateOk
+      day: null,
+      expeditions: expeditionsService.list(),
+      expedition: null
     };
+  },
+  components: {
+    Expedition
   },
   methods: {
     exploreIslandSummit() {
@@ -172,7 +185,23 @@ export default {
       console.log(
         "new explore around StateAction =" + this.exploreAroundAction
       );
+    },
+    handleExpedition(expedition) {
+      expeditionsService.activeExpedition(expedition)
+      console.log(expedition);
+      this.$refs.expedition.forEach(exp => {
+        if (expedition == exp.expedition) {
+          exp.$el.classList.add('select')
+        } else {
+          exp.$el.classList.remove('select')
+        }
+      });
+
     }
+  },
+  beforeMount() {
+    this.day = dayService.test();
+    console.log(this.expeditions);
   }
 };
 </script>

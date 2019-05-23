@@ -142,7 +142,17 @@ aside {
 
 
 <script>
+import expeditionsService from '../services/expeditionsService.js';
+import data from  '../json/expeditions.json';
+
 export default {
-  name: "characters"
+  name: "characters",
+  beforeMount() {
+    for (let expedition in data.events) {
+      if (data.events[expedition].title !== "Aller pêcher" && data.events[expedition].title !== "Aller Chercher de l'eau") {
+        expeditionsService.addExpedition(data.events[expedition].title);
+      }
+    }
+  }
 };
 </script>

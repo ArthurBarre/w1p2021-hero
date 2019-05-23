@@ -9,26 +9,17 @@
     <!-- 
     <br>-->
 
-    <button @click="mounted">ghghyg</button>
-
     <!-- <div v-if="saveNumber === 6">canne à pêche</div> -->
-    <div v-if="saveNumber === 3">le point d'eau maggle</div>
-    <div v-else-if="saveNumber === 3">nourriture</div>
-    <div v-else-if="saveNumber === 4">
-      <div>ficelles</div>
-      <div>pieces de tissus</div>
-    </div>
-    <div v-else-if="saveNumber === 4"></div>
-    <div v-else-if="saveNumber === 1">hache</div>
+    <div class="island__center__inventory" v-if="saveNumber === 3"></div>
+    <!-- <div class="food" v-else-if="saveNumber === 3"></div> -->
+    <article class="boat__wreck__inventory" v-else-if="saveNumber === 4">
+      <div class="string__inventory"></div>
+      <div class="fabric__inventory"></div>
+    </article>
+    <div class="island__summit__inventory" v-else-if="saveNumber"></div>
     <div v-else-if="saveNumber === 2">bois</div>
-    <!-- <div v-else-if="saveNumber === 1">planche</div> -->
-    <div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <router-link to="/game/Craft">Craft</router-link>
-    </div>
+    <div v-else-if="saveNumber === 1">planche</div>
+    <!-- <router-link to="/game/Craft">Craft</router-link> -->
   </div>
 </template>
 
@@ -42,16 +33,15 @@ export default {
   data() {
     return {
       myJson: json,
-      saveNumber: Number
+      saveNumber: null
     };
   },
   components: {
     inventoryChild
   },
-  methods: {
-    mounted() {
-      this.saveNumber = expeditionsChoicesService.expeditionSave();
-    }
+  methods: {},
+  mounted() {
+    this.saveNumber = expeditionsChoicesService.expeditionSave();
   }
 };
 </script>
@@ -65,5 +55,53 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.island__summit__inventory {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/img/assets-components/items/itemsFloor/axeFloor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.island__center__inventory {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/img/assets-components/items/itemsFloor/waterFloor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.boat__wreck__inventory {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.string__inventory {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/img/assets-components/items/itemsFloor/stringFloor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.fabric__inventory {
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/img/assets-components/items/itemsFloor/fabricFloor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>

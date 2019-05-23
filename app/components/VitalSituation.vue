@@ -44,18 +44,18 @@ import healthService from "../services/healthService.js";
 export default {
   data: function() {
     return {
-      health: healthService.checkHealth(),
+      health: null,
       healthSentenceRandom: null
     };
   },
   created() {
     this.healthSentenceRandom = Math.floor(Math.random() * 2) + 1;
     // console.log("Recap Random Sentence : " + this.healthSentenceRandom);
+  },
+  beforeMount() {
+    this.health = healthService.healthValue();
+    console.log(this.health);
   }
-  // mounted() {
-  //   this.health = healthService.checkHealth();
-  //   console.log(this.health);
-  // }
 };
 </script>
 
