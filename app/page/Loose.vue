@@ -21,6 +21,11 @@ export default {
 };
 </script>
 <style scoped>
+* {
+  font-family: "Neucha", cursive;
+  color: var(--brand-color);
+  letter-spacing: 2px;
+}
 body {
   width: 100vw;
   height: 100vh;
