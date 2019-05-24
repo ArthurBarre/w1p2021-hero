@@ -49,6 +49,10 @@
 </template>
 
 <style  lang="scss" scoped>
+.content__scale {
+  transform : scale(1.35) translateX(50px) translateY(50px)
+
+}
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
@@ -113,8 +117,8 @@ h1 {
 
 .direction--next::after {
   position: absolute;
-  right: 32%;
-  bottom: 13%;
+  right: 25%;
+  bottom: 5%;
   content: url(../assets/img/assets-components/ArrowRight.png);
 }
 

@@ -11,7 +11,13 @@
       <router-link class="button hover" to="/game/characters">
         <!-- <span>Go to Game</span> -->
       </router-link>
-      <div class="button"></div>
+      <br>
+      <br>
+      <div class="rules ">
+        <p>
+        Survivez sur cette île déserte le plus longtemps possible. Explorez les environs pour ramasser des objets qui vous permettront de vous évader par la mer, vers la victoire. Rationnez vos denrées pour survivre.
+        </p>
+      </div>
     </div>
     <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
@@ -24,6 +30,12 @@
   color: var(--brand-color);
   letter-spacing: 2px;
   line-height: 1.1;
+}
+p{
+  width: 80%;
+  margin: 0 auto;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 .home {
   display: flex;
