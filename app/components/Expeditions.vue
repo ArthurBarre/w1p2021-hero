@@ -32,9 +32,6 @@
             ref="expedition"
           ></Expedition>
         </div>
-
-        <router-link to="/game/Inventory">inventory</router-link>
-
         <div class="directions">
           <router-link class="direction direction--next" to="/game/Craft"></router-link>
         </div>

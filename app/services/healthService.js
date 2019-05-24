@@ -44,6 +44,12 @@ class HealthService {
     this.thirst = 5;
     this.waterQuantity--;
   }
+  newWater() {
+    this.waterQuantity++;
+  }
+  newFood() {
+    this.foodQuantity++;
+  }
   bonusOne() {
     this.hunger += 1;
   }

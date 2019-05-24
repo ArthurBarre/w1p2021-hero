@@ -20,14 +20,14 @@
           <ExpeditionResults/>
         </article> 
           <article class="bonusMalus">
-            <div v-if="random === 4" >Une noix de coco est tombée à quelques centimètres de ma boîte crâniène. J’ai senti l’objet me frôler, je ne pense pas être passé très loin de la mort cette fois. En revanche son eau m’a désaltéré.</div>
+            <div v-if="random === 4" >Une noix de coco est tombée à quelques centimètres de ma boîte crâniène. J’ai senti l’objet me frôler, je ne pense pas être passé très loin de la mort cette fois. En revanche son eau m’a désaltéré. +1 EAU</div>
           <div v-else-if="random === 10 ">J’ai laissé mes gourdes ouvertes au soleil, par cette chaleur accablante la totalité s’est évaporée. Je m’en remets aux dieux de la pluie à présent …
-          Je suis parti me baigner un peu trop loin du rivage, le courant m’a emporté au large et j’ai peiné à revenir à la berge. C’est un dauphin et son cavalier bigorneau qui m’ont porté secours.
+          Je suis parti me baigner un peu trop loin du rivage, le courant m’a emporté au large et j’ai peiné à revenir à la berge. C’est un dauphin et son cavalier bigorneau qui m’ont porté secours. -1 EAU
           </div>
-          <div v-else-if="random === 2 ">Une loutre sauvage a tenté de me voler mes vêtements pendant que je faisais la vaisselle. Je l’ai poursuivis dans une partie de la forêt que je n’ai pas encore exploré. Je me suis perdu et ai erré pendant une partie de la journée.
+          <div v-else-if="random === 2 ">Une loutre sauvage a tenté de me voler mes vêtements pendant que je faisais la vaisselle. Je l’ai poursuivis dans une partie de la forêt que je n’ai pas encore exploré. Je me suis perdu et ai erré pendant une partie de la journée. -1 NOURRITURE
           </div>
           <div v-else-if="random === 16 ">
-            Je meurs de faim … Et ces grosses sauterelles là, ça se mange ?
+            Je meurs de faim … Et ces grosses sauterelles là, ça se mange ? +1 NOURRITURE
           </div>
         </article>
       </div>

@@ -1,6 +1,8 @@
 <template>
   <div @click="handleClick()">
+  <br>
     <h2>{{expedition}}</h2>
+    
   </div>
 
 </template>

@@ -74,7 +74,7 @@ const router = new Router({
       component: Render
     },
     {
-      path: '/win',
+      path: '/game/Win',
       name: 'win',
       component: Win,
     },

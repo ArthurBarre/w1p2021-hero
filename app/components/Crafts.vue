@@ -20,22 +20,42 @@
           <br>
           <p class="recap--question">Qu’est ce que je peux construire ?</p>
         </div>
-
+<br>
+<br>
         <!-- Faire un component supplémentaire dont le template correspond au craft__wrapper -->
-        <p class="craft__questions">Voulez vous faire un craft ?</p>
-        <div class="craft__wrapper">
-          <div class="firstEl element"></div>
-          <span class="more">+</span>
-          <div class="secondEl element"></div>
-          <span class="equal">=</span>
-          <div class="resultEl element"></div>
+        <p class="craft__questions">Inventaire : </p>
+        <br>
+        <div class="inventory">
+        <div class="wood"
+          v-if ="itemWood"
+        ></div>
+        <div class=""
+          v-if ="itemWaters"
+        >
         </div>
+        <div
+          v-if ="itemBoat"
+        >
+        <div class="string"></div>
+        <div class="fabric"></div>
+        </div>
+        <div class="axe"
+          v-if ="itemAxe"
+        ></div>
+        <div v-if="this.win">
+          <router-link class="win" to="/game/Win">Construire le bateau</router-link> 
+        </div>
+         
+        </div>
+
         <div class="directions">
           <div v-if="this.health!=0">
             <router-link class="directions--next" to="/game/Recap"></router-link>
           </div>
           <div v-else-if="this.health===0">
             <router-link class="directions--next" to="/game/Loose"></router-link> 
+          </div>
+          <div v-else-if="this.itemWood ===true && this.itemAxe === true && this.itemBoat === true && this.itemWaters === true ">
           </div>
         </div>
       </div>
@@ -45,6 +65,42 @@
 </template>
 
 <style lang="scss" scoped>
+.inventory{
+  width: 100%;
+  transform: scale 0.7;
+  display: flex;
+  flex-direction: row;
+}
+.string{
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/img/assets-components/items/string.png');
+  transform: scale(0.7)
+}
+.fabric {
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/img/assets-components/items/Fabric.png');
+  transform: scale(0.7)
+}
+.wood {
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/img/assets-components/items/Wood.png');
+  transform: scale(0.7)
+}
+.axe{
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/img/assets-components/items/Axe.png');
+    transform: scale(0.7)
+}
+.waters {
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/img/assets-components/items/Water.png');
+    transform: scale(0.7);
+  }
 * {
   font-family: "Neucha", cursive;
   color: var(--brand-color);
@@ -142,13 +198,24 @@ export default {
     return {
       //Resssources data
       day: null,
-      health: null
+      health: null,
+      itemWood: null,
+      itemWaters:null,
+      itemAxe: null,
+      itemBoat: null,
+      win : null,
     };
   },
   mounted() {
     this.day = dayService.test();
     healthService.meal();
     this.health = healthService.healthValue();
+    this.itemWood = expeditionsService.itemWoodGet();
+    this.itemWaters = expeditionsService.itemWatersGet();
+    this.itemBoat = expeditionsService.itemBoatGet();
+    this.itemAxe = expeditionsService.itemAxeGet();
+    this.win = expeditionsService.winValue();
+    console.log(this.win)
   },
 };
 </script>
