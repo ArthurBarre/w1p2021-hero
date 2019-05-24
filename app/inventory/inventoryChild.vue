@@ -1,5 +1,9 @@
 <template>
-  <div v-html="text" class="inventoryChild"></div>
+  <div class="inventoryChild">
+    <h2>
+      {{item}}
+    </h2>
+  </div>
 </template>
 
 
@@ -35,8 +39,7 @@
 <script>
 export default {
   name: "inventoryChild",
-  props: {
-    text: String
-  }
+  props: ['item'],
+  name:'item'
 };
 </script>

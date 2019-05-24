@@ -23,7 +23,7 @@
         <router-link class="button easy" to="/game/recap">
           <!-- <span>Play in easy mode</span> -->
         </router-link>
-        <router-link class="button hard" to="/game/recap">
+        <router-link @click="hardMode" class="button hard" to="/game/recap">
           <!-- <span>Play in hard mode</span> -->
         </router-link>
       </div>
@@ -143,16 +143,22 @@ aside {
 
 <script>
 import expeditionsService from '../services/expeditionsService.js';
-import data from  '../json/expeditions.json';
+import data from  '../json/expeditions.json';import healthService from '../services/healthService.js'
+
 
 export default {
   name: "characters",
+  methods: { 
+    hardMode() {
+      healthService.aFunction();
+    }
+  },
   beforeMount() {
     for (let expedition in data.events) {
       if (data.events[expedition].title !== "Aller pêcher" && data.events[expedition].title !== "Aller Chercher de l'eau") {
         expeditionsService.addExpedition(data.events[expedition].title);
       }
     }
-  }
-};
+    }
+  };
 </script>

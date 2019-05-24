@@ -10,7 +10,7 @@
     </div>
 
     <div class="game__main">
-      <h1>Jour {{day}}</h1>
+      <h1 class="day">Jour {{day}}</h1>
 
       <div class="main__content">
         <div class="content__recap">
@@ -31,12 +31,11 @@
           <div class="resultEl element"></div>
         </div>
         <div class="directions">
-          <router-link class="directions--prev" to="/game/Expedition"></router-link>
-          <div @click="presets" v-if="this.health!=0">
+          <div v-if="this.health!=0">
             <router-link class="directions--next" to="/game/Recap"></router-link>
           </div>
-          <div @click="presets" v-else-if="this.health===0">
-            <router-link class="directions--next" to="/game/Loose"></router-link>
+          <div v-else-if="this.health===0">
+            <router-link class="directions--next" to="/game/Loose"></router-link> 
           </div>
         </div>
       </div>
@@ -99,27 +98,13 @@ h1 {
   width: 100px;
   height: 100px;
 }
-.directions {
-  width: 710px;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  bottom: 120px;
-  height: 90px;
+
   .directions--next::after {
-    content: url(../assets/img/assets-components/ArrowRight.png);
-  }
-  .directions--prev {
-    transform: translateX(-240px);
-  }
-  .directions--prev::after {
-    content: url(../assets/img/assets-components/ArrowLeft.png);
-  }
-}
-.directions--next {
-  transform: translateX(-200px);
-}
+    position: absolute;
+    right: 23%;
+    bottom: 5%;
+    content: url(../assets/img/assets-components/ArrowRight.png);  
+    }
 .aside {
   position: absolute;
   right: 15%;
@@ -141,11 +126,13 @@ aside {
   right: 5px;
   font-size: 16px;
 }
+.day{
+  font-size: 59px;
+}
 </style>
 
 <script>
-import thirstService from "../services/thirstService.js";
-import hungerService from "../services/hungerService.js";
+
 import dayService from "../services/dayService.js";
 import healthService from "../services/healthService.js";
 import expeditionsService from "../services/expeditionsService.js";
@@ -158,39 +145,10 @@ export default {
       health: null
     };
   },
-  methods: {
-    // water
-    thirst() {
-      thirstService.decrement();
-    },
-    // Food
-    hunger() {
-      hungerService.decrement();
-    },
-    // Day Counter
-    healthFunction() {
-      // healthService.checkHealth();
-    },
-    dayNopassed() {
-      this.day = dayService.test();
-    },
-    //set health
-    presets() {
-      this.thirst();
-      this.hunger();
-      this.healthFunction();
-    }
-  },
   mounted() {
-    this.dayNopassed();
+    this.day = dayService.test();
     healthService.meal();
-    this.thirstLevel = thirstService.test();
-    this.hungerLevel = hungerService.test();
     this.health = healthService.healthValue();
   },
-  beforeMount() {
-    expeditionsService.removeExpedition(expeditionsService.activeExpedition());
-
-  }
 };
 </script>

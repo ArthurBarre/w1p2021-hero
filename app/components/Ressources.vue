@@ -1,4 +1,5 @@
 <template>
+<transition name="fade">
   <div class="game__container">
     <div class="aside">
       <img class="logo" src="../assets/img/assets-components/LogoBig.png" alt="Logo">
@@ -39,15 +40,21 @@
         </div>
       </div>
       <div class="directions">
-        <router-link class="direction direction--prev" to="/game/recap"></router-link>
         <router-link class="direction direction--next" to="/game/Expeditions"></router-link>
       </div>
     </div>
     <aside>Une collaboration d'Arthur Barré & Kalani Marquand</aside>
   </div>
+  </transition>
 </template>
 
 <style  lang="scss" scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 * {
   font-family: "Neucha", cursive;
   color: var(--brand-color);
@@ -110,12 +117,7 @@ h1 {
   bottom: 13%;
   content: url(../assets/img/assets-components/ArrowRight.png);
 }
-.direction--prev::after {
-  position: absolute;
-  left: 32%;
-  bottom: 13%;
-  content: url(../assets/img/assets-components/ArrowLeft.png);
-}
+
 .aside {
   position: absolute;
   right: 15%;
@@ -144,9 +146,6 @@ import Foods from "./Foods.vue";
 import Waters from "./Waters.vue";
 import ItemFood from "../items/ItemFood.vue";
 import ItemWater from "../items/ItemWater.vue";
-import ressourcesService from "../services/ressourcesService.js";
-import thirstService from "../services/thirstService.js";
-import hungerService from "../services/hungerService.js";
 import healthService from "../services/healthService";
 import dayService from "../services/dayService";
 import user from "../json/user.json";
@@ -157,8 +156,8 @@ export default {
       day: null,
       waterQuantity: null,
       foodQuantity: null,
-      thirstLevel: null,
-      hungerLevel: null
+      thirst :null,
+      hunger : null,
     };
   },
   components: {
@@ -169,23 +168,23 @@ export default {
   },
   methods: {
     drink: function() {
-      ressourcesService.decrementWater();
-      thirstService.drink();
-      this.waterQuantity--;
-      console.log("waterQuantity : " + ressourcesService.valueFoodQuantity());
-      console.log("health from drinking : " + this.health);
+      healthService.drink();
+      this.waterQuantity = healthService.waterValue();
+      this.thirst = healthService.thirstValue();
     },
     eat: function() {
-      ressourcesService.decrementFood();
-      hungerService.eat();
-      this.foodQuantity--;
-      console.log("foodQuantity : " + ressourcesService.valueFoodQuantity());
-      console.log("health from eating : " + this.health);
+      healthService.eat();
+      this.foodQuantity = healthService.foodValue();
+      this.hunger = healthService.hungerValue();
+
     }
   },
   mounted() {
-    this.waterQuantity = ressourcesService.valueWaterQuantity();
-    this.foodQuantity = ressourcesService.valueFoodQuantity();
+    this.foodQuantity = healthService.foodValue();
+    this.waterQuantity = healthService.waterValue();
+    this.thirst = healthService.thirstValue();
+    this.hunger = healthService.hungerValue();
+    healthService.foodValue();
     this.day = dayService.test();
   }
 };

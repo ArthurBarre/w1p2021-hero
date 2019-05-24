@@ -1,16 +1,23 @@
 <template>
 <body>
   <h1>{{game}}</h1>
+  <h2> Il vous réstait {{foodQuantity}} Nourritures</h2>
+  <h2>Il vous réstait {{waterQuantity}} Eau</h2>
 </body>
 </template>
 
 <script>
+import healthService from '../services/healthService.js'
 export default {
   data() {
     return {
-      game: "Game Over"
+      game: "Game Over",
+      foodQuantity: healthService.foodValue(),
+      waterQuantity: healthService.waterValue()
     };
-  }
+  },
+  mounted() {
+  },
 };
 </script>
 <style scoped>
@@ -29,6 +36,12 @@ h1 {
   transform: translateY(350px);
   font-family: sans-serif;
   margin: auto auto;
+}
+h2{
+  color : white;
+  font-size: 50px;
+  width: max-content;
+  margin: 0 auto;
 }
 </style>
 

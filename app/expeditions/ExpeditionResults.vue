@@ -1,17 +1,8 @@
 <template >
   <div>
-    <div v-if="expeditionSave === 3">
-      <IslandCenter/>
-    </div>
-    <div v-else-if="expeditionSave === 2">
-      <ExploreAround/>
-    </div>
-    <div v-else-if="expeditionSave === 4">
-      <BoatWreck/>
-    </div>
-    <div v-else-if="expeditionSave === 1">
-      <IslandSummit/>
-    </div>
+    <p>
+    {{expeditionResult}}
+    </p>
   </div>
 </template>
 
@@ -19,25 +10,19 @@
 </style>
 
 <script>
-import expeditionsService from "../services/expeditionsChoicesService.js";
-import IslandCenter from "../expeditions/IslandCenter.vue";
-import BoatWreck from "../expeditions/BoatWreck.vue";
-import IslandSummit from "../expeditions/IslandSummit.vue";
-import ExploreAround from "../expeditions/ExploreAround.vue";
+import expeditionsService from "../services/expeditionsService.js";
+
 export default {
   data: function() {
     return {
-      expeditionSave: null
+      expedition: null,
+      expeditionResult: null,
     };
   },
-  components: {
-    IslandCenter,
-    BoatWreck,
-    IslandSummit,
-    ExploreAround
+  methods:{
   },
   mounted() {
-    this.expeditionSave = expeditionsService.expeditionSave();
+    this.expeditionResult = expeditionsService.resultExpeditionValue();
   }
 };
 </script>

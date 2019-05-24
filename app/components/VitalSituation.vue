@@ -40,7 +40,6 @@
 
 <script>
 import healthService from "../services/healthService.js";
-
 export default {
   data: function() {
     return {

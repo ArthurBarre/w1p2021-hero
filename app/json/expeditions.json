@@ -2,7 +2,7 @@
   "events": {
     "exploreIslandSummit": {
       "id": 1,
-      "title": "Sommet de l'Île",
+      "title": "Explorer le sommet de lil",
       "src": "../assets/img/assets-components/Explorations/islandSummit.png",
       "expeditionResult": "Mon expédition au sommet de l’île s’est avérée très intéressante. Malgré ma difficulté à pénétrer la forêt dense, le sommet ne culmine pas si haut. En quelques heures j’ai eu une vision panoramique de mon exil. Et j’ai pu repérer un objet que la mer a dû déposer pendant la nuit sur une plage voisine de la mienne. J’ai maintenant une hache un peu émoussée !",
       "item": "axe"
@@ -16,7 +16,7 @@
     },
     "exploreIslandCenter": {
       "id": 3,
-      "title": "Explorer le centre de l'Île",
+      "title": "Explorer le centre de l'île",
       "src": "../assets/img/assets-components/Explorations/islandCenter.png",
       "expeditionResult": "Mon expédition au centre de l’île m’a conduit à une source d’eau fraîche ! J’ai rempli mes gourdes de réserves, je devrais tenir quelques jours de plus."
     },

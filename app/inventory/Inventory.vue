@@ -1,48 +1,32 @@
 <template>
   <div id="app">
-    <!-- <inventoryChild
-      v-for="data in myJson"
-      v-bind:key="data.id"
-      v-bind:text="data.text"
-      v-bind:id="data.id"
-    />-->
-    <!-- 
-    <br>-->
-
-    <!-- <div v-if="saveNumber === 6">canne à pêche</div> -->
-    <div class="island__center__inventory" v-if="saveNumber === 3"></div>
-    <!-- <div class="food" v-else-if="saveNumber === 3"></div> -->
-    <article class="boat__wreck__inventory" v-else-if="saveNumber === 4">
-      <div class="string__inventory"></div>
-      <div class="fabric__inventory"></div>
-    </article>
-    <div class="island__summit__inventory" v-else-if="saveNumber"></div>
-    <div v-else-if="saveNumber === 2">bois</div>
-    <div v-else-if="saveNumber === 1">planche</div>
-    <!-- <router-link to="/game/Craft">Craft</router-link> -->
+    <inventoryChild
+      v-for="(item, index) in items"
+      v-bind:key="index"
+      :inventoryChild="inventoryChild"
+      ref="item"
+    />
   </div>
 </template>
 
 <script>
 import inventoryChild from "./inventoryChild.vue";
 import json from "../json/inventory.json";
-import expeditionsChoicesService from "../services/expeditionsChoicesService";
+import expeditionsService from "../services/expeditionsService";
 
 export default {
   name: "app",
   data() {
     return {
-      myJson: json,
-      saveNumber: null
+      items: expeditionsService.listItems(),
+      item: null,
     };
   },
   components: {
     inventoryChild
   },
-  methods: {},
-  mounted() {
-    this.saveNumber = expeditionsChoicesService.expeditionSave();
-  }
+  beforeMount() {
+  },
 };
 </script>
 

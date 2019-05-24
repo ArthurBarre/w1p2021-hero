@@ -2,7 +2,7 @@
   <div>
     <h3>Eau</h3>
     <div class="foods__wrapper">
-      <ItemWater v-for="Water in thirstLevel" :key="Water" v-bind:Water="Water"><ItemWater/>
+      <ItemWater v-for="Water in thirst" :key="Water" v-bind:Water="Water"><ItemWater/>
     </div>
   </div>
 </template>
@@ -26,18 +26,18 @@ h3 {
 <script>
 import ItemWater from "../items/ItemWater.vue";
 import data from "../json/user.json";
-import thirstService from "../services/thirstService.js";
+import healthService from "../services/healthService.js";
 export default {
   data() {
     return {
-      thirstLevel: null
+      thirst: null
     }
   },
   components: {
     ItemWater
   },
   mounted() {
-    this.thirstLevel = thirstService.test();
+    this.thirst = healthService.thirstValue();
   }
 }
 </script>
