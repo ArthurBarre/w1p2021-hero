@@ -74,7 +74,7 @@
 .string{
   width: 150px;
   height: 150px;
-  background-image: url('../assets/img/assets-components/items/string.png');
+  background-image: url('../assets/img/assets-components/items/String.png');
   transform: scale(0.7)
 }
 .fabric {

@@ -3,6 +3,7 @@
   <h1>{{game}}</h1>
   <h2> Il vous réstait {{foodQuantity}} Nourritures</h2>
   <h2>Il vous réstait {{waterQuantity}} Eau</h2>
+  <router-link @click="reset" to="/game/Home">Rééssayer</router-link>
 </body>
 </template>
 
@@ -15,6 +16,10 @@ export default {
       foodQuantity: healthService.foodValue(),
       waterQuantity: healthService.waterValue()
     };
+  },methods: {
+    reset(){
+      
+    }
   },
   mounted() {
   },
